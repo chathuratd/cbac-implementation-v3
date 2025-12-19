@@ -14,9 +14,10 @@ from src.models.schemas import (
     AssignArchetypeRequest,
     AssignArchetypeResponse,
     ListCoreBehaviorsResponse,
-    BehaviorModel
+    BehaviorObservation
 )
 from src.services.analysis_pipeline import analysis_pipeline
+from src.services.cluster_analysis_pipeline import cluster_analysis_pipeline
 from src.database.mongodb_service import mongodb_service
 
 logger = logging.getLogger(__name__)
@@ -53,8 +54,8 @@ async def analyze_behaviors_from_storage(user_id: str):
     try:
         logger.info(f"Received analysis request from storage for user {user_id}")
         
-        # Run analysis pipeline from storage
-        profile = await analysis_pipeline.analyze_behaviors_from_storage(
+        # Run cluster-centric analysis pipeline from storage
+        profile = await cluster_analysis_pipeline.analyze_behaviors_from_storage(
             user_id=user_id,
             generate_archetype=True
         )
@@ -222,7 +223,7 @@ async def list_core_behaviors(user_id: str):
 
 @router.post(
     "/update-behavior",
-    response_model=BehaviorModel,
+    response_model=BehaviorObservation,
     status_code=status.HTTP_200_OK,
     summary="Update behavior metadata",
     description="Update reinforcement, credibility, or timestamps of a behavior"
@@ -264,7 +265,7 @@ async def update_behavior(request: UpdateBehaviorRequest):
         
         # Fetch updated behavior
         updated_data = mongodb_service.get_behavior(request.behavior_id)
-        updated_behavior = BehaviorModel(**updated_data)
+        updated_behavior = BehaviorObservation(**updated_data)
         
         return updated_behavior
         
@@ -321,6 +322,88 @@ async def assign_archetype(request: AssignArchetypeRequest):
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Archetype assignment failed: {str(e)}"
+        )
+
+
+@router.post(
+    "/analyze-behaviors-cluster-centric",
+    response_model=CoreBehaviorProfile,
+    status_code=status.HTTP_200_OK,
+    summary="[NEW] Analyze behaviors using cluster-centric pipeline",
+    description="Test the NEW cluster-centric implementation where clusters are primary entities. "
+                "Returns behavior_clusters[] with full aggregated evidence."
+)
+async def analyze_behaviors_cluster_centric(request: AnalyzeBehaviorsRequest):
+    """
+    NEW CLUSTER-CENTRIC analysis pipeline
+    
+    Key differences from old pipeline:
+    - Clusters are PRIMARY entities (not individual behaviors)
+    - ALL observations in clusters are preserved
+    - Scoring based on cluster_strength (log-scaled with recency)
+    - Confidence from cluster consistency, not single observation
+    - Returns behavior_clusters[] with full evidence aggregation
+    
+    Response includes:
+    - behavior_clusters[] - list of BehaviorCluster objects
+    - Each cluster contains:
+      * canonical_label (UI only)
+      * cluster_strength (log(size) * mean_abw * recency)
+      * confidence (consistency * reinforcement * clarity_trend)
+      * observed_count (cluster_size)
+      * wording_variations[] (all phrasings)
+      * all_prompt_ids[] (evidence)
+      * all_timestamps[] (temporal data)
+      * first_seen, last_seen, days_active
+      * tier (PRIMARY/SECONDARY/NOISE)
+    """
+    try:
+        from src.services.cluster_analysis_pipeline import cluster_analysis_pipeline
+        from src.models.schemas import BehaviorObservation, PromptModel
+        import time
+        
+        logger.info(
+            f"[CLUSTER-CENTRIC] Analyzing {len(request.behaviors)} observations "
+            f"and {len(request.prompts)} prompts for user {request.user_id}"
+        )
+        
+        # Convert BehaviorModel to BehaviorObservation
+        observations = []
+        for b in request.behaviors:
+            obs = BehaviorObservation(
+                observation_id=b.behavior_id,
+                behavior_text=b.behavior_text,
+                credibility=b.credibility,
+                clarity_score=b.clarity_score,
+                extraction_confidence=b.extraction_confidence,
+                timestamp=b.created_at,
+                prompt_id=b.prompt_history_ids[0] if b.prompt_history_ids else 'unknown',
+                decay_rate=b.decay_rate,
+                user_id=b.user_id,
+                session_id=b.session_id
+            )
+            observations.append(obs)
+        
+        # Run cluster-centric analysis
+        profile = await cluster_analysis_pipeline.analyze_observations(
+            user_id=request.user_id,
+            observations=observations,
+            prompts=request.prompts,
+            generate_archetype=True,
+            store_in_dbs=False  # Don't store yet - this is for testing
+        )
+        
+        logger.info(
+            f"[CLUSTER-CENTRIC] Analysis complete: {len(profile.behavior_clusters)} clusters formed"
+        )
+        
+        return profile
+        
+    except Exception as e:
+        logger.error(f"Error in cluster-centric analysis: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Cluster-centric analysis failed: {str(e)}"
         )
 
 

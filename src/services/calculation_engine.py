@@ -6,9 +6,10 @@ import math
 from typing import List, Dict, Any, Optional
 import time
 import logging
+import numpy as np
 
 from src.config import settings
-from src.models.schemas import BehaviorModel, TemporalSpan, TierEnum
+from src.models.schemas import BehaviorObservation, TemporalSpan, TierEnum
 
 logger = logging.getLogger(__name__)
 
@@ -113,17 +114,17 @@ class CalculationEngine:
     
     def calculate_behavior_metrics(
         self,
-        behavior: BehaviorModel,
+        behavior: BehaviorObservation,
         current_timestamp: Optional[int] = None
     ) -> Dict[str, float]:
         """
-        Calculate both BW and ABW for a behavior
+        Calculate both BW and ABW for a behavior observation
         
         Args:
-            behavior: BehaviorModel instance
+            behavior: BehaviorObservation instance
             current_timestamp: Current Unix timestamp (defaults to now). 
                               For historical data, this parameter is ignored and 
-                              the behavior's own timeline (created_at to last_seen) is used.
+                              the observation's timeline is used.
             
         Returns:
             dict: Contains 'bw', 'abw', 'days_active'
@@ -135,21 +136,34 @@ class CalculationEngine:
             behavior.extraction_confidence
         )
         
-        # Calculate days active (from created_at to last_seen)
-        # This represents the behavior's actual activity period
-        days_active = (behavior.last_seen - behavior.created_at) / 86400
+        # Calculate days active
+        # For BehaviorObservation: timestamp is single point, so days_active = 0
+        # For legacy BehaviorModel: use (last_seen - created_at)
+        if hasattr(behavior, 'last_seen') and hasattr(behavior, 'created_at'):
+            # Legacy BehaviorModel
+            days_active = (behavior.last_seen - behavior.created_at) / 86400
+        else:
+            # BehaviorObservation - single timestamp
+            days_active = 0.0
+        
         days_active = max(0.0, days_active)  # Ensure non-negative
         
-        # Calculate ABW using the behavior's activity period
+        # Calculate ABW
+        # For observations, reinforcement_count doesn't exist, use 1
+        reinforcement_count = getattr(behavior, 'reinforcement_count', 1)
+        
         abw = self.calculate_adjusted_behavior_weight(
             bw,
-            behavior.reinforcement_count,
+            reinforcement_count,
             behavior.decay_rate,
             days_active
         )
         
+        # Use observation_id if available, otherwise behavior_id
+        behavior_id = getattr(behavior, 'observation_id', getattr(behavior, 'behavior_id', 'unknown'))
+        
         return {
-            "behavior_id": behavior.behavior_id,
+            "behavior_id": behavior_id,
             "bw": bw,
             "abw": abw,
             "days_active": days_active
@@ -262,18 +276,18 @@ class CalculationEngine:
     
     def calculate_all_metrics_batch(
         self,
-        behaviors: List[BehaviorModel],
+        behaviors: List[BehaviorObservation],
         current_timestamp: Optional[int] = None
     ) -> Dict[str, Dict[str, float]]:
         """
         Calculate BW and ABW for multiple behaviors
         
         Args:
-            behaviors: List of BehaviorModel instances
+            behaviors: List of BehaviorObservation instances
             current_timestamp: Current Unix timestamp (defaults to now)
             
         Returns:
-            dict: Maps behavior_id to metrics dict
+            dict: Maps observation_id to metrics dict
         """
         metrics = {}
         
@@ -282,11 +296,209 @@ class CalculationEngine:
                 behavior, 
                 current_timestamp
             )
-            metrics[behavior.behavior_id] = behavior_metrics
+            metrics[behavior.observation_id] = behavior_metrics
         
         logger.info(f"Calculated metrics for {len(behaviors)} behaviors")
         
         return metrics
+    
+    # ===== NEW CLUSTER-CENTRIC METHODS =====
+    
+    def calculate_cluster_strength(
+        self,
+        cluster_size: int,
+        mean_abw: float,
+        timestamps: List[int],
+        current_timestamp: Optional[int] = None
+    ) -> float:
+        """
+        Calculate cluster strength (REPLACES naive ABW averaging)
+        
+        Formula: cluster_strength = log(cluster_size + 1) * mean(ABW) * recency_factor
+        
+        This ensures:
+        - Single-member clusters are visibly weaker than multi-member clusters
+        - Larger clusters get logarithmic boost (not linear)
+        - Recent activity is weighted higher
+        
+        Args:
+            cluster_size: Number of observations in cluster
+            mean_abw: Mean ABW of all observations
+            timestamps: All observation timestamps
+            current_timestamp: Current time (defaults to now)
+            
+        Returns:
+            float: Cluster strength score
+        """
+        if current_timestamp is None:
+            current_timestamp = int(time.time())
+        
+        # Logarithmic size bonus (diminishing returns)
+        size_factor = math.log(cluster_size + 1)
+        
+        # Calculate recency factor (weighted decay)
+        recency_factor = self._calculate_recency_factor(timestamps, current_timestamp)
+        
+        cluster_strength = size_factor * mean_abw * recency_factor
+        
+        logger.debug(
+            f"Cluster strength = log({cluster_size}+1) * {mean_abw:.4f} * {recency_factor:.4f} "
+            f"= {cluster_strength:.4f}"
+        )
+        
+        return cluster_strength
+    
+    def _calculate_recency_factor(
+        self,
+        timestamps: List[int],
+        current_timestamp: int
+    ) -> float:
+        """
+        Calculate recency factor for cluster strength
+        
+        More recent observations are weighted higher.
+        Uses exponential decay based on time since observation.
+        
+        Args:
+            timestamps: List of observation timestamps
+            current_timestamp: Current time
+            
+        Returns:
+            float: Recency factor (0-1)
+        """
+        if not timestamps:
+            return 0.0
+        
+        # Calculate days since each observation
+        days_since = [(current_timestamp - ts) / 86400 for ts in timestamps]
+        
+        # Apply exponential decay (stronger for older observations)
+        decay_rate = 0.01  # Same as default decay_rate
+        weights = [math.exp(-decay_rate * days) for days in days_since]
+        
+        # Return average weight (how "recent" the cluster is overall)
+        recency_factor = sum(weights) / len(weights)
+        
+        return recency_factor
+    
+    def calculate_cluster_confidence(
+        self,
+        intra_cluster_distances: List[float],
+        cluster_size: int,
+        clarity_scores: List[float],
+        timestamps: List[int]
+    ) -> Dict[str, float]:
+        """
+        Calculate cluster-level confidence (NOT from canonical observation)
+        
+        Confidence components:
+        1. Consistency score: How similar observations are (low intra-cluster distance = high consistency)
+        2. Reinforcement score: How often it appears (more observations = higher confidence)
+        3. Clarity trend: Are observations getting clearer or more vague over time
+        
+        Args:
+            intra_cluster_distances: Distance of each member from centroid
+            cluster_size: Number of observations
+            clarity_scores: Clarity score of each observation
+            timestamps: Timestamp of each observation (for trend analysis)
+            
+        Returns:
+            dict: Contains 'confidence', 'consistency_score', 'reinforcement_score', 'clarity_trend'
+        """
+        # 1. Consistency score (inverse of mean distance)
+        # Low distance = high similarity = high confidence
+        mean_distance = sum(intra_cluster_distances) / len(intra_cluster_distances)
+        consistency_score = 1.0 / (1.0 + mean_distance)  # Maps [0, inf) to (0, 1]
+        
+        # 2. Reinforcement score (logarithmic in cluster size)
+        # 1 observation = weak, 5+ observations = strong
+        reinforcement_score = math.log(cluster_size + 1) / math.log(10)  # Normalized to ~1.0 at size=9
+        reinforcement_score = min(1.0, reinforcement_score)  # Cap at 1.0
+        
+        # 3. Clarity trend (are observations improving?)
+        # Sort by timestamp and check if clarity is increasing
+        if len(timestamps) >= 2:
+            # Pair timestamps with clarity scores and sort
+            time_clarity_pairs = sorted(zip(timestamps, clarity_scores))
+            sorted_clarity = [c for _, c in time_clarity_pairs]
+            
+            # Simple trend: compare first half to second half
+            mid = len(sorted_clarity) // 2
+            first_half_avg = sum(sorted_clarity[:mid]) / mid if mid > 0 else sorted_clarity[0]
+            second_half_avg = sum(sorted_clarity[mid:]) / (len(sorted_clarity) - mid)
+            
+            # Positive trend = improving, negative = degrading
+            clarity_trend = (second_half_avg - first_half_avg) / 2.0 + 0.5  # Normalize to [0, 1]
+            clarity_trend = max(0.0, min(1.0, clarity_trend))  # Clamp
+        else:
+            # Single observation: use its clarity directly
+            clarity_trend = clarity_scores[0] if clarity_scores else 0.5
+        
+        # Final confidence: weighted product
+        confidence = (
+            consistency_score * 0.4 +
+            reinforcement_score * 0.4 +
+            clarity_trend * 0.2
+        )
+        
+        logger.debug(
+            f"Cluster confidence = {confidence:.4f} "
+            f"(consistency={consistency_score:.4f}, reinforcement={reinforcement_score:.4f}, "
+            f"clarity_trend={clarity_trend:.4f})"
+        )
+        
+        return {
+            "confidence": confidence,
+            "consistency_score": consistency_score,
+            "reinforcement_score": reinforcement_score,
+            "clarity_trend": clarity_trend
+        }
+    
+    def select_canonical_label(
+        self,
+        observations: List[Any],  # List of BehaviorObservation
+        cluster_centroid: List[float],
+        observation_embeddings: List[List[float]]
+    ) -> str:
+        """
+        Select canonical label for display (NOT for scoring)
+        
+        Selection criteria: highest clarity + closest to centroid
+        This is ONLY for UI display - never use for confidence or scoring
+        
+        Args:
+            observations: List of BehaviorObservation objects
+            cluster_centroid: Centroid embedding of cluster
+            observation_embeddings: Embeddings of each observation
+            
+        Returns:
+            str: observation_id of canonical observation
+        """
+        if not observations:
+            raise ValueError("Cannot select canonical from empty cluster")
+        
+        centroid = np.array(cluster_centroid)
+        
+        # Score each observation: clarity * (1 - distance_to_centroid)
+        scores = []
+        for obs, emb in zip(observations, observation_embeddings):
+            clarity = obs.clarity_score
+            distance = np.linalg.norm(np.array(emb) - centroid)
+            proximity = 1.0 / (1.0 + distance)  # Convert distance to proximity
+            
+            score = clarity * proximity
+            scores.append(score)
+        
+        # Select observation with highest score
+        best_idx = scores.index(max(scores))
+        canonical_id = observations[best_idx].observation_id
+        
+        logger.debug(
+            f"Selected canonical label: {canonical_id} "
+            f"(clarity={observations[best_idx].clarity_score:.4f}, score={scores[best_idx]:.4f})"
+        )
+        
+        return canonical_id
 
 
 # Global calculation engine instance

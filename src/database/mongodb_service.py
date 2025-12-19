@@ -45,8 +45,8 @@ class MongoDBService:
     def _create_indexes(self):
         """Create necessary indexes for collections"""
         try:
-            # Behaviors collection indexes
-            self.db.behaviors.create_index("behavior_id", unique=True)
+            # Behaviors collection indexes (using observation_id now)
+            self.db.behaviors.create_index("observation_id", unique=True)
             self.db.behaviors.create_index("user_id")
             self.db.behaviors.create_index("session_id")
             

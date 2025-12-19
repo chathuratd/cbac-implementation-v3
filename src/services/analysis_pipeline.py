@@ -7,7 +7,7 @@ import time
 import logging
 
 from src.models.schemas import (
-    BehaviorModel,
+    BehaviorObservation,
     PromptModel,
     CoreBehaviorProfile,
     CanonicalBehavior,
@@ -85,17 +85,13 @@ class AnalysisPipeline:
             
             # Extract embeddings and behavior metadata
             embeddings = [qb["vector"] for qb in qdrant_behaviors]
-            behavior_ids = [qb["payload"]["behavior_id"] for qb in qdrant_behaviors]
+            behavior_ids = [qb["payload"].get("behavior_id", qb["payload"].get("observation_id")) for qb in qdrant_behaviors]
             
-            # Step 2: Fetch full behavior objects from MongoDB (optional, for metadata)
-            logger.info("Step 2: Fetching behavior metadata from MongoDB")
-            behaviors = self.mongodb.get_behaviors_by_user(user_id)
-            behavior_models = [BehaviorModel(**b) for b in behaviors] if behaviors else []
+            # Step 2: Construct behaviors from Qdrant (source of truth for embeddings)
+            logger.info("Step 2: Constructing behavior objects from Qdrant payload")
+            behavior_models = self._construct_behaviors_from_qdrant(qdrant_behaviors)
             
-            # If behaviors not in MongoDB, construct from Qdrant payload
-            if not behavior_models:
-                logger.warning("Behaviors not found in MongoDB, using Qdrant payload only")
-                behavior_models = self._construct_behaviors_from_qdrant(qdrant_behaviors)
+            logger.info(f"Loaded {len(behavior_models)} behaviors from Qdrant")
             
             # Step 3: Fetch prompts from MongoDB
             logger.info("Step 3: Fetching prompts from MongoDB")
@@ -180,7 +176,7 @@ class AnalysisPipeline:
     async def analyze_behaviors(
         self,
         user_id: str,
-        behaviors: List[BehaviorModel],
+        behaviors: List[BehaviorObservation],
         prompts: List[PromptModel],
         generate_archetype: bool = True,
         current_timestamp: Optional[int] = None,
@@ -209,7 +205,7 @@ class AnalysisPipeline:
         
         Args:
             user_id: User identifier
-            behaviors: List of BehaviorModel instances
+            behaviors: List of BehaviorObservation instances
             prompts: List of PromptModel instances
             generate_archetype: Whether to generate archetype label
             current_timestamp: Optional current timestamp (defaults to now)
@@ -249,8 +245,8 @@ class AnalysisPipeline:
             # Step 4: Store behaviors with embeddings in Qdrant (normal scenario: behaviors in Qdrant)
             if store_in_dbs:
                 logger.info("Step 4: Storing behaviors with embeddings in Qdrant")
-                behavior_ids = [b.behavior_id for b in behaviors]
-                timestamps = [b.last_seen for b in behaviors]
+                behavior_ids = [b.observation_id for b in behaviors]
+                timestamps = [b.timestamp for b in behaviors]
                 
                 self.qdrant.insert_embeddings(
                     embeddings=embeddings,
@@ -333,33 +329,39 @@ class AnalysisPipeline:
     def _construct_behaviors_from_qdrant(
         self, 
         qdrant_behaviors: List[Dict[str, Any]]
-    ) -> List[BehaviorModel]:
+    ) -> List[BehaviorObservation]:
         """
-        Construct BehaviorModel instances from Qdrant payload
+        Construct BehaviorObservation instances from Qdrant payload
         Used as fallback when behaviors not in MongoDB
+        Maps old field names (behavior_id, created_at) to new schema (observation_id, timestamp)
         
         Args:
             qdrant_behaviors: List of Qdrant point data with payloads
             
         Returns:
-            List of BehaviorModel instances with default values
+            List of BehaviorObservation instances with default values
         """
         behaviors = []
         for qb in qdrant_behaviors:
             payload = qb["payload"]
-            # Create behavior with minimal data from Qdrant
-            behavior = BehaviorModel(
-                behavior_id=payload["behavior_id"],
+            # Map old field names to new schema
+            observation_id = payload.get("observation_id", payload.get("behavior_id"))
+            timestamp = payload.get("timestamp", payload.get("created_at", int(time.time())))
+            prompt_ids = payload.get("prompt_history_ids", [])
+            prompt_id = prompt_ids[0] if prompt_ids else f"prompt_{timestamp}"
+            
+            # Create behavior with mapped fields
+            behavior = BehaviorObservation(
+                observation_id=observation_id,
                 behavior_text=payload["behavior_text"],
-                credibility=0.8,  # Default value
-                clarity_score=0.8,  # Default value
-                extraction_confidence=0.8,  # Default value
-                reinforcement_count=1,  # Default value
-                decay_rate=0.01,  # Default value
-                created_at=payload.get("timestamp", int(time.time())),
-                last_seen=payload.get("timestamp", int(time.time())),
-                prompt_history_ids=[],
-                user_id=payload["user_id"]
+                credibility=payload.get("credibility", 0.8),
+                clarity_score=payload.get("clarity_score", 0.8),
+                extraction_confidence=payload.get("extraction_confidence", 0.8),
+                timestamp=timestamp,
+                prompt_id=prompt_id,
+                decay_rate=payload.get("decay_rate", 0.01),
+                user_id=payload["user_id"],
+                session_id=payload.get("session_id")
             )
             behaviors.append(behavior)
         
@@ -369,7 +371,7 @@ class AnalysisPipeline:
     def _process_clusters(
         self,
         clustering_result: Dict[str, Any],
-        behaviors: List[BehaviorModel],
+        behaviors: List[BehaviorObservation],
         behavior_metrics: Dict[str, Dict[str, float]],
         prompts: List[PromptModel]
     ) -> tuple[List[CanonicalBehavior], List[CanonicalBehavior], int]:
@@ -381,8 +383,8 @@ class AnalysisPipeline:
         """
         clusters = clustering_result["clusters"]
         
-        # Map behaviors and prompts for quick lookup
-        behavior_map = {b.behavior_id: b for b in behaviors}
+        # Map behaviors and prompts for quick lookup (handle both old and new field names)
+        behavior_map = {b.observation_id: b for b in behaviors}
         prompt_map = {p.prompt_id: p for p in prompts}
         
         primary_behaviors = []
@@ -421,11 +423,15 @@ class AnalysisPipeline:
                 continue
             
             # Calculate temporal metrics using behavior's actual timeline
-            # Use the canonical behavior's created_at and last_seen timestamps
+            # For BehaviorObservation: use timestamp (single point)
+            # For legacy data: use created_at/last_seen if available
+            first_seen = getattr(canonical_behavior, 'created_at', canonical_behavior.timestamp)
+            last_seen = getattr(canonical_behavior, 'last_seen', canonical_behavior.timestamp)
+            
             temporal_span = TemporalSpan(
-                first_seen=canonical_behavior.created_at,
-                last_seen=canonical_behavior.last_seen,
-                days_active=(canonical_behavior.last_seen - canonical_behavior.created_at) / 86400
+                first_seen=first_seen,
+                last_seen=last_seen,
+                days_active=(last_seen - first_seen) / 86400
             )
             
             # Create canonical behavior

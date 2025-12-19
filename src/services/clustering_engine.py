@@ -30,17 +30,23 @@ class ClusteringEngine:
     ) -> Dict[str, Any]:
         """
         Cluster behavior embeddings using HDBSCAN
+        CRITICAL: ALL cluster members are preserved - NOTHING is discarded
         
         Args:
             embeddings: List of embedding vectors
-            behavior_ids: List of corresponding behavior IDs
+            behavior_ids: List of corresponding observation IDs
             
         Returns:
             dict: Clustering results containing:
-                - clusters: Dict mapping cluster_id to list of behavior_ids
+                - clusters: Dict mapping cluster_id to ALL observation_ids (NEVER DISCARD)
+                - cluster_sizes: Dict mapping cluster_id to member count
+                - cluster_embeddings: Dict mapping cluster_id to list of member embeddings
+                - cluster_centroids: Dict mapping cluster_id to centroid embedding
+                - intra_cluster_distances: Dict mapping cluster_id to distance statistics
                 - labels: List of cluster labels (same order as behavior_ids)
                 - noise_behaviors: List of behavior_ids assigned to noise (-1)
                 - num_clusters: Number of valid clusters (excluding noise)
+                - normalized_embeddings: The normalized embedding array used
         """
         try:
             if len(embeddings) != len(behavior_ids):
@@ -53,9 +59,14 @@ class ClusteringEngine:
                 )
                 return {
                     "clusters": {},
+                    "cluster_sizes": {},
+                    "cluster_embeddings": {},
+                    "cluster_centroids": {},
+                    "intra_cluster_distances": {},
                     "labels": [-1] * len(behavior_ids),
                     "noise_behaviors": behavior_ids,
-                    "num_clusters": 0
+                    "num_clusters": 0,
+                    "normalized_embeddings": np.array([])
                 }
             
             # Convert to numpy array
@@ -78,34 +89,75 @@ class ClusteringEngine:
             # Perform clustering on normalized embeddings
             cluster_labels = clusterer.fit_predict(X_normalized)
             
-            # Organize results
+            # Organize results - PRESERVE EVERYTHING
             clusters = {}
+            cluster_embeddings = {}
+            cluster_centroids = {}
+            cluster_sizes = {}
+            intra_cluster_distances = {}
             noise_behaviors = []
             
-            for behavior_id, label in zip(behavior_ids, cluster_labels):
+            # Build cluster membership (NO DISCARDING)
+            for behavior_id, label, embedding in zip(behavior_ids, cluster_labels, X_normalized):
                 if label == -1:
                     noise_behaviors.append(behavior_id)
                 else:
                     cluster_id = f"cluster_{label}"
                     if cluster_id not in clusters:
                         clusters[cluster_id] = []
+                        cluster_embeddings[cluster_id] = []
+                    
                     clusters[cluster_id].append(behavior_id)
+                    cluster_embeddings[cluster_id].append(embedding)
+            
+            # Calculate cluster statistics (centroid, distances, etc.)
+            for cluster_id in clusters.keys():
+                member_embeddings = np.array(cluster_embeddings[cluster_id])
+                
+                # Calculate centroid
+                centroid = np.mean(member_embeddings, axis=0)
+                cluster_centroids[cluster_id] = centroid.tolist()
+                
+                # Calculate cluster size
+                cluster_sizes[cluster_id] = len(clusters[cluster_id])
+                
+                # Calculate intra-cluster distances
+                distances = []
+                for emb in member_embeddings:
+                    dist = np.linalg.norm(emb - centroid)
+                    distances.append(dist)
+                
+                intra_cluster_distances[cluster_id] = {
+                    "mean": float(np.mean(distances)),
+                    "std": float(np.std(distances)),
+                    "min": float(np.min(distances)),
+                    "max": float(np.max(distances)),
+                    "all_distances": [float(d) for d in distances]
+                }
             
             num_clusters = len(clusters)
             
             logger.info(
                 f"Clustering complete: {num_clusters} clusters formed, "
-                f"{len(noise_behaviors)} noise behaviors"
+                f"{len(noise_behaviors)} noise observations"
             )
             
             for cluster_id, members in clusters.items():
-                logger.debug(f"{cluster_id}: {len(members)} behaviors")
+                logger.debug(
+                    f"{cluster_id}: {len(members)} observations, "
+                    f"mean distance: {intra_cluster_distances[cluster_id]['mean']:.4f}"
+                )
             
             return {
-                "clusters": clusters,
+                "clusters": clusters,  # ALL members preserved
+                "cluster_sizes": cluster_sizes,
+                "cluster_embeddings": cluster_embeddings,
+                "cluster_centroids": cluster_centroids,
+                "intra_cluster_distances": intra_cluster_distances,
                 "labels": cluster_labels.tolist(),
                 "noise_behaviors": noise_behaviors,
                 "num_clusters": num_clusters,
+                "normalized_embeddings": X_normalized,
                 "clusterer": clusterer  # For debugging/analysis
             }
             

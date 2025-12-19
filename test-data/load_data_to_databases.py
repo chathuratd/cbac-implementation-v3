@@ -20,7 +20,7 @@ os.chdir(parent_dir)
 from src.database.mongodb_service import MongoDBService
 from src.database.qdrant_service import QdrantService
 from src.services.embedding_service import EmbeddingService
-from src.models.schemas import BehaviorModel, PromptModel
+from src.models.schemas import BehaviorObservation, PromptModel
 
 # Setup logging
 logging.basicConfig(
@@ -181,11 +181,27 @@ def main():
         logger.info("Saving behaviors to MongoDB...")
         logger.info("="*50)
         try:
-            from src.models.schemas import BehaviorModel
-            behavior_models = [BehaviorModel(**b) for b in all_behaviors_data]
-            mongo_service.insert_behaviors_bulk(behavior_models)
+            # Convert old format to new BehaviorObservation format
+            behavior_observations = []
+            for b in all_behaviors_data:
+                # Map old fields to new fields
+                obs = BehaviorObservation(
+                    observation_id=b.get('behavior_id'),  # Use behavior_id as observation_id
+                    user_id=b.get('user_id'),
+                    behavior_text=b.get('behavior_text'),
+                    timestamp=b.get('created_at'),  # Use created_at as timestamp
+                    prompt_id=b.get('prompt_history_ids', [None])[0] if b.get('prompt_history_ids') else None,  # Use first prompt
+                    session_id=b.get('session_id'),
+                    credibility=b.get('credibility'),
+                    clarity_score=b.get('clarity_score', 0.75),  # Default value for old data
+                    extraction_confidence=b.get('extraction_confidence', 0.80),  # Default value for old data
+                    decay_rate=b.get('decay_rate')
+                )
+                behavior_observations.append(obs)
+            
+            mongo_service.insert_behaviors_bulk(behavior_observations)
             behaviors_mongo_success = True
-            logger.info(f"✓ Successfully saved {len(behavior_models)} behaviors to MongoDB")
+            logger.info(f"✓ Successfully saved {len(behavior_observations)} behaviors to MongoDB")
         except Exception as e:
             logger.error(f"Failed to save behaviors to MongoDB: {e}")
             behaviors_mongo_success = False
