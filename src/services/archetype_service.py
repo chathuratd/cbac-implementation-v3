@@ -183,6 +183,80 @@ Return ONLY the archetype label (2-4 words), nothing else."""
         except Exception as e:
             logger.error(f"Error generating contextual archetype: {e}")
             return "Unknown"
+    
+    def generate_cluster_name(
+        self,
+        wording_variations: List[str],
+        cluster_size: int,
+        tier: str
+    ) -> str:
+        """
+        Generate a concise descriptive name for a behavior cluster
+        
+        Args:
+            wording_variations: Different phrasings of behaviors in the cluster
+            cluster_size: Number of observations in the cluster
+            tier: Cluster tier (PRIMARY, SECONDARY, NOISE)
+            
+        Returns:
+            str: Concise cluster name (3-6 words)
+        """
+        try:
+            if not wording_variations:
+                return "Unnamed Cluster"
+            
+            # Limit variations to avoid token overflow
+            variations_sample = wording_variations[:5]
+            variations_text = "\n".join(f"- {v}" for v in variations_sample)
+            
+            prompt = f"""Analyze these related user behaviors and create a concise, descriptive name:
+
+{variations_text}
+
+Cluster info:
+- Size: {cluster_size} observations
+- Importance: {tier}
+
+Generate a SHORT descriptive name (3-6 words) that captures the common theme. Use clear, professional language.
+
+Examples of good names:
+- "Visual Learning Preference"
+- "Detail-Oriented Communication"
+- "Practical Application Focus"
+
+Return ONLY the name, nothing else."""
+            
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are an expert at analyzing behavioral patterns and creating clear, concise labels."
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                temperature=0.3,
+                max_tokens=30
+            )
+            
+            cluster_name = response.choices[0].message.content.strip().strip('"\'.,')
+            
+            # Validate length (fallback if too long)
+            if len(cluster_name.split()) > 8:
+                # Use first meaningful variation as fallback
+                cluster_name = variations_sample[0].title()
+            
+            logger.info(f"Generated cluster name: '{cluster_name}'")
+            
+            return cluster_name
+            
+        except Exception as e:
+            logger.error(f"Error generating cluster name: {e}")
+            # Fallback to first variation
+            return wording_variations[0].title() if wording_variations else "Unnamed Cluster"
 
 
 # Global archetype service instance

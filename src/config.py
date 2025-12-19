@@ -1,5 +1,6 @@
 """Configuration management for CBIE system"""
 import os
+from pathlib import Path
 from typing import Optional
 from pydantic_settings import BaseSettings
 
@@ -38,7 +39,8 @@ class Settings(BaseSettings):
     cluster_selection_epsilon: float = 0.15
     
     class Config:
-        env_file = ".env"
+        # Use absolute path to .env file (project root)
+        env_file = str(Path(__file__).parent.parent / ".env")
         env_file_encoding = "utf-8"
         case_sensitive = False
 

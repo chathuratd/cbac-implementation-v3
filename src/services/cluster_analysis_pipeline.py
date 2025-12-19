@@ -102,14 +102,15 @@ class ClusterAnalysisPipeline:
         
         logger.info(f"Loaded {len(observations)} observations and {len(prompts)} prompts from storage")
         
-        # Run cluster analysis (skip storing observations - already in Qdrant)
+        # Run cluster analysis (skip storing observations - already in Qdrant, but STORE PROFILE)
         return await self.analyze_observations(
             user_id=user_id,
             observations=observations,
             prompts=prompts,
             generate_archetype=generate_archetype,
             current_timestamp=current_timestamp,
-            store_in_dbs=False  # Don't re-store observations that came from storage
+            store_in_dbs=True,  # Store profile, but observations already exist in Qdrant
+            skip_observation_storage=True  # Flag to skip re-storing observations
         )
     
     async def analyze_observations(
@@ -119,7 +120,8 @@ class ClusterAnalysisPipeline:
         prompts: List[PromptModel],
         generate_archetype: bool = True,
         current_timestamp: Optional[int] = None,
-        store_in_dbs: bool = True
+        store_in_dbs: bool = True,
+        skip_observation_storage: bool = False
     ) -> CoreBehaviorProfile:
         """
         CLUSTER-CENTRIC analysis pipeline
@@ -200,8 +202,8 @@ class ClusterAnalysisPipeline:
                 cluster.tier = self._assign_tier_by_strength(cluster.cluster_strength)
             
             # Step 6: Store in databases (if requested)
-            if store_in_dbs:
-                logger.info("Step 6: Storing in databases")
+            if store_in_dbs and not skip_observation_storage:
+                logger.info("Step 6: Storing observations and clusters in databases")
                 # Store prompts in MongoDB
                 self.mongodb.insert_prompts_bulk(prompts)
                 
@@ -226,6 +228,8 @@ class ClusterAnalysisPipeline:
                 # Store clusters in MongoDB
                 for cluster in behavior_clusters:
                     self.mongodb.insert_cluster(cluster)
+            elif skip_observation_storage:
+                logger.info("Step 6: Skipping observation storage (already in Qdrant)")
             
             # Step 7: Generate archetype (optional)
             archetype = None
@@ -356,6 +360,13 @@ class ClusterAnalysisPipeline:
             last_seen = max(all_timestamps)
             days_active = (last_seen - first_seen) / 86400
             
+            # Generate descriptive cluster name using LLM
+            cluster_name = self.archetype_service.generate_cluster_name(
+                wording_variations=wording_variations,
+                cluster_size=cluster_size,
+                tier="UNKNOWN"  # Tier assigned later
+            )
+            
             # Build BehaviorCluster
             behavior_cluster = BehaviorCluster(
                 cluster_id=cluster_id,
@@ -366,6 +377,7 @@ class ClusterAnalysisPipeline:
                 cluster_size=cluster_size,
                 canonical_label=canonical_label,
                 canonical_observation_id=canonical_observation_id,
+                cluster_name=cluster_name,
                 cluster_strength=cluster_strength,
                 confidence=confidence_metrics["confidence"],
                 all_prompt_ids=all_prompt_ids,

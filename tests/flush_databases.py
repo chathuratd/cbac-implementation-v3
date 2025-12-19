@@ -3,7 +3,10 @@ Flush MongoDB and Qdrant databases
 Clears all data for a fresh start
 """
 import sys
-sys.path.append('.')
+from pathlib import Path
+
+# Add parent directory to path
+sys.path.append(str(Path(__file__).parent.parent))
 
 from src.database.mongodb_service import mongodb_service
 from src.database.qdrant_service import qdrant_service

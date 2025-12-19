@@ -4,6 +4,12 @@ Test the NEW cluster-centric pipeline
 import asyncio
 import json
 import time
+import sys
+from pathlib import Path
+
+# Add parent directory to path
+sys.path.append(str(Path(__file__).parent.parent))
+
 from src.models.schemas import BehaviorObservation, PromptModel
 from src.services.cluster_analysis_pipeline import cluster_analysis_pipeline
 

@@ -135,11 +135,12 @@ async def analyze_behaviors(request: AnalyzeBehaviorsRequest):
     response_model=CoreBehaviorProfile,
     status_code=status.HTTP_200_OK,
     summary="Retrieve user's core behavior profile",
-    description="Get existing core behavior profile for a specific user"
+    description="Get existing core behavior profile for a specific user. Embeddings are excluded from response."
 )
 async def get_user_profile(user_id: str):
     """
     Retrieve a user's existing core behavior profile from database
+    Embeddings are stripped from clusters and observations for performance
     """
     try:
         logger.info(f"Fetching profile for user {user_id}")
@@ -151,6 +152,17 @@ async def get_user_profile(user_id: str):
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f"No profile found for user {user_id}"
             )
+        
+        # Strip embeddings from clusters to reduce payload size
+        if "behavior_clusters" in profile_data:
+            for cluster in profile_data["behavior_clusters"]:
+                # Remove centroid embedding
+                cluster.pop("centroid_embedding", None)
+                
+                # Remove embeddings from observations
+                if "observations" in cluster:
+                    for obs in cluster["observations"]:
+                        obs.pop("embedding", None)
         
         # Convert to Pydantic model
         profile = CoreBehaviorProfile(**profile_data)
@@ -172,11 +184,18 @@ async def get_user_profile(user_id: str):
     response_model=ListCoreBehaviorsResponse,
     status_code=status.HTTP_200_OK,
     summary="List canonical core behaviors for a user",
-    description="Return canonical behaviors for downstream context usage"
+    description="Return canonical behaviors from behavior clusters for downstream context usage. No embeddings included."
 )
 async def list_core_behaviors(user_id: str):
     """
-    Get list of canonical core behaviors (primary and secondary) for a user
+    Get list of canonical core behaviors (PRIMARY and SECONDARY) from stored profile
+    
+    Returns cluster-based canonical behaviors without embeddings:
+    - canonical_label: Display text for the cluster
+    - tier: PRIMARY/SECONDARY (NOISE clusters excluded)
+    - cluster_strength: Strength score
+    - confidence: Confidence score
+    - observed_count: Number of observations in cluster
     """
     try:
         logger.info(f"Listing core behaviors for user {user_id}")
@@ -189,22 +208,22 @@ async def list_core_behaviors(user_id: str):
                 detail=f"No profile found for user {user_id}"
             )
         
-        # Extract canonical behaviors
+        # Extract canonical behaviors from behavior_clusters
         canonical_behaviors = []
         
-        for behavior in profile_data.get("primary_behaviors", []):
-            canonical_behaviors.append({
-                "behavior_id": behavior["behavior_id"],
-                "behavior_text": behavior["behavior_text"],
-                "tier": "PRIMARY"
-            })
-        
-        for behavior in profile_data.get("secondary_behaviors", []):
-            canonical_behaviors.append({
-                "behavior_id": behavior["behavior_id"],
-                "behavior_text": behavior["behavior_text"],
-                "tier": "SECONDARY"
-            })
+        for cluster in profile_data.get("behavior_clusters", []):
+            # Only include PRIMARY and SECONDARY (exclude NOISE)
+            if cluster.get("tier") in ["PRIMARY", "SECONDARY"]:
+                canonical_behaviors.append({
+                    "cluster_id": cluster.get("cluster_id"),
+                    "canonical_label": cluster.get("canonical_label"),
+                    "cluster_name": cluster.get("cluster_name"),
+                    "tier": cluster.get("tier"),
+                    "cluster_strength": cluster.get("cluster_strength"),
+                    "confidence": cluster.get("confidence"),  # Maps confidence from DB
+                    "observed_count": cluster.get("cluster_size")  # Maps cluster_size from DB
+                    # Note: embeddings are NOT included
+                })
         
         return ListCoreBehaviorsResponse(
             user_id=user_id,

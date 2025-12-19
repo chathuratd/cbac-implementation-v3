@@ -110,6 +110,7 @@ class BehaviorCluster(BaseModel):
     # Display label (UI only - NOT used for scoring)
     canonical_label: str  # Selected by: highest clarity + closest to centroid
     canonical_observation_id: str
+    cluster_name: Optional[str] = None  # LLM-generated descriptive name for the cluster
     
     # Cluster-level metrics (the REAL scores)
     cluster_strength: float  # log(size+1) * mean(ABW) * recency_factor
@@ -269,4 +270,31 @@ class AssignArchetypeResponse(BaseModel):
 class ListCoreBehaviorsResponse(BaseModel):
     """Response for /list-core-behaviors endpoint"""
     user_id: str
-    canonical_behaviors: List[Dict[str, str]]
+    canonical_behaviors: List[Dict[str, Any]]  # Changed from str to Any to support multiple types
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "user_id": "user_102",
+                "canonical_behaviors": [
+                    {
+                        "cluster_id": "cluster_2",
+                        "canonical_label": "prefers analogies and metaphors",
+                        "cluster_name": "Visual Learning Preference",
+                        "tier": "PRIMARY",
+                        "cluster_strength": 0.8421,
+                        "confidence": 0.6232,
+                        "observed_count": 4
+                    },
+                    {
+                        "cluster_id": "cluster_0",
+                        "canonical_label": "theory and concept focused",
+                        "cluster_name": "Conceptual Understanding Focus",
+                        "tier": "SECONDARY",
+                        "cluster_strength": 0.7783,
+                        "confidence": 0.5120,
+                        "observed_count": 2
+                    }
+                ]
+            }
+        }
