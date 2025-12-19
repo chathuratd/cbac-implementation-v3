@@ -1,0 +1,402 @@
+[
+  {
+    "prompt_id": "prompt_d6bafd26",
+    "prompt_text": "Detailed OAuth2 explanation with all grant types",
+    "timestamp": 1761347848,
+    "tokens": 12.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_96160454",
+    "prompt_text": "Full breakdown of React lifecycle methods",
+    "timestamp": 1761437807,
+    "tokens": 10.2,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_2120d80a",
+    "prompt_text": "Detailed OAuth2 explanation with all grant types",
+    "timestamp": 1761555406,
+    "tokens": 12.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_261bf8c6",
+    "prompt_text": "Visualize the HTTP request lifecycle",
+    "timestamp": 1761637013,
+    "tokens": 9.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_d42f4aa9",
+    "prompt_text": "What's cloud computing without technical terms?",
+    "timestamp": 1761702396,
+    "tokens": 11.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_525572c9",
+    "prompt_text": "Guide me through Git workflow from start to finish",
+    "timestamp": 1761814307,
+    "tokens": 12.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_cdc0d333",
+    "prompt_text": "Diagram the MVC architecture",
+    "timestamp": 1761912357,
+    "tokens": 7.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_3de1a887",
+    "prompt_text": "Diagram the MVC architecture",
+    "timestamp": 1762021904,
+    "tokens": 7.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_4d549e33",
+    "prompt_text": "What's cloud computing without technical terms?",
+    "timestamp": 1762073637,
+    "tokens": 11.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_b1488ffa",
+    "prompt_text": "Explain the entire Kubernetes architecture",
+    "timestamp": 1762109877,
+    "tokens": 10.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_ec459d73",
+    "prompt_text": "Explain microservices design patterns in depth",
+    "timestamp": 1762340215,
+    "tokens": 11.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_e90925a5",
+    "prompt_text": "Guide me through Git workflow from start to finish",
+    "timestamp": 1762375370,
+    "tokens": 12.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_5a943408",
+    "prompt_text": "Explain the entire Kubernetes architecture",
+    "timestamp": 1762441713,
+    "tokens": 10.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_9a1decc8",
+    "prompt_text": "Can you show me a diagram of how DNS works?",
+    "timestamp": 1762464572,
+    "tokens": 10.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_8bd51011",
+    "prompt_text": "Walk me through deploying a web app step by step",
+    "timestamp": 1762482363,
+    "tokens": 12.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_680a05c8",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1762686785,
+    "tokens": 6.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_6f0746c4",
+    "prompt_text": "Explain API in simple terms for beginners",
+    "timestamp": 1762777721,
+    "tokens": 10.2,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_a570eb56",
+    "prompt_text": "Quick overview of Python async/await",
+    "timestamp": 1762898325,
+    "tokens": 9.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_3b5276be",
+    "prompt_text": "Diagram the MVC architecture",
+    "timestamp": 1762910116,
+    "tokens": 7.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_1cd299b0",
+    "prompt_text": "Explain the entire Kubernetes architecture",
+    "timestamp": 1762926374,
+    "tokens": 10.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_c6d8f6b9",
+    "prompt_text": "Quick overview of Python async/await",
+    "timestamp": 1763165234,
+    "tokens": 9.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_28a27905",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1763292733,
+    "tokens": 9.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_d7b2fc40",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1763322480,
+    "tokens": 9.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_0beb653c",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1763407025,
+    "tokens": 9.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_4ca49ad2",
+    "prompt_text": "Simple explanation of encryption",
+    "timestamp": 1763529391,
+    "tokens": 8.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_7138b142",
+    "prompt_text": "Explain microservices design patterns in depth",
+    "timestamp": 1763539271,
+    "tokens": 11.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_eb72bc2d",
+    "prompt_text": "Summarize machine learning in 3 sentences",
+    "timestamp": 1763725913,
+    "tokens": 10.2,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_3bf65e91",
+    "prompt_text": "Draw a flowchart for authentication process",
+    "timestamp": 1763977376,
+    "tokens": 10.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_324ed10a",
+    "prompt_text": "Full breakdown of React lifecycle methods",
+    "timestamp": 1764193586,
+    "tokens": 10.2,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_c8195a69",
+    "prompt_text": "What's Redux? Short answer please",
+    "timestamp": 1764234543,
+    "tokens": 8.2,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_2b8ccdf0",
+    "prompt_text": "Explain API in simple terms for beginners",
+    "timestamp": 1764462793,
+    "tokens": 10.2,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_690bcd88",
+    "prompt_text": "Quick overview of Python async/await",
+    "timestamp": 1764463403,
+    "tokens": 9.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_bd02ca91",
+    "prompt_text": "Give me a comprehensive guide to Docker networking",
+    "timestamp": 1764465347,
+    "tokens": 12.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_8d277c4b",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1764468341,
+    "tokens": 9.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_1868bbee",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1764492970,
+    "tokens": 9.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_5d237f36",
+    "prompt_text": "Summarize machine learning in 3 sentences",
+    "timestamp": 1764649557,
+    "tokens": 10.2,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_b81a21c7",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1764669882,
+    "tokens": 6.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_ac2a9783",
+    "prompt_text": "Can you show me a diagram of how DNS works?",
+    "timestamp": 1764708300,
+    "tokens": 10.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_31d5e540",
+    "prompt_text": "Step by step tutorial for Docker setup",
+    "timestamp": 1764792637,
+    "tokens": 9.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_d627350b",
+    "prompt_text": "Diagram the MVC architecture",
+    "timestamp": 1765082378,
+    "tokens": 7.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_1248ee98",
+    "prompt_text": "Can you show me a diagram of how DNS works?",
+    "timestamp": 1765257350,
+    "tokens": 10.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_a92af24a",
+    "prompt_text": "Can you show me a diagram of how DNS works?",
+    "timestamp": 1765378299,
+    "tokens": 10.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_3cd598f4",
+    "prompt_text": "What's a database? Use everyday language",
+    "timestamp": 1765416200,
+    "tokens": 10.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_540e9473",
+    "prompt_text": "What's cloud computing without technical terms?",
+    "timestamp": 1765453425,
+    "tokens": 11.8,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_39f0cd30",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1765551751,
+    "tokens": 6.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_6fd2d7e7",
+    "prompt_text": "Step by step tutorial for Docker setup",
+    "timestamp": 1765603598,
+    "tokens": 9.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_d916a37d",
+    "prompt_text": "Guide me through Git workflow from start to finish",
+    "timestamp": 1765624615,
+    "tokens": 12.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_3e1a7554",
+    "prompt_text": "Diagram the MVC architecture",
+    "timestamp": 1765664797,
+    "tokens": 7.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_9c0a0848",
+    "prompt_text": "Visualize the HTTP request lifecycle",
+    "timestamp": 1765741962,
+    "tokens": 9.0,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  },
+  {
+    "prompt_id": "prompt_68733308",
+    "prompt_text": "How does the internet work? Explain like I'm 5",
+    "timestamp": 1765842460,
+    "tokens": 11.5,
+    "user_id": "user_348",
+    "session_id": "session_7732"
+  }
+]

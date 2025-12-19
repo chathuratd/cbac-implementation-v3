@@ -1,0 +1,106 @@
+{
+  "user_id": "user_102",
+  "generated_at": 1766087961,
+  "primary_behaviors": [
+    {
+      "behavior_id": "beh_e787b433",
+      "behavior_text": "learns by examples",
+      "cluster_id": "cluster_4",
+      "cbi_original": 1.3553092197635042,
+      "cluster_cbi": 1.3553092197635042,
+      "tier": "PRIMARY",
+      "temporal_span": {
+        "first_seen": 1760958160,
+        "last_seen": 1765996185,
+        "days_active": 58.31047453703704
+      }
+    },
+    {
+      "behavior_id": "beh_c81f7a93",
+      "behavior_text": "prefers analogies and metaphors",
+      "cluster_id": "cluster_8",
+      "cbi_original": 1.2208512505305833,
+      "cluster_cbi": 1.2208512505305833,
+      "tier": "PRIMARY",
+      "temporal_span": {
+        "first_seen": 1760922160,
+        "last_seen": 1765833292,
+        "days_active": 56.84180555555555
+      }
+    }
+  ],
+  "secondary_behaviors": [
+    {
+      "behavior_id": "beh_254ac640",
+      "behavior_text": "focuses on best practices",
+      "cluster_id": "cluster_3",
+      "cbi_original": 0.9373830867983491,
+      "cluster_cbi": 0.9373830867983491,
+      "tier": "SECONDARY",
+      "temporal_span": {
+        "first_seen": 1760959352,
+        "last_seen": 1765983861,
+        "days_active": 58.15403935185185
+      }
+    },
+    {
+      "behavior_id": "beh_e09d7641",
+      "behavior_text": "prefers visual learning",
+      "cluster_id": "cluster_7",
+      "cbi_original": 0.7052330936928133,
+      "cluster_cbi": 0.7052330936928133,
+      "tier": "SECONDARY",
+      "temporal_span": {
+        "first_seen": 1761574799,
+        "last_seen": 1766064328,
+        "days_active": 51.9621412037037
+      }
+    },
+    {
+      "behavior_id": "beh_3dc5adfd",
+      "behavior_text": "theory and concept focused",
+      "cluster_id": "cluster_2",
+      "cbi_original": 0.9400317052934977,
+      "cluster_cbi": 0.9400317052934977,
+      "tier": "SECONDARY",
+      "temporal_span": {
+        "first_seen": 1760907214,
+        "last_seen": 1766005688,
+        "days_active": 59.010115740740744
+      }
+    },
+    {
+      "behavior_id": "beh_2b1cbd29",
+      "behavior_text": "avoids technical jargon",
+      "cluster_id": "cluster_6",
+      "cbi_original": 0.7053987908816646,
+      "cluster_cbi": 0.7053987908816646,
+      "tier": "SECONDARY",
+      "temporal_span": {
+        "first_seen": 1760986385,
+        "last_seen": 1765998733,
+        "days_active": 58.01328703703704
+      }
+    },
+    {
+      "behavior_id": "beh_921f25f4",
+      "behavior_text": "likes quick summaries",
+      "cluster_id": "cluster_0",
+      "cbi_original": 0.9966186538131004,
+      "cluster_cbi": 0.9966186538131004,
+      "tier": "SECONDARY",
+      "temporal_span": {
+        "first_seen": 1760908356,
+        "last_seen": 1766006116,
+        "days_active": 59.00185185185185
+      }
+    }
+  ],
+  "archetype": "Unknown",
+  "statistics": {
+    "total_behaviors_analyzed": 10,
+    "clusters_formed": 10,
+    "total_prompts_analyzed": 500,
+    "analysis_time_span_days": 59.68881944444445
+  }
+}

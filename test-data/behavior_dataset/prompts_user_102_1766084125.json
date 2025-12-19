@@ -1,0 +1,2002 @@
+[
+  {
+    "prompt_id": "prompt_ccfa8ee2",
+    "prompt_text": "Theory behind public key cryptography",
+    "timestamp": 1760907214,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_90e8af0b",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1760908356,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_79688d3e",
+    "prompt_text": "My Docker container won't start, help?",
+    "timestamp": 1760918787,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_4522c9c6",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1760922160,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c99437ef",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1760958160,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d5dec678",
+    "prompt_text": "Security best practices for Node.js",
+    "timestamp": 1760959352,
+    "tokens": 8.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_589b5b69",
+    "prompt_text": "Compare different data structures to everyday objects",
+    "timestamp": 1760986304,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_7e1b8905",
+    "prompt_text": "Simple explanation of encryption",
+    "timestamp": 1760986385,
+    "tokens": 8.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_67d20165",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1760986603,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a45bb74d",
+    "prompt_text": "What is the CAP theorem?",
+    "timestamp": 1760999001,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6e19a834",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1760999731,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3f43eefd",
+    "prompt_text": "Simple explanation of encryption",
+    "timestamp": 1761004274,
+    "tokens": 8.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_389724c9",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1761007504,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_b73c0123",
+    "prompt_text": "Show me different ways to handle errors with examples",
+    "timestamp": 1761012396,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_0a0686df",
+    "prompt_text": "Compare different data structures to everyday objects",
+    "timestamp": 1761051570,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_e1e61382",
+    "prompt_text": "Can you provide sample code for JWT authentication?",
+    "timestamp": 1761117025,
+    "tokens": 12.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_7b145e2f",
+    "prompt_text": "Discuss the principles of functional programming",
+    "timestamp": 1761118144,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_fe234348",
+    "prompt_text": "Explain the concept of eventual consistency",
+    "timestamp": 1761137222,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_13326ebd",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1761138170,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8d4bd5b6",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1761185088,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_39ca7051",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1761187755,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_05c7276d",
+    "prompt_text": "Break down machine learning for non-programmers",
+    "timestamp": 1761189454,
+    "tokens": 11.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_ab36616e",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1761214607,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2033dbc1",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1761217011,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_95f5dc40",
+    "prompt_text": "Give me real-world examples of factory pattern",
+    "timestamp": 1761246958,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c32da9ac",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1761296077,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_12ec5ef6",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1761299623,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2a27ce02",
+    "prompt_text": "Quick overview of Python async/await",
+    "timestamp": 1761301824,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1b25141c",
+    "prompt_text": "What's a good metaphor for understanding APIs?",
+    "timestamp": 1761302587,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8c2099b5",
+    "prompt_text": "What's a good analogy for understanding Git?",
+    "timestamp": 1761316316,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_824da4b0",
+    "prompt_text": "Quick overview of Python async/await",
+    "timestamp": 1761317338,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_55bb56ce",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1761331069,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8e06873b",
+    "prompt_text": "Kubernetes in a nutshell",
+    "timestamp": 1761447230,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d191de09",
+    "prompt_text": "Give me the gist of microservices",
+    "timestamp": 1761486744,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6b209f59",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1761556123,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cfa0a4ed",
+    "prompt_text": "What is the CAP theorem?",
+    "timestamp": 1761558483,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_ef7bf3e0",
+    "prompt_text": "Visualize the HTTP request lifecycle",
+    "timestamp": 1761574799,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_7f876763",
+    "prompt_text": "Explain databases using a real-world analogy",
+    "timestamp": 1761578523,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_72be5e40",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1761581792,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_bb513109",
+    "prompt_text": "Give me the gist of microservices",
+    "timestamp": 1761593668,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_01292a9f",
+    "prompt_text": "Why is my API returning 500 errors?",
+    "timestamp": 1761610438,
+    "tokens": 8.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_51aefa6b",
+    "prompt_text": "Compare different data structures to everyday objects",
+    "timestamp": 1761644972,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_fed0df08",
+    "prompt_text": "Give me the gist of microservices",
+    "timestamp": 1761649668,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8e2c0d9d",
+    "prompt_text": "Can you provide sample code for JWT authentication?",
+    "timestamp": 1761652011,
+    "tokens": 12.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6789fe9d",
+    "prompt_text": "Deep dive into PostgreSQL query optimization",
+    "timestamp": 1761677436,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9d2b8d81",
+    "prompt_text": "Pros and cons of TypeScript vs JavaScript",
+    "timestamp": 1761695338,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d41d0ee9",
+    "prompt_text": "Explain the concept of eventual consistency",
+    "timestamp": 1761718390,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_ca58f9dc",
+    "prompt_text": "What are the best practices for API design?",
+    "timestamp": 1761758997,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_0a999c0f",
+    "prompt_text": "Industry standards for database design",
+    "timestamp": 1761761067,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_4faee328",
+    "prompt_text": "Best practices for test-driven development",
+    "timestamp": 1761783076,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_775936ac",
+    "prompt_text": "React component not re-rendering, why?",
+    "timestamp": 1761818596,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_735c6945",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1761820118,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_b71da85a",
+    "prompt_text": "Why isn't my CSS styling applying?",
+    "timestamp": 1761833357,
+    "tokens": 8.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_23d45cc4",
+    "prompt_text": "What's the recommended way to handle errors?",
+    "timestamp": 1761902973,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_ea5d9839",
+    "prompt_text": "Give me real-world examples of factory pattern",
+    "timestamp": 1761904871,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_adcb8bf1",
+    "prompt_text": "Discuss the principles of functional programming",
+    "timestamp": 1761955344,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_eed30c78",
+    "prompt_text": "Can you show me a diagram of how DNS works?",
+    "timestamp": 1761956978,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_48272922",
+    "prompt_text": "Industry standards for database design",
+    "timestamp": 1762039710,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_05e5e2d4",
+    "prompt_text": "Visualize the HTTP request lifecycle",
+    "timestamp": 1762042812,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_af894e1b",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1762086632,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_ca68690f",
+    "prompt_text": "Best practices for test-driven development",
+    "timestamp": 1762095011,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_f69507c2",
+    "prompt_text": "Detailed OAuth2 explanation with all grant types",
+    "timestamp": 1762160010,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_26c26ef4",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1762160262,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d32d900a",
+    "prompt_text": "Debugging CORS issues in my application",
+    "timestamp": 1762162728,
+    "tokens": 9.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_43f23fc2",
+    "prompt_text": "Git merge conflicts - how to resolve?",
+    "timestamp": 1762185490,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_f31c0ad2",
+    "prompt_text": "What are the SOLID principles?",
+    "timestamp": 1762260757,
+    "tokens": 7.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_96362167",
+    "prompt_text": "What are the best practices for API design?",
+    "timestamp": 1762263293,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6ddff7ef",
+    "prompt_text": "Can you provide sample code for JWT authentication?",
+    "timestamp": 1762265143,
+    "tokens": 12.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3177e71c",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1762283343,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_034daeb6",
+    "prompt_text": "What are the best practices for API design?",
+    "timestamp": 1762283547,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d386e64c",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1762365715,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3f3ddffd",
+    "prompt_text": "How does the internet work? Explain like I'm 5",
+    "timestamp": 1762384898,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2fe49bdb",
+    "prompt_text": "Brief explanation of blockchain",
+    "timestamp": 1762385181,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_bf92399f",
+    "prompt_text": "Illustrate how websockets work",
+    "timestamp": 1762385882,
+    "tokens": 7.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2bf7640c",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1762416309,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d47dcf2b",
+    "prompt_text": "Discuss the principles of functional programming",
+    "timestamp": 1762446166,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_711f95a5",
+    "prompt_text": "Explain the entire Kubernetes architecture",
+    "timestamp": 1762524666,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c4be9d97",
+    "prompt_text": "Best practices for writing clean code",
+    "timestamp": 1762542836,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_5e825ede",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1762670599,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_12b8bea0",
+    "prompt_text": "Deep dive into PostgreSQL query optimization",
+    "timestamp": 1762732309,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3f67b1e4",
+    "prompt_text": "Explain databases using a real-world analogy",
+    "timestamp": 1762832448,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c5f829bb",
+    "prompt_text": "Compare programming to something non-technical",
+    "timestamp": 1762881745,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_f08f4b09",
+    "prompt_text": "Can you show me a diagram of how DNS works?",
+    "timestamp": 1762896211,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_79813b0e",
+    "prompt_text": "What's a good metaphor for understanding APIs?",
+    "timestamp": 1762898551,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c4b9d5a3",
+    "prompt_text": "What's a database? Use everyday language",
+    "timestamp": 1762899258,
+    "tokens": 10.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9a58e121",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1762901131,
+    "tokens": 9.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1a97776c",
+    "prompt_text": "Industry standards for database design",
+    "timestamp": 1762901280,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_58bd8713",
+    "prompt_text": "Explain the concept of eventual consistency",
+    "timestamp": 1762914612,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_e76b0d13",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1762960019,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9e5e27a5",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1762960224,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_37a74cae",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1763042372,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_527e9088",
+    "prompt_text": "Compare React vs Vue vs Angular",
+    "timestamp": 1763044492,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_57cc0e49",
+    "prompt_text": "Real applications of binary search trees",
+    "timestamp": 1763054841,
+    "tokens": 10.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d37fc433",
+    "prompt_text": "Show me different ways to handle errors with examples",
+    "timestamp": 1763100466,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_7da91857",
+    "prompt_text": "What's the recommended way to handle errors?",
+    "timestamp": 1763124095,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_4a1b1c4a",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1763169600,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a3c414f6",
+    "prompt_text": "What is the CAP theorem?",
+    "timestamp": 1763176131,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1b01739a",
+    "prompt_text": "My Docker container won't start, help?",
+    "timestamp": 1763179253,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6e62348c",
+    "prompt_text": "Brief explanation of blockchain",
+    "timestamp": 1763242483,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_949adc1a",
+    "prompt_text": "Real applications of binary search trees",
+    "timestamp": 1763242538,
+    "tokens": 10.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a47eca0f",
+    "prompt_text": "Summarize machine learning in 3 sentences",
+    "timestamp": 1763260778,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2ae9e2c9",
+    "prompt_text": "Explain the theory behind neural networks",
+    "timestamp": 1763261213,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_abd773aa",
+    "prompt_text": "Map out the software development lifecycle",
+    "timestamp": 1763319285,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_151aaf10",
+    "prompt_text": "Compare programming to something non-technical",
+    "timestamp": 1763322317,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_89561389",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1763323710,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_89ccae0a",
+    "prompt_text": "Industry standards for database design",
+    "timestamp": 1763334325,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cd55294f",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1763396485,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cdc14262",
+    "prompt_text": "Full breakdown of React lifecycle methods",
+    "timestamp": 1763444788,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_08433618",
+    "prompt_text": "Compare programming to something non-technical",
+    "timestamp": 1763500782,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_5e1986b0",
+    "prompt_text": "Diagram the MVC architecture",
+    "timestamp": 1763509672,
+    "tokens": 7.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3678b74b",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1763511683,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a0bf34b1",
+    "prompt_text": "Can you provide sample code for JWT authentication?",
+    "timestamp": 1763646473,
+    "tokens": 12.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_b52842f8",
+    "prompt_text": "Why isn't my CSS styling applying?",
+    "timestamp": 1763648700,
+    "tokens": 8.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_790996c1",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1763650701,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_edb1b066",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1763744896,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_af40112d",
+    "prompt_text": "What's Redux? Short answer please",
+    "timestamp": 1763751407,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_0514ca87",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1763752509,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_13a76424",
+    "prompt_text": "Best way to structure a React application?",
+    "timestamp": 1763754248,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_849b1af4",
+    "prompt_text": "What's Redux? Short answer please",
+    "timestamp": 1763755308,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_950a5eb8",
+    "prompt_text": "Can you provide sample code for JWT authentication?",
+    "timestamp": 1763764164,
+    "tokens": 12.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_95f7dd92",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1763779142,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_80ac7cb8",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1763809702,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_fbe8105f",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1763820217,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c39367d1",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1763876623,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_90eb9eb1",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1763876958,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3cfd5ea0",
+    "prompt_text": "Break down machine learning for non-programmers",
+    "timestamp": 1763930147,
+    "tokens": 11.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_0f6a8029",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1763930987,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_501dcb8c",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1763962634,
+    "tokens": 9.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_63441d69",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1763964548,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_92411f6a",
+    "prompt_text": "Break down machine learning for non-programmers",
+    "timestamp": 1763965302,
+    "tokens": 11.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_b6d193ea",
+    "prompt_text": "Compare different data structures to everyday objects",
+    "timestamp": 1763966439,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3b8f3a58",
+    "prompt_text": "Complete guide to AWS Lambda with best practices",
+    "timestamp": 1763969524,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c3ae62cd",
+    "prompt_text": "Real applications of binary search trees",
+    "timestamp": 1764021253,
+    "tokens": 10.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_555d094f",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1764023966,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_5bf0b980",
+    "prompt_text": "Compare different sorting algorithms",
+    "timestamp": 1764084309,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_563b2507",
+    "prompt_text": "Theory behind public key cryptography",
+    "timestamp": 1764095100,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_4dc9f5e1",
+    "prompt_text": "Compare React vs Vue vs Angular",
+    "timestamp": 1764095492,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_0e039e7d",
+    "prompt_text": "What does scalability mean in plain English?",
+    "timestamp": 1764097575,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_09148190",
+    "prompt_text": "Compare React vs Vue vs Angular",
+    "timestamp": 1764134374,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_fbd68ac6",
+    "prompt_text": "Give me real-world examples of factory pattern",
+    "timestamp": 1764188774,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_bd856937",
+    "prompt_text": "Contrast REST and GraphQL APIs",
+    "timestamp": 1764213373,
+    "tokens": 7.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_5c85ba3e",
+    "prompt_text": "Explain time complexity in algorithms",
+    "timestamp": 1764213946,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9bb17d7b",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1764214645,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_89bcea61",
+    "prompt_text": "What's a good analogy for understanding Git?",
+    "timestamp": 1764216309,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6e2201e4",
+    "prompt_text": "What is the actor model in concurrent programming?",
+    "timestamp": 1764222898,
+    "tokens": 12.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8193c238",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1764225521,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_37c78914",
+    "prompt_text": "Security best practices for Node.js",
+    "timestamp": 1764242041,
+    "tokens": 8.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_42c8196a",
+    "prompt_text": "Pros and cons of TypeScript vs JavaScript",
+    "timestamp": 1764244324,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6c4cc3b7",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1764245314,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1a6edfdf",
+    "prompt_text": "Quick rundown of design patterns",
+    "timestamp": 1764253619,
+    "tokens": 8.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1758bbab",
+    "prompt_text": "Can you provide sample code for JWT authentication?",
+    "timestamp": 1764263364,
+    "tokens": 12.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cbbf63e4",
+    "prompt_text": "Docker vs Kubernetes - what's the difference?",
+    "timestamp": 1764270621,
+    "tokens": 11.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_e1eb9a73",
+    "prompt_text": "What's Redux? Short answer please",
+    "timestamp": 1764360448,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_91096e0c",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1764363816,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_52f6f174",
+    "prompt_text": "Full breakdown of React lifecycle methods",
+    "timestamp": 1764392070,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_610c842b",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1764393610,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6a16820b",
+    "prompt_text": "Show me different ways to handle errors with examples",
+    "timestamp": 1764408873,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9e440cd1",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1764494411,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9bcd30f0",
+    "prompt_text": "Theory behind public key cryptography",
+    "timestamp": 1764496297,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_069b7626",
+    "prompt_text": "Draw a flowchart for authentication process",
+    "timestamp": 1764529768,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_4df268d7",
+    "prompt_text": "Illustrate how websockets work",
+    "timestamp": 1764533315,
+    "tokens": 7.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_983db711",
+    "prompt_text": "How does the internet work? Explain like I'm 5",
+    "timestamp": 1764545618,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_0754bb96",
+    "prompt_text": "What are the SOLID principles?",
+    "timestamp": 1764551196,
+    "tokens": 7.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1071388d",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1764555493,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_77c00406",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1764574550,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3309781b",
+    "prompt_text": "What's the recommended way to handle errors?",
+    "timestamp": 1764577724,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_ad91e42a",
+    "prompt_text": "React component not re-rendering, why?",
+    "timestamp": 1764600020,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_60ba92db",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1764600766,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8295a37e",
+    "prompt_text": "What's a good analogy for understanding Git?",
+    "timestamp": 1764611491,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2cb22811",
+    "prompt_text": "Simple explanation of encryption",
+    "timestamp": 1764614789,
+    "tokens": 8.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6dfe6efd",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1764636690,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cf72aa3a",
+    "prompt_text": "What's Redux? Short answer please",
+    "timestamp": 1764673016,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_87ff53c7",
+    "prompt_text": "Kubernetes in a nutshell",
+    "timestamp": 1764704192,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_68116266",
+    "prompt_text": "What is the CAP theorem?",
+    "timestamp": 1764706780,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a73a8890",
+    "prompt_text": "Compare React vs Vue vs Angular",
+    "timestamp": 1764707270,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_28ce0796",
+    "prompt_text": "What's the difference between SQL and NoSQL?",
+    "timestamp": 1764710429,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8473edb1",
+    "prompt_text": "Full breakdown of React lifecycle methods",
+    "timestamp": 1764711200,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_fd21944e",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1764718318,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_87015539",
+    "prompt_text": "Explain the entire Kubernetes architecture",
+    "timestamp": 1764719041,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3636cc24",
+    "prompt_text": "Real applications of binary search trees",
+    "timestamp": 1764720366,
+    "tokens": 10.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1fd41cf9",
+    "prompt_text": "React component not re-rendering, why?",
+    "timestamp": 1764721848,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2214198e",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1764764688,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8727563f",
+    "prompt_text": "Best way to structure a React application?",
+    "timestamp": 1764783963,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a92bec35",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1764785705,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a26a0e85",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1764786290,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3639a1f2",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1764827017,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_37ac79ad",
+    "prompt_text": "Quick overview of Python async/await",
+    "timestamp": 1764912679,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6401335f",
+    "prompt_text": "Compare different data structures to everyday objects",
+    "timestamp": 1764928621,
+    "tokens": 13.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_e94afacb",
+    "prompt_text": "Compare microservices and monolithic architecture",
+    "timestamp": 1764930669,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cd6a0db5",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1764986632,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6dd0a6dc",
+    "prompt_text": "Complete guide to AWS Lambda with best practices",
+    "timestamp": 1764991480,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1b15c8d2",
+    "prompt_text": "Explain time complexity in algorithms",
+    "timestamp": 1764992131,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a6638862",
+    "prompt_text": "What are the best practices for API design?",
+    "timestamp": 1765014542,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9d2baa2d",
+    "prompt_text": "Explain microservices design patterns in depth",
+    "timestamp": 1765033038,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8cfac526",
+    "prompt_text": "What are the best practices for API design?",
+    "timestamp": 1765059281,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2b5f56e2",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1765082736,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a4779d79",
+    "prompt_text": "Give me real-world examples of factory pattern",
+    "timestamp": 1765121274,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_571c0d9a",
+    "prompt_text": "React component not re-rendering, why?",
+    "timestamp": 1765186335,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2e37c93b",
+    "prompt_text": "What is the actor model in concurrent programming?",
+    "timestamp": 1765193092,
+    "tokens": 12.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d23c28fd",
+    "prompt_text": "Best practices for writing clean code",
+    "timestamp": 1765233678,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_58ca8068",
+    "prompt_text": "Visualize the HTTP request lifecycle",
+    "timestamp": 1765255398,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_84f5759e",
+    "prompt_text": "What is the actor model in concurrent programming?",
+    "timestamp": 1765271726,
+    "tokens": 12.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_643cd20e",
+    "prompt_text": "Detailed OAuth2 explanation with all grant types",
+    "timestamp": 1765304017,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_f565f33b",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1765306284,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_dc6fa266",
+    "prompt_text": "Database query running slow, what's wrong?",
+    "timestamp": 1765312592,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_daca8771",
+    "prompt_text": "Theory behind public key cryptography",
+    "timestamp": 1765354034,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6291f0f0",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1765372622,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_1483ff05",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1765426387,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8aafaf74",
+    "prompt_text": "Explain the theory behind neural networks",
+    "timestamp": 1765433166,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_5a31e84a",
+    "prompt_text": "Explain time complexity in algorithms",
+    "timestamp": 1765465254,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d2e6c909",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1765474188,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d8d85a91",
+    "prompt_text": "Show me code examples for async programming",
+    "timestamp": 1765480706,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_895fdbce",
+    "prompt_text": "What is the actor model in concurrent programming?",
+    "timestamp": 1765488855,
+    "tokens": 12.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_db46b8ec",
+    "prompt_text": "Security best practices for Node.js",
+    "timestamp": 1765492357,
+    "tokens": 8.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_115ae21c",
+    "prompt_text": "My Docker container won't start, help?",
+    "timestamp": 1765537028,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_f34e96e4",
+    "prompt_text": "Explain caching like I'm learning about a library",
+    "timestamp": 1765538861,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_b12560d9",
+    "prompt_text": "Explain the concept of eventual consistency",
+    "timestamp": 1765560152,
+    "tokens": 10.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_073e22e2",
+    "prompt_text": "Debugging CORS issues in my application",
+    "timestamp": 1765585813,
+    "tokens": 9.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_97c6a740",
+    "prompt_text": "What is the actor model in concurrent programming?",
+    "timestamp": 1765690684,
+    "tokens": 12.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9893b433",
+    "prompt_text": "What's a good metaphor for understanding APIs?",
+    "timestamp": 1765728886,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_04a1290e",
+    "prompt_text": "Industry standards for database design",
+    "timestamp": 1765745549,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_f1134b0f",
+    "prompt_text": "What's a good analogy for understanding Git?",
+    "timestamp": 1765749030,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_3b8b5b9b",
+    "prompt_text": "Examples of how to use React hooks in practice",
+    "timestamp": 1765753740,
+    "tokens": 11.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cf75acd4",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1765760395,
+    "tokens": 9.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_bfd494e1",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1765761942,
+    "tokens": 9.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d2bae87f",
+    "prompt_text": "Relate microservices to something I can visualize",
+    "timestamp": 1765812891,
+    "tokens": 12.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_a0b76849",
+    "prompt_text": "Give me the gist of microservices",
+    "timestamp": 1765819763,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_66dd455c",
+    "prompt_text": "Best way to structure a React application?",
+    "timestamp": 1765820743,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_c23bfe8d",
+    "prompt_text": "Deep dive into PostgreSQL query optimization",
+    "timestamp": 1765824528,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_8bf8e154",
+    "prompt_text": "Quick overview of Python async/await",
+    "timestamp": 1765826463,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_513d80b1",
+    "prompt_text": "Brief explanation of blockchain",
+    "timestamp": 1765826707,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_45dac4d4",
+    "prompt_text": "Use an analogy to explain cloud computing",
+    "timestamp": 1765833292,
+    "tokens": 10.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_d0743287",
+    "prompt_text": "Diagram the MVC architecture",
+    "timestamp": 1765862212,
+    "tokens": 7.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_81c907ce",
+    "prompt_text": "What's Redux? Short answer please",
+    "timestamp": 1765890739,
+    "tokens": 8.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_cde7c8e5",
+    "prompt_text": "Complete guide to AWS Lambda with best practices",
+    "timestamp": 1765890862,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_dc813e32",
+    "prompt_text": "Detailed OAuth2 explanation with all grant types",
+    "timestamp": 1765893762,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_218b3092",
+    "prompt_text": "Can you provide sample code for JWT authentication?",
+    "timestamp": 1765906073,
+    "tokens": 12.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_94c2b054",
+    "prompt_text": "Quick rundown of design patterns",
+    "timestamp": 1765921941,
+    "tokens": 8.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_6c96fefc",
+    "prompt_text": "Brief explanation of blockchain",
+    "timestamp": 1765958071,
+    "tokens": 7.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_77f73a70",
+    "prompt_text": "Industry standards for database design",
+    "timestamp": 1765961121,
+    "tokens": 9.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_0b4cd476",
+    "prompt_text": "Security best practices for Node.js",
+    "timestamp": 1765973859,
+    "tokens": 8.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_40426e79",
+    "prompt_text": "How should I organize my Git commits?",
+    "timestamp": 1765974876,
+    "tokens": 9.2,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_9c86e777",
+    "prompt_text": "Discuss the principles of functional programming",
+    "timestamp": 1765977266,
+    "tokens": 12.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_4287536b",
+    "prompt_text": "Security best practices for Node.js",
+    "timestamp": 1765983861,
+    "tokens": 8.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_16484fcf",
+    "prompt_text": "Demonstrate REST API with actual use cases",
+    "timestamp": 1765993363,
+    "tokens": 10.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_4f3ad852",
+    "prompt_text": "Show practical examples of recursion",
+    "timestamp": 1765996185,
+    "tokens": 9.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_779f93bb",
+    "prompt_text": "What does scalability mean in plain English?",
+    "timestamp": 1765998733,
+    "tokens": 11.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_2f8476fc",
+    "prompt_text": "What are the SOLID principles?",
+    "timestamp": 1766005688,
+    "tokens": 7.5,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_20c591f8",
+    "prompt_text": "TL;DR on GraphQL vs REST",
+    "timestamp": 1766006116,
+    "tokens": 6.0,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  },
+  {
+    "prompt_id": "prompt_07895fa3",
+    "prompt_text": "Show me a chart comparing SQL databases",
+    "timestamp": 1766064328,
+    "tokens": 9.8,
+    "user_id": "user_102",
+    "session_id": "session_4827"
+  }
+]
