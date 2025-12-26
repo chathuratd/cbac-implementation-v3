@@ -1,6 +1,23 @@
 """
 Calculation Engine for CBIE System
 Implements all formulas from MVP documentation
+
+⚠️ IMPORTANT: Some methods are DEPRECATED (marked with ⚠️ warnings)
+These were used in the old observation-centric pipeline.
+
+ACTIVE METHODS (used in cluster-centric pipeline):
+  ✅ calculate_cluster_strength() - Main cluster scoring
+  ✅ calculate_cluster_confidence() - Confidence metrics
+  ✅ select_canonical_label() - Label selection
+  ✅ calculate_recency_factor() - Temporal decay
+
+DEPRECATED METHODS (not used, kept for reference):
+  ❌ calculate_behavior_weight() - Old BW formula
+  ❌ calculate_adjusted_behavior_weight() - Old ABW formula
+  ❌ calculate_cluster_cbi() - Old CBI formula
+  ❌ select_canonical_behavior() - Old selection method
+  ❌ assign_tier() - Old tier assignment
+  ❌ calculate_temporal_metrics() - Old temporal calc
 """
 import math
 from typing import List, Dict, Any, Optional
@@ -33,9 +50,14 @@ class CalculationEngine:
         extraction_confidence: float
     ) -> float:
         """
+        ⚠️ DEPRECATED - NOT USED IN CLUSTER-CENTRIC PIPELINE ⚠️
+        
         Calculate Behavior Weight (BW)
         
         Formula: BW = credibility^α × clarity_score^β × extraction_confidence^γ
+        
+        STATUS: Legacy method from observation-centric approach.
+        The cluster pipeline uses direct credibility scoring instead.
         
         Args:
             credibility: Trustworthiness (0-1)
@@ -66,9 +88,14 @@ class CalculationEngine:
         days_since_last_seen: float
     ) -> float:
         """
+        ⚠️ DEPRECATED - NOT USED IN CLUSTER-CENTRIC PIPELINE ⚠️
+        
         Calculate Adjusted Behavior Weight (ABW)
         
         Formula: ABW = BW × (1 + reinforcement_count × r) × e^(-decay_rate × days_since_last_seen)
+        
+        STATUS: Legacy method from observation-centric approach.
+        The cluster pipeline uses direct temporal decay calculation instead.
         
         Args:
             behavior_weight: Base behavior weight (BW)
@@ -171,9 +198,13 @@ class CalculationEngine:
     
     def calculate_cluster_cbi(self, abw_list: List[float]) -> float:
         """
+        ⚠️ DEPRECATED - NOT USED IN CLUSTER-CENTRIC PIPELINE ⚠️
+        
         Calculate Cluster Core Behavior Index (CBI)
         
         Formula: Cluster_CBI = Σ(ABW_i) / N
+        
+        STATUS: Replaced by calculate_cluster_strength() which uses logarithmic scaling.
         
         Args:
             abw_list: List of Adjusted Behavior Weights in the cluster
@@ -197,7 +228,11 @@ class CalculationEngine:
         behaviors_with_abw: List[Dict[str, Any]]
     ) -> str:
         """
+        ⚠️ DEPRECATED - NOT USED IN CLUSTER-CENTRIC PIPELINE ⚠️
+        
         Select canonical behavior from cluster (highest ABW)
+        
+        STATUS: Replaced by select_canonical_label() which uses a different selection strategy.
         
         Args:
             behaviors_with_abw: List of dicts with 'behavior_id' and 'abw' keys
@@ -219,12 +254,17 @@ class CalculationEngine:
     
     def assign_tier(self, cluster_cbi: float) -> TierEnum:
         """
+        ⚠️ DEPRECATED - NOT USED IN CLUSTER-CENTRIC PIPELINE ⚠️
+        
         Assign tier based on Cluster CBI
         
         Rules:
         - PRIMARY: CBI ≥ 1.0
         - SECONDARY: 0.7 ≤ CBI < 1.0
         - NOISE: CBI < 0.7
+        
+        STATUS: Replaced by _assign_tier_by_strength() in cluster_analysis_pipeline.py
+        which uses different thresholds for cluster strength.
         
         Args:
             cluster_cbi: Cluster Core Behavior Index
@@ -248,7 +288,11 @@ class CalculationEngine:
         prompt_timestamps: List[int]
     ) -> TemporalSpan:
         """
+        ⚠️ DEPRECATED - NOT USED IN CLUSTER-CENTRIC PIPELINE ⚠️
+        
         Calculate temporal metrics for a behavior cluster
+        
+        STATUS: Temporal calculations are now done directly in cluster_analysis_pipeline.py
         
         Args:
             prompt_timestamps: List of Unix timestamps from related prompts

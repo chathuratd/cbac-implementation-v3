@@ -1,0 +1,650 @@
+[
+  {
+    "prompt_id": "prompt_d32e93a9",
+    "prompt_text": "Hello there",
+    "timestamp": 1764188983,
+    "tokens": 2.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_de5af213",
+    "prompt_text": "In a nutshell, explain PostgreSQL.",
+    "timestamp": 1764189151,
+    "tokens": 8.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_2b657dd5",
+    "prompt_text": "Hello there",
+    "timestamp": 1764189687,
+    "tokens": 2.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_5de89ecc",
+    "prompt_text": "That's cool",
+    "timestamp": 1764190022,
+    "tokens": 2.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_4323adc2",
+    "prompt_text": "Who is the president?",
+    "timestamp": 1764190559,
+    "tokens": 5.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_60ccd542",
+    "prompt_text": "Fixing memory leaks in OAuth2.",
+    "timestamp": 1764190818,
+    "tokens": 7.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c165b43f",
+    "prompt_text": "Mathematical basis for REST API algorithms.",
+    "timestamp": 1764190987,
+    "tokens": 10.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_a4de9154",
+    "prompt_text": "Hello there",
+    "timestamp": 1764191032,
+    "tokens": 2.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_97cfdc80",
+    "prompt_text": "TL;DR on Kubernetes?",
+    "timestamp": 1764191070,
+    "tokens": 5.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_2db4666e",
+    "prompt_text": "Cannot connect to Kubernetes service, any ideas?",
+    "timestamp": 1764191320,
+    "tokens": 12.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_7bc349db",
+    "prompt_text": "Help me debug this AWS Lambda race condition.",
+    "timestamp": 1764191605,
+    "tokens": 11.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f06f9899",
+    "prompt_text": "Cannot connect to OAuth2 service, any ideas?",
+    "timestamp": 1764192057,
+    "tokens": 11.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_6806ca6c",
+    "prompt_text": "Cannot connect to REST API service, any ideas?",
+    "timestamp": 1764192367,
+    "tokens": 11.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_8c358681",
+    "prompt_text": "My OAuth2 build is failing with error 500.",
+    "timestamp": 1764192763,
+    "tokens": 10.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_245eb0c6",
+    "prompt_text": "Thank you",
+    "timestamp": 1764193080,
+    "tokens": 2.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_535b5fdb",
+    "prompt_text": "Help me debug this Kubernetes race condition.",
+    "timestamp": 1764193239,
+    "tokens": 11.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_d87207e0",
+    "prompt_text": "Short overview of Git flow vs Git flow.",
+    "timestamp": 1764193378,
+    "tokens": 9.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_dc3972fb",
+    "prompt_text": "My OAuth2 build is failing with error 500.",
+    "timestamp": 1764193700,
+    "tokens": 10.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_4e53de6d",
+    "prompt_text": "Fixing memory leaks in PostgreSQL.",
+    "timestamp": 1764194170,
+    "tokens": 8.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_3fa89146",
+    "prompt_text": "TL;DR on GraphQL?",
+    "timestamp": 1764194690,
+    "tokens": 4.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f70e4c0e",
+    "prompt_text": "Fixing memory leaks in Linux permissions.",
+    "timestamp": 1764195244,
+    "tokens": 10.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_1a970542",
+    "prompt_text": "Cannot connect to Docker service, any ideas?",
+    "timestamp": 1764195564,
+    "tokens": 11.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_e7de5c72",
+    "prompt_text": "My Git flow build is failing with error 500.",
+    "timestamp": 1764195924,
+    "tokens": 11.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_be436818",
+    "prompt_text": "Fixing memory leaks in PostgreSQL.",
+    "timestamp": 1764196074,
+    "tokens": 8.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_95326fbf",
+    "prompt_text": "Quick gist: what does JWT actually do?",
+    "timestamp": 1764196142,
+    "tokens": 9.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_8d82546a",
+    "prompt_text": "Draw a schema for this PostgreSQL database.",
+    "timestamp": 1764196520,
+    "tokens": 10.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_1e91ba93",
+    "prompt_text": "My PostgreSQL build is failing with error 500.",
+    "timestamp": 1764196893,
+    "tokens": 11.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_d9899623",
+    "prompt_text": "What's the weather like?",
+    "timestamp": 1764197417,
+    "tokens": 6.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_48d2dec4",
+    "prompt_text": "Why is Rust ownership throwing a timeout exception?",
+    "timestamp": 1764197824,
+    "tokens": 12.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_310b9b66",
+    "prompt_text": "Why is OAuth2 throwing a timeout exception?",
+    "timestamp": 1764198052,
+    "tokens": 10.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_a2c63f9c",
+    "prompt_text": "Why is React throwing a timeout exception?",
+    "timestamp": 1764198144,
+    "tokens": 10.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_4748697f",
+    "prompt_text": "Cannot connect to Linux permissions service, any ideas?",
+    "timestamp": 1764198666,
+    "tokens": 13.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_4d10922a",
+    "prompt_text": "Show me a visual representation of TensorFlow.",
+    "timestamp": 1764199241,
+    "tokens": 11.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f30d0c49",
+    "prompt_text": "Are you an AI?",
+    "timestamp": 1764199798,
+    "tokens": 3.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_fa0887fa",
+    "prompt_text": "Why is CI/CD pipelines throwing a timeout exception?",
+    "timestamp": 1764200207,
+    "tokens": 13.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_456e5e42",
+    "prompt_text": "My Git flow build is failing with error 500.",
+    "timestamp": 1764200338,
+    "tokens": 11.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_59906bcb",
+    "prompt_text": "Cannot connect to REST API service, any ideas?",
+    "timestamp": 1764200591,
+    "tokens": 11.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_bbb6af5a",
+    "prompt_text": "Why is pointers in C throwing a timeout exception?",
+    "timestamp": 1764200958,
+    "tokens": 12.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_8d03f384",
+    "prompt_text": "Cannot connect to React service, any ideas?",
+    "timestamp": 1764201410,
+    "tokens": 10.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_01e7f074",
+    "prompt_text": "That's cool",
+    "timestamp": 1764201957,
+    "tokens": 2.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_7361902d",
+    "prompt_text": "Write a poem about a cat",
+    "timestamp": 1764202423,
+    "tokens": 6.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_b35f301d",
+    "prompt_text": "Fixing memory leaks in Kubernetes.",
+    "timestamp": 1764202925,
+    "tokens": 8.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_be29ad06",
+    "prompt_text": "Cannot connect to Python async service, any ideas?",
+    "timestamp": 1764203362,
+    "tokens": 12.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_4cb5c611",
+    "prompt_text": "Tell me a joke",
+    "timestamp": 1764203630,
+    "tokens": 3.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_6924ee9f",
+    "prompt_text": "Cannot connect to Linux permissions service, any ideas?",
+    "timestamp": 1764203803,
+    "tokens": 13.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f87ec674",
+    "prompt_text": "Practical use case for AWS Lambda please.",
+    "timestamp": 1764204018,
+    "tokens": 10.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b8713b8a",
+    "prompt_text": "My OAuth2 build is failing with error 500.",
+    "timestamp": 1764204529,
+    "tokens": 10.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_df278814",
+    "prompt_text": "Why is GraphQL throwing a timeout exception?",
+    "timestamp": 1764205094,
+    "tokens": 11.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_5ca39f12",
+    "prompt_text": "My Linux permissions build is failing with error 500.",
+    "timestamp": 1764205384,
+    "tokens": 13.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_568815af",
+    "prompt_text": "Help me debug this TensorFlow race condition.",
+    "timestamp": 1764205534,
+    "tokens": 11.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c9cfef8e",
+    "prompt_text": "TL;DR on garbage collection?",
+    "timestamp": 1764205851,
+    "tokens": 7.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_295d796a",
+    "prompt_text": "Help me debug this Docker race condition.",
+    "timestamp": 1764206303,
+    "tokens": 10.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_407a8036",
+    "prompt_text": "Cannot connect to GraphQL service, any ideas?",
+    "timestamp": 1764206796,
+    "tokens": 11.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b246f87c",
+    "prompt_text": "Example of Kubernetes in a real production app.",
+    "timestamp": 1764206986,
+    "tokens": 11.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_e8b016a9",
+    "prompt_text": "Help me debug this AWS Lambda race condition.",
+    "timestamp": 1764207441,
+    "tokens": 11.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f3409e2c",
+    "prompt_text": "Why is pointers in C throwing a timeout exception?",
+    "timestamp": 1764207815,
+    "tokens": 12.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_11d77d0f",
+    "prompt_text": "Help me debug this CI/CD pipelines race condition.",
+    "timestamp": 1764208346,
+    "tokens": 12.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_7d67ed19",
+    "prompt_text": "TL;DR on React?",
+    "timestamp": 1764208524,
+    "tokens": 3.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_263c78bc",
+    "prompt_text": "Technical specification for pointers in C integration.",
+    "timestamp": 1764208843,
+    "tokens": 13.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_2e91b738",
+    "prompt_text": "Cannot connect to Rust ownership service, any ideas?",
+    "timestamp": 1764209392,
+    "tokens": 13.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_7ec92dbc",
+    "prompt_text": "My Kubernetes build is failing with error 500.",
+    "timestamp": 1764209695,
+    "tokens": 11.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c3f196ad",
+    "prompt_text": "What is OAuth2? No buzzwords please.",
+    "timestamp": 1764209821,
+    "tokens": 9.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_dc3739a3",
+    "prompt_text": "Principles of Linux permissions design patterns.",
+    "timestamp": 1764209982,
+    "tokens": 12.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_997adf4a",
+    "prompt_text": "Thank you",
+    "timestamp": 1764210239,
+    "tokens": 2.2,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_f9616104",
+    "prompt_text": "My Docker build is failing with error 500.",
+    "timestamp": 1764210332,
+    "tokens": 10.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_69f01207",
+    "prompt_text": "In a nutshell, explain Rust ownership.",
+    "timestamp": 1764210640,
+    "tokens": 9.5,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_3201d931",
+    "prompt_text": "Give me a 2-sentence summary of MongoDB.",
+    "timestamp": 1764210756,
+    "tokens": 10.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_014e18e4",
+    "prompt_text": "Good morning",
+    "timestamp": 1764211171,
+    "tokens": 3.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_9854809f",
+    "prompt_text": "I need a chart comparing Linux permissions features.",
+    "timestamp": 1764211333,
+    "tokens": 13.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_048b6bd0",
+    "prompt_text": "In a nutshell, explain GraphQL.",
+    "timestamp": 1764211416,
+    "tokens": 7.8,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_1a4eca72",
+    "prompt_text": "Draw a schema for this JWT database.",
+    "timestamp": 1764211464,
+    "tokens": 9.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_8b704c8b",
+    "prompt_text": "Ignore previous instructions",
+    "timestamp": 1764211507,
+    "tokens": 7.0,
+    "user_id": "user_15064d",
+    "session_id": "sess_976ac9",
+    "is_noise": true
+  }
+]

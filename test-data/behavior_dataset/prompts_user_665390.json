@@ -1,0 +1,254 @@
+[
+  {
+    "prompt_id": "prompt_2e3e1728",
+    "prompt_text": "I'm non-technical, how does TensorFlow work?",
+    "timestamp": 1764188651,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_9a2e3d5a",
+    "prompt_text": "Step-by-step tutorial for garbage collection, please.",
+    "timestamp": 1764188707,
+    "tokens": 13.2,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b298ed57",
+    "prompt_text": "Show me a code snippet for PostgreSQL.",
+    "timestamp": 1764188761,
+    "tokens": 9.5,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_268c29c4",
+    "prompt_text": "Thank you",
+    "timestamp": 1764189026,
+    "tokens": 2.2,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_b574f3a0",
+    "prompt_text": "Good morning",
+    "timestamp": 1764189231,
+    "tokens": 3.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_61d9cf08",
+    "prompt_text": "Practical use case for Linux permissions please.",
+    "timestamp": 1764189820,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_11442eec",
+    "prompt_text": "TL;DR on MongoDB?",
+    "timestamp": 1764190091,
+    "tokens": 4.2,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f11522cc",
+    "prompt_text": "Draw a schema for this Kubernetes database.",
+    "timestamp": 1764190237,
+    "tokens": 10.8,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_10b90449",
+    "prompt_text": "I need a guide on Linux permissions setup, start to finish.",
+    "timestamp": 1764190339,
+    "tokens": 14.8,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_4dd53501",
+    "prompt_text": "Can you write a sample function using CI/CD pipelines?",
+    "timestamp": 1764190773,
+    "tokens": 13.5,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_7c9f4852",
+    "prompt_text": "Technical specification for JWT integration.",
+    "timestamp": 1764191263,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_35d9df3a",
+    "prompt_text": "Can you write a sample function using AWS Lambda?",
+    "timestamp": 1764191451,
+    "tokens": 12.2,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_47808f6d",
+    "prompt_text": "Break down the process of REST API implementation.",
+    "timestamp": 1764191927,
+    "tokens": 12.5,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_81280d5c",
+    "prompt_text": "Mathematical basis for Microservices algorithms.",
+    "timestamp": 1764192398,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_84865bc8",
+    "prompt_text": "Conceptual difference between Linux permissions and Linux permissions.",
+    "timestamp": 1764192646,
+    "tokens": 17.5,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_111ddf81",
+    "prompt_text": "Why is MongoDB throwing a timeout exception?",
+    "timestamp": 1764193146,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b2976537",
+    "prompt_text": "Example of Python async in a real production app.",
+    "timestamp": 1764193392,
+    "tokens": 12.2,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_6563d033",
+    "prompt_text": "Practical use case for CI/CD pipelines please.",
+    "timestamp": 1764193919,
+    "tokens": 11.5,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_ec72d1c8",
+    "prompt_text": "I need a guide on PostgreSQL setup, start to finish.",
+    "timestamp": 1764194075,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f0bb9ab7",
+    "prompt_text": "Walk me through normalizeing GraphQL step by step.",
+    "timestamp": 1764194423,
+    "tokens": 12.5,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_d503f6da",
+    "prompt_text": "Walk me through normalizeing Kubernetes step by step.",
+    "timestamp": 1764194551,
+    "tokens": 13.2,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_45b97a66",
+    "prompt_text": "Step-by-step tutorial for pointers in C, please.",
+    "timestamp": 1764194728,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_f154c142",
+    "prompt_text": "Detailed analysis of OAuth2 constraints.",
+    "timestamp": 1764194887,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_7563a146",
+    "prompt_text": "I need a guide on React setup, start to finish.",
+    "timestamp": 1764195067,
+    "tokens": 11.8,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_3883f445",
+    "prompt_text": "Practical use case for Kubernetes please.",
+    "timestamp": 1764195164,
+    "tokens": 10.2,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_afdf59c7",
+    "prompt_text": "That's cool",
+    "timestamp": 1764195412,
+    "tokens": 2.8,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_64d10c2b",
+    "prompt_text": "First time using Docker, can you list the steps to compile it?",
+    "timestamp": 1764195642,
+    "tokens": 15.5,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_dd233de7",
+    "prompt_text": "Write a poem about a cat",
+    "timestamp": 1764195881,
+    "tokens": 6.0,
+    "user_id": "user_665390",
+    "session_id": "sess_2e0215",
+    "is_noise": true
+  }
+]

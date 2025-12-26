@@ -122,7 +122,12 @@ Return ONLY the archetype label, nothing else."""
         user_id: Optional[str] = None
     ) -> str:
         """
+        ⚠️ POTENTIALLY UNUSED - Check if called in cluster-centric pipeline ⚠️
+        
         Generate archetype with additional context about user statistics
+        
+        STATUS: This enhanced version may not be used. The cluster pipeline might only use
+        generate_archetype() without the statistics context.
         
         Args:
             canonical_behaviors: List of behavior text strings

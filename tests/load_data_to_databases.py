@@ -7,6 +7,7 @@ import json
 import logging
 import sys
 import os
+import time
 from pathlib import Path
 from typing import List, Dict
 
@@ -181,21 +182,21 @@ def main():
         logger.info("Saving behaviors to MongoDB...")
         logger.info("="*50)
         try:
-            # Convert old format to new BehaviorObservation format
+            # Convert generated format to BehaviorObservation format
             behavior_observations = []
             for b in all_behaviors_data:
-                # Map old fields to new fields
+                # Map generated fields to BehaviorObservation fields
                 obs = BehaviorObservation(
-                    observation_id=b.get('behavior_id'),  # Use behavior_id as observation_id
-                    user_id=b.get('user_id'),
+                    observation_id=b.get('behavior_id'),
+                    user_id=b.get('user_id', 'unknown'),
                     behavior_text=b.get('behavior_text'),
-                    timestamp=b.get('created_at'),  # Use created_at as timestamp
-                    prompt_id=b.get('prompt_history_ids', [None])[0] if b.get('prompt_history_ids') else None,  # Use first prompt
-                    session_id=b.get('session_id'),
-                    credibility=b.get('credibility'),
-                    clarity_score=b.get('clarity_score', 0.75),  # Default value for old data
-                    extraction_confidence=b.get('extraction_confidence', 0.80),  # Default value for old data
-                    decay_rate=b.get('decay_rate')
+                    timestamp=b.get('last_seen', int(time.time())),  # Use last_seen as timestamp
+                    prompt_id=b.get('prompt_history_ids', ['unknown'])[0] if b.get('prompt_history_ids') else 'unknown',
+                    session_id=b.get('session_id', 'unknown'),
+                    credibility=b.get('credibility', 0.75),
+                    clarity_score=b.get('clarity_score', 0.75),
+                    extraction_confidence=b.get('confidence', 0.80),  # Map confidence to extraction_confidence
+                    decay_rate=0.01  # Default decay rate
                 )
                 behavior_observations.append(obs)
             

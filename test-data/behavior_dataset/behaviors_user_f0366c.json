@@ -1,0 +1,81 @@
+[
+  {
+    "behavior_id": "beh_38fa1190",
+    "behavior_text": "prefers detailed technical documentation",
+    "credibility": 1.0,
+    "reinforcement_count": 10,
+    "last_seen": 1764196913,
+    "prompt_history_ids": [
+      "prompt_3368ef9b",
+      "prompt_c4d67884",
+      "prompt_70a43623",
+      "prompt_78c828af",
+      "prompt_46b6f3e1",
+      "prompt_f8c8c2a0",
+      "prompt_4575f8fc",
+      "prompt_3b321e3d",
+      "prompt_17a1628c",
+      "prompt_d69a33e7"
+    ],
+    "clarity_score": 0.79,
+    "confidence": 0.71
+  },
+  {
+    "behavior_id": "beh_22da9365",
+    "behavior_text": "prefers visual learning",
+    "credibility": 0.96,
+    "reinforcement_count": 8,
+    "last_seen": 1764196644,
+    "prompt_history_ids": [
+      "prompt_15028dbf",
+      "prompt_db6cde96",
+      "prompt_bc454ea8",
+      "prompt_a2200827",
+      "prompt_4f471b51",
+      "prompt_931250d4",
+      "prompt_7237dbe1",
+      "prompt_04764995"
+    ],
+    "clarity_score": 0.93,
+    "confidence": 0.81
+  },
+  {
+    "behavior_id": "beh_255e93ac",
+    "behavior_text": "troubleshooting oriented",
+    "credibility": 0.82,
+    "reinforcement_count": 1,
+    "last_seen": 1764190987,
+    "prompt_history_ids": [
+      "prompt_26bcb52b"
+    ],
+    "clarity_score": 0.86,
+    "confidence": 0.97
+  },
+  {
+    "behavior_id": "beh_35874799",
+    "behavior_text": "prefers step-by-step guides",
+    "credibility": 0.82,
+    "reinforcement_count": 1,
+    "last_seen": 1764194051,
+    "prompt_history_ids": [
+      "prompt_cb671869"
+    ],
+    "clarity_score": 0.85,
+    "confidence": 0.85
+  },
+  {
+    "behavior_id": "beh_96842472",
+    "behavior_text": "likes quick summaries",
+    "credibility": 0.88,
+    "reinforcement_count": 4,
+    "last_seen": 1764196512,
+    "prompt_history_ids": [
+      "prompt_3307f665",
+      "prompt_0e7ab267",
+      "prompt_15f0d4de",
+      "prompt_c52b669b"
+    ],
+    "clarity_score": 0.93,
+    "confidence": 0.78
+  }
+]

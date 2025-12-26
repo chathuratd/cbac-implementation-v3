@@ -1,6 +1,20 @@
 """
-Analysis Pipeline for CBIE System
-Orchestrates the complete core behavior identification workflow
+⚠️⚠️⚠️ DEPRECATED - DO NOT USE ⚠️⚠️⚠️
+
+THIS FILE IS NO LONGER USED IN THE SYSTEM!
+
+Analysis Pipeline for CBIE System (OLD OBSERVATION-CENTRIC APPROACH)
+
+REPLACED BY: cluster_analysis_pipeline.py (NEW CLUSTER-CENTRIC APPROACH)
+
+This file implements the OLD pipeline where individual behaviors were primary entities.
+The system now uses a cluster-centric approach where clusters are the primary entities.
+
+STATUS: Kept for reference only. Not called by any active code.
+LAST USED: Before December 2025
+REPLACEMENT: src/services/cluster_analysis_pipeline.py
+
+⚠️⚠️⚠️ DEPRECATED - DO NOT USE ⚠️⚠️⚠️
 """
 from typing import List, Dict, Any, Optional
 import time

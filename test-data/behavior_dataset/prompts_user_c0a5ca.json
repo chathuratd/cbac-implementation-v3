@@ -1,0 +1,623 @@
+[
+  {
+    "prompt_id": "prompt_23a35a94",
+    "prompt_text": "Technical specification for pointers in C integration.",
+    "timestamp": 1764189373,
+    "tokens": 13.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_05905cea",
+    "prompt_text": "Deep dive into AWS Lambda memory management.",
+    "timestamp": 1764189761,
+    "tokens": 11.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c0e04746",
+    "prompt_text": "Quick gist: what does React actually do?",
+    "timestamp": 1764189977,
+    "tokens": 10.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_e37dc79c",
+    "prompt_text": "Walk me through refactoring Microservices step by step.",
+    "timestamp": 1764190123,
+    "tokens": 13.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_aaed9a0e",
+    "prompt_text": "Technical specification for Python async integration.",
+    "timestamp": 1764190232,
+    "tokens": 13.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_d41db890",
+    "prompt_text": "Technical specification for Python async integration.",
+    "timestamp": 1764190526,
+    "tokens": 13.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_56f87990",
+    "prompt_text": "Comprehensive documentation on garbage collection deploy protocols.",
+    "timestamp": 1764190636,
+    "tokens": 16.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_252c1293",
+    "prompt_text": "Show me a visual representation of REST API.",
+    "timestamp": 1764191136,
+    "tokens": 11.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_3dae7c95",
+    "prompt_text": "Draw a schema for this OAuth2 database.",
+    "timestamp": 1764191177,
+    "tokens": 9.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_7894c854",
+    "prompt_text": "Can you generate a diagram for GraphQL architecture?",
+    "timestamp": 1764191327,
+    "tokens": 13.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_5c4908d6",
+    "prompt_text": "Can you generate a diagram for Linux permissions architecture?",
+    "timestamp": 1764191855,
+    "tokens": 15.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c088239c",
+    "prompt_text": "Can you generate a diagram for AWS Lambda architecture?",
+    "timestamp": 1764191975,
+    "tokens": 13.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_513f4ed0",
+    "prompt_text": "Comprehensive documentation on MongoDB containerize protocols.",
+    "timestamp": 1764192489,
+    "tokens": 15.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_6b75e85e",
+    "prompt_text": "Step-by-step tutorial for pointers in C, please.",
+    "timestamp": 1764192983,
+    "tokens": 12.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_ad7b1935",
+    "prompt_text": "Technical specification for pointers in C integration.",
+    "timestamp": 1764193347,
+    "tokens": 13.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c688a0c7",
+    "prompt_text": "Draw a schema for this Docker database.",
+    "timestamp": 1764193608,
+    "tokens": 9.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_4462c4cb",
+    "prompt_text": "Who is the president?",
+    "timestamp": 1764193836,
+    "tokens": 5.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_7b204224",
+    "prompt_text": "I need a chart comparing OAuth2 features.",
+    "timestamp": 1764194134,
+    "tokens": 10.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_a4d98ab8",
+    "prompt_text": "Comprehensive documentation on Kubernetes mock protocols.",
+    "timestamp": 1764194350,
+    "tokens": 14.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_3e6b8af5",
+    "prompt_text": "Detailed analysis of Kubernetes constraints.",
+    "timestamp": 1764194733,
+    "tokens": 11.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_2665984d",
+    "prompt_text": "Comprehensive documentation on Kubernetes containerize protocols.",
+    "timestamp": 1764195300,
+    "tokens": 16.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_cf75dd74",
+    "prompt_text": "Can you generate a diagram for Docker architecture?",
+    "timestamp": 1764195824,
+    "tokens": 12.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_557f95fd",
+    "prompt_text": "Detailed analysis of Rust ownership constraints.",
+    "timestamp": 1764196165,
+    "tokens": 12.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_00de9d53",
+    "prompt_text": "TL;DR on GraphQL?",
+    "timestamp": 1764196564,
+    "tokens": 4.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_cf2fff04",
+    "prompt_text": "Draw a schema for this Linux permissions database.",
+    "timestamp": 1764196680,
+    "tokens": 12.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b81a79f1",
+    "prompt_text": "Short overview of Docker vs Docker.",
+    "timestamp": 1764197239,
+    "tokens": 8.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_66197a87",
+    "prompt_text": "Can you generate a diagram for CI/CD pipelines architecture?",
+    "timestamp": 1764197446,
+    "tokens": 15.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_cfc37e47",
+    "prompt_text": "Quick gist: what does React actually do?",
+    "timestamp": 1764197878,
+    "tokens": 10.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b3961c39",
+    "prompt_text": "Visualize the flow of data in JWT.",
+    "timestamp": 1764198315,
+    "tokens": 8.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_95a0b792",
+    "prompt_text": "Technical specification for Rust ownership integration.",
+    "timestamp": 1764198464,
+    "tokens": 13.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b494e60a",
+    "prompt_text": "In a nutshell, explain JWT.",
+    "timestamp": 1764198735,
+    "tokens": 6.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_9ff35736",
+    "prompt_text": "Deep dive into REST API memory management.",
+    "timestamp": 1764198794,
+    "tokens": 10.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_eef554c3",
+    "prompt_text": "Quick gist: what does JWT actually do?",
+    "timestamp": 1764199297,
+    "tokens": 9.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_2f427813",
+    "prompt_text": "Comprehensive documentation on Kubernetes deploy protocols.",
+    "timestamp": 1764199719,
+    "tokens": 14.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c39b2a8a",
+    "prompt_text": "Good morning",
+    "timestamp": 1764199876,
+    "tokens": 3.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_7f8baf1d",
+    "prompt_text": "Fixing memory leaks in MongoDB.",
+    "timestamp": 1764200179,
+    "tokens": 7.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_de472a1a",
+    "prompt_text": "Quick gist: what does React actually do?",
+    "timestamp": 1764200358,
+    "tokens": 10.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_0a9eab26",
+    "prompt_text": "Are you an AI?",
+    "timestamp": 1764200472,
+    "tokens": 3.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_b157fb10",
+    "prompt_text": "Technical specification for pointers in C integration.",
+    "timestamp": 1764201024,
+    "tokens": 13.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_496399e4",
+    "prompt_text": "Draw a schema for this React database.",
+    "timestamp": 1764201161,
+    "tokens": 9.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_474d9e83",
+    "prompt_text": "Technical specification for Rust ownership integration.",
+    "timestamp": 1764201377,
+    "tokens": 13.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_38197b38",
+    "prompt_text": "Detailed analysis of garbage collection constraints.",
+    "timestamp": 1764201420,
+    "tokens": 13.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c532ab4e",
+    "prompt_text": "Are you an AI?",
+    "timestamp": 1764201547,
+    "tokens": 3.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_84bc0e4e",
+    "prompt_text": "Walk me through containerizeing REST API step by step.",
+    "timestamp": 1764201693,
+    "tokens": 13.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_a629181e",
+    "prompt_text": "That's cool",
+    "timestamp": 1764202066,
+    "tokens": 2.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": true
+  },
+  {
+    "prompt_id": "prompt_b0e0b16e",
+    "prompt_text": "Visualize the flow of data in REST API.",
+    "timestamp": 1764202388,
+    "tokens": 9.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_31de3b36",
+    "prompt_text": "Explain Git flow like I'm 5 years old.",
+    "timestamp": 1764202606,
+    "tokens": 9.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_2952bd6f",
+    "prompt_text": "Can you generate a diagram for Linux permissions architecture?",
+    "timestamp": 1764202659,
+    "tokens": 15.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_64d4ecc5",
+    "prompt_text": "Short overview of GraphQL vs GraphQL.",
+    "timestamp": 1764202953,
+    "tokens": 9.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_411b1d2a",
+    "prompt_text": "Technical specification for Linux permissions integration.",
+    "timestamp": 1764203058,
+    "tokens": 14.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_ff692cba",
+    "prompt_text": "My GraphQL build is failing with error 500.",
+    "timestamp": 1764203109,
+    "tokens": 10.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_d3046ef2",
+    "prompt_text": "Short overview of AWS Lambda vs AWS Lambda.",
+    "timestamp": 1764203409,
+    "tokens": 10.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_fc7cf908",
+    "prompt_text": "I need a chart comparing Git flow features.",
+    "timestamp": 1764203533,
+    "tokens": 10.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_9374a3f5",
+    "prompt_text": "Full reference guide for AWS Lambda flags.",
+    "timestamp": 1764203895,
+    "tokens": 10.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_446e5c5d",
+    "prompt_text": "Explain the CAP theorem relation to TensorFlow.",
+    "timestamp": 1764204185,
+    "tokens": 11.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_2b4bfbdb",
+    "prompt_text": "Help me debug this Kubernetes race condition.",
+    "timestamp": 1764204470,
+    "tokens": 11.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_765d2d79",
+    "prompt_text": "Quick gist: what does React actually do?",
+    "timestamp": 1764204810,
+    "tokens": 10.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_01003a3d",
+    "prompt_text": "TL;DR on GraphQL?",
+    "timestamp": 1764204968,
+    "tokens": 4.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_54e2480f",
+    "prompt_text": "Give me a 2-sentence summary of GraphQL.",
+    "timestamp": 1764205553,
+    "tokens": 10.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_ad1ed409",
+    "prompt_text": "Can you generate a diagram for PostgreSQL architecture?",
+    "timestamp": 1764205759,
+    "tokens": 13.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_a5ef0434",
+    "prompt_text": "Show me a visual representation of garbage collection.",
+    "timestamp": 1764206115,
+    "tokens": 13.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_67a58b89",
+    "prompt_text": "TL;DR on Kubernetes?",
+    "timestamp": 1764206623,
+    "tokens": 5.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_c2426f72",
+    "prompt_text": "Visualize the flow of data in garbage collection.",
+    "timestamp": 1764206835,
+    "tokens": 12.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_649a267a",
+    "prompt_text": "TL;DR on TensorFlow?",
+    "timestamp": 1764207341,
+    "tokens": 5.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_b2cb7be4",
+    "prompt_text": "In a nutshell, explain REST API.",
+    "timestamp": 1764207624,
+    "tokens": 8.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_445675ad",
+    "prompt_text": "Visualize the flow of data in Linux permissions.",
+    "timestamp": 1764208174,
+    "tokens": 12.0,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_cc13ed3a",
+    "prompt_text": "TL;DR on CI/CD pipelines?",
+    "timestamp": 1764208589,
+    "tokens": 6.2,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_0551dc84",
+    "prompt_text": "I need a chart comparing MongoDB features.",
+    "timestamp": 1764208860,
+    "tokens": 10.5,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  },
+  {
+    "prompt_id": "prompt_840ccd9f",
+    "prompt_text": "Technical specification for garbage collection integration.",
+    "timestamp": 1764209444,
+    "tokens": 14.8,
+    "user_id": "user_c0a5ca",
+    "session_id": "sess_f78e34",
+    "is_noise": false
+  }
+]

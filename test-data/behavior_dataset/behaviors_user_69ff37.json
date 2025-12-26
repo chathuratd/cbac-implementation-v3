@@ -1,0 +1,108 @@
+[
+  {
+    "behavior_id": "beh_0b19bb9d",
+    "behavior_text": "prefers visual learning",
+    "credibility": 0.82,
+    "reinforcement_count": 1,
+    "last_seen": 1764188830,
+    "prompt_history_ids": [
+      "prompt_cef2056b"
+    ],
+    "clarity_score": 0.76,
+    "confidence": 0.75
+  },
+  {
+    "behavior_id": "beh_ce4bff34",
+    "behavior_text": "theory and concept focused",
+    "credibility": 0.92,
+    "reinforcement_count": 6,
+    "last_seen": 1764198673,
+    "prompt_history_ids": [
+      "prompt_ed322200",
+      "prompt_c140570b",
+      "prompt_f9499efa",
+      "prompt_7cb56886",
+      "prompt_3dd4e178",
+      "prompt_90a9616b"
+    ],
+    "clarity_score": 0.87,
+    "confidence": 0.79
+  },
+  {
+    "behavior_id": "beh_a677ba57",
+    "behavior_text": "prefers step-by-step guides",
+    "credibility": 1.0,
+    "reinforcement_count": 14,
+    "last_seen": 1764203618,
+    "prompt_history_ids": [
+      "prompt_c255f7d5",
+      "prompt_2292efa0",
+      "prompt_516cd889",
+      "prompt_f020bd34",
+      "prompt_4c258534",
+      "prompt_e5fdb711",
+      "prompt_a617a4ee",
+      "prompt_d7c92999",
+      "prompt_0c581072",
+      "prompt_dfd19ff6",
+      "prompt_cdd5a503",
+      "prompt_2d077494",
+      "prompt_d06c3cf0",
+      "prompt_258a352b"
+    ],
+    "clarity_score": 0.73,
+    "confidence": 0.98
+  },
+  {
+    "behavior_id": "beh_5f0153b1",
+    "behavior_text": "avoids technical jargon",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764200642,
+    "prompt_history_ids": [
+      "prompt_dc15b706",
+      "prompt_a2d4c272"
+    ],
+    "clarity_score": 0.96,
+    "confidence": 0.8
+  },
+  {
+    "behavior_id": "beh_9f2fe33d",
+    "behavior_text": "troubleshooting oriented",
+    "credibility": 0.88,
+    "reinforcement_count": 4,
+    "last_seen": 1764201768,
+    "prompt_history_ids": [
+      "prompt_09ace4c7",
+      "prompt_701d0576",
+      "prompt_2957e6fc",
+      "prompt_44775cbd"
+    ],
+    "clarity_score": 0.85,
+    "confidence": 0.84
+  },
+  {
+    "behavior_id": "beh_14ecec0b",
+    "behavior_text": "learns by examples",
+    "credibility": 1.0,
+    "reinforcement_count": 13,
+    "last_seen": 1764204036,
+    "prompt_history_ids": [
+      "prompt_3b88c803",
+      "prompt_d0842391",
+      "prompt_6b7bccac",
+      "prompt_453daa86",
+      "prompt_3b06dfec",
+      "prompt_90fcf21a",
+      "prompt_8f8cddc7",
+      "prompt_9a88aae4",
+      "prompt_86ee5739",
+      "prompt_0c893e40",
+      "prompt_97f3ed5e",
+      "prompt_49c8e6bf",
+      "prompt_32df5288"
+    ],
+    "clarity_score": 0.85,
+    "confidence": 0.89
+  }
+]

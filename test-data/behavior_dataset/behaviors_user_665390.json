@@ -1,0 +1,114 @@
+[
+  {
+    "behavior_id": "beh_379086fc",
+    "behavior_text": "avoids technical jargon",
+    "credibility": 0.82,
+    "reinforcement_count": 1,
+    "last_seen": 1764188651,
+    "prompt_history_ids": [
+      "prompt_2e3e1728"
+    ],
+    "clarity_score": 0.95,
+    "confidence": 0.81
+  },
+  {
+    "behavior_id": "beh_4cb12a01",
+    "behavior_text": "prefers step-by-step guides",
+    "credibility": 0.98,
+    "reinforcement_count": 9,
+    "last_seen": 1764195642,
+    "prompt_history_ids": [
+      "prompt_9a2e3d5a",
+      "prompt_10b90449",
+      "prompt_47808f6d",
+      "prompt_ec72d1c8",
+      "prompt_f0bb9ab7",
+      "prompt_d503f6da",
+      "prompt_45b97a66",
+      "prompt_7563a146",
+      "prompt_64d10c2b"
+    ],
+    "clarity_score": 0.98,
+    "confidence": 0.92
+  },
+  {
+    "behavior_id": "beh_ed4d6f27",
+    "behavior_text": "learns by examples",
+    "credibility": 0.94,
+    "reinforcement_count": 7,
+    "last_seen": 1764195164,
+    "prompt_history_ids": [
+      "prompt_b298ed57",
+      "prompt_61d9cf08",
+      "prompt_4dd53501",
+      "prompt_35d9df3a",
+      "prompt_b2976537",
+      "prompt_6563d033",
+      "prompt_3883f445"
+    ],
+    "clarity_score": 0.97,
+    "confidence": 0.72
+  },
+  {
+    "behavior_id": "beh_a1a1b557",
+    "behavior_text": "likes quick summaries",
+    "credibility": 0.82,
+    "reinforcement_count": 1,
+    "last_seen": 1764190091,
+    "prompt_history_ids": [
+      "prompt_11442eec"
+    ],
+    "clarity_score": 0.93,
+    "confidence": 0.79
+  },
+  {
+    "behavior_id": "beh_ffac874c",
+    "behavior_text": "prefers visual learning",
+    "credibility": 0.82,
+    "reinforcement_count": 1,
+    "last_seen": 1764190237,
+    "prompt_history_ids": [
+      "prompt_f11522cc"
+    ],
+    "clarity_score": 0.76,
+    "confidence": 0.76
+  },
+  {
+    "behavior_id": "beh_04ae8ea6",
+    "behavior_text": "prefers detailed technical documentation",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764194887,
+    "prompt_history_ids": [
+      "prompt_7c9f4852",
+      "prompt_f154c142"
+    ],
+    "clarity_score": 0.91,
+    "confidence": 0.91
+  },
+  {
+    "behavior_id": "beh_aeca3968",
+    "behavior_text": "theory and concept focused",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764192646,
+    "prompt_history_ids": [
+      "prompt_81280d5c",
+      "prompt_84865bc8"
+    ],
+    "clarity_score": 0.81,
+    "confidence": 0.7
+  },
+  {
+    "behavior_id": "beh_d8c648cc",
+    "behavior_text": "troubleshooting oriented",
+    "credibility": 0.82,
+    "reinforcement_count": 1,
+    "last_seen": 1764193146,
+    "prompt_history_ids": [
+      "prompt_111ddf81"
+    ],
+    "clarity_score": 0.92,
+    "confidence": 0.71
+  }
+]

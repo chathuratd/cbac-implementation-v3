@@ -1,0 +1,67 @@
+[
+  {
+    "behavior_id": "beh_ec84de91",
+    "behavior_text": "prefers visual learning",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764189462,
+    "prompt_history_ids": [
+      "prompt_14401c6e",
+      "prompt_57cb374f"
+    ],
+    "clarity_score": 0.86,
+    "confidence": 0.83
+  },
+  {
+    "behavior_id": "beh_0bd891d0",
+    "behavior_text": "troubleshooting oriented",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764191837,
+    "prompt_history_ids": [
+      "prompt_da034961",
+      "prompt_0c1205b4"
+    ],
+    "clarity_score": 0.9,
+    "confidence": 0.72
+  },
+  {
+    "behavior_id": "beh_0d9dbb5b",
+    "behavior_text": "prefers step-by-step guides",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764190497,
+    "prompt_history_ids": [
+      "prompt_b6524186",
+      "prompt_0c025f4b"
+    ],
+    "clarity_score": 0.82,
+    "confidence": 0.84
+  },
+  {
+    "behavior_id": "beh_8ec1e291",
+    "behavior_text": "avoids technical jargon",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764190888,
+    "prompt_history_ids": [
+      "prompt_5df72ce2",
+      "prompt_736c23c3"
+    ],
+    "clarity_score": 0.89,
+    "confidence": 0.8
+  },
+  {
+    "behavior_id": "beh_cfcf4a8e",
+    "behavior_text": "likes quick summaries",
+    "credibility": 0.84,
+    "reinforcement_count": 2,
+    "last_seen": 1764192049,
+    "prompt_history_ids": [
+      "prompt_b3053078",
+      "prompt_b95ca2aa"
+    ],
+    "clarity_score": 0.84,
+    "confidence": 0.87
+  }
+]

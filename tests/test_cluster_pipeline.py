@@ -34,12 +34,29 @@ async def test_cluster_pipeline():
         print(f"   Warning: Could not initialize services: {e}")
         print("   Continuing without embedding/archetype generation...")
     
-    # Load sample data (use larger dataset)
+    # Load sample data (use one of the newly generated datasets)
     print("\n1. Loading sample data...")
-    with open('test-data/behavior_dataset/behaviors_user_102_1766084125.json', 'r') as f:
+    
+    # Find the first available user dataset
+    from pathlib import Path
+    dataset_dir = Path('test-data/behavior_dataset')
+    behavior_files = sorted(dataset_dir.glob('behaviors_user_*.json'))
+    
+    if not behavior_files:
+        print("   ERROR: No behavior files found in test-data/behavior_dataset/")
+        return
+    
+    # Use the first available file
+    behavior_file = behavior_files[0]
+    user_id = behavior_file.stem.replace('behaviors_', '')
+    prompt_file = dataset_dir / f'prompts_{user_id}.json'
+    
+    print(f"   Using dataset for: {user_id}")
+    
+    with open(behavior_file, 'r') as f:
         behaviors_data = json.load(f)
     
-    with open('test-data/behavior_dataset/prompts_user_102_1766084125.json', 'r') as f:
+    with open(prompt_file, 'r') as f:
         prompts_data = json.load(f)
     
     print(f"   Loaded {len(behaviors_data)} behaviors and {len(prompts_data)} prompts")
@@ -53,12 +70,12 @@ async def test_cluster_pipeline():
             behavior_text=b['behavior_text'],
             credibility=b['credibility'],
             clarity_score=b['clarity_score'],
-            extraction_confidence=b['extraction_confidence'],
+            extraction_confidence=b.get('confidence', 0.80),  # Map 'confidence' to 'extraction_confidence'
             timestamp=b.get('created_at', b.get('last_seen', int(time.time()))),
             prompt_id=b['prompt_history_ids'][0] if b['prompt_history_ids'] else 'unknown',
             decay_rate=b.get('decay_rate', 0.01),
-            user_id=b.get('user_id', 'user_348'),
-            session_id=b.get('session_id')
+            user_id=b.get('user_id', 'unknown'),
+            session_id=b.get('session_id', 'unknown')
         )
         observations.append(obs)
     
