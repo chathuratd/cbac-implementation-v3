@@ -108,13 +108,13 @@ class BehaviorCluster(BaseModel):
     cluster_size: int  # len(observations)
     
     # Display label (UI only - NOT used for scoring)
-    canonical_label: str  # Selected by: highest clarity + closest to centroid
-    canonical_observation_id: str
+    canonical_label: str  # LLM-generated or longest/most descriptive text
+    canonical_observation_id: Optional[str] = None  # Deprecated: kept for backward compatibility
     cluster_name: Optional[str] = None  # LLM-generated descriptive name for the cluster
     
     # Cluster-level metrics (the REAL scores)
-    cluster_strength: float  # log(size+1) * mean(ABW) * recency_factor
-    confidence: float  # consistency * reinforcement * clarity_trend
+    cluster_strength: float  # Normalized: log(size+1) * mean(ABW) * recency_factor / (1 + raw)
+    confidence: float  # Multiplicative: consistency * reinforcement
     
     # Aggregated evidence
     all_prompt_ids: List[str]  # All prompts that triggered observations

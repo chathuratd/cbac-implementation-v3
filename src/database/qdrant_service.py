@@ -151,6 +151,7 @@ class QdrantService:
                     "decay_rate": behavior.get("decay_rate"),
                     "created_at": behavior.get("created_at"),
                     "last_seen": behavior.get("last_seen"),
+                    "timestamp": behavior.get("timestamp"),  # Add timestamp field
                     "clarity_score": behavior.get("clarity_score"),
                     "extraction_confidence": behavior.get("extraction_confidence"),
                     "prompt_history_ids": behavior.get("prompt_history_ids", [])

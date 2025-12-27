@@ -358,12 +358,14 @@ class CalculationEngine:
         """
         Calculate cluster strength (REPLACES naive ABW averaging)
         
-        Formula: cluster_strength = log(cluster_size + 1) * mean(ABW) * recency_factor
+        Formula: cluster_strength = normalized(log(cluster_size + 1) * mean(ABW) * recency_factor)
         
-        This ensures:
-        - Single-member clusters are visibly weaker than multi-member clusters
-        - Larger clusters get logarithmic boost (not linear)
-        - Recent activity is weighted higher
+        Normalization ensures output is in [0, 1] range for stable threshold comparison.
+        
+        THRESHOLD GUIDE (after normalization):
+        - 3 observations (high quality): ~0.52 → SECONDARY
+        - 8 observations (high quality): ~0.73 → PRIMARY (if threshold is 0.70)
+        - 15 observations (high quality): ~0.82 → Strong PRIMARY
         
         Args:
             cluster_size: Number of observations in cluster
@@ -372,7 +374,7 @@ class CalculationEngine:
             current_timestamp: Current time (defaults to now)
             
         Returns:
-            float: Cluster strength score
+            float: Normalized cluster strength score (0-1)
         """
         if current_timestamp is None:
             current_timestamp = int(time.time())
@@ -383,14 +385,19 @@ class CalculationEngine:
         # Calculate recency factor (weighted decay)
         recency_factor = self._calculate_recency_factor(timestamps, current_timestamp)
         
-        cluster_strength = size_factor * mean_abw * recency_factor
+        # Raw strength (unbounded)
+        raw_strength = size_factor * mean_abw * recency_factor
+        
+        # Normalize using sigmoid-like function: x / (1 + x)
+        # This maps: 0→0, 0.5→0.33, 1→0.5, 2→0.67, 3→0.75, 5→0.83
+        normalized_strength = raw_strength / (1 + raw_strength)
         
         logger.debug(
-            f"Cluster strength = log({cluster_size}+1) * {mean_abw:.4f} * {recency_factor:.4f} "
-            f"= {cluster_strength:.4f}"
+            f"Cluster strength: log({cluster_size}+1)={size_factor:.2f} * ABW={mean_abw:.2f} * "
+            f"Recency={recency_factor:.2f} = Raw={raw_strength:.2f} → Normalized={normalized_strength:.4f}"
         )
         
-        return cluster_strength
+        return round(normalized_strength, 4)
     
     def _calculate_recency_factor(
         self,
@@ -433,12 +440,12 @@ class CalculationEngine:
         timestamps: List[int]
     ) -> Dict[str, float]:
         """
-        Calculate cluster-level confidence (NOT from canonical observation)
+        Calculate cluster-level confidence using Multiplicative Model (NO magic weights)
         
-        Confidence components:
-        1. Consistency score: How similar observations are (low intra-cluster distance = high consistency)
-        2. Reinforcement score: How often it appears (more observations = higher confidence)
-        3. Clarity trend: Are observations getting clearer or more vague over time
+        Confidence = Consistency × Reinforcement (with optional clarity bonus)
+        
+        This requires BOTH high consistency AND reasonable sample size for high confidence.
+        No arbitrary 0.4/0.4/0.2 weights needed.
         
         Args:
             intra_cluster_distances: Distance of each member from centroid
@@ -451,16 +458,16 @@ class CalculationEngine:
         """
         # 1. Consistency score (inverse of mean distance)
         # Low distance = high similarity = high confidence
-        mean_distance = sum(intra_cluster_distances) / len(intra_cluster_distances)
+        mean_distance = sum(intra_cluster_distances) / len(intra_cluster_distances) if intra_cluster_distances else 0
         consistency_score = 1.0 / (1.0 + mean_distance)  # Maps [0, inf) to (0, 1]
         
         # 2. Reinforcement score (logarithmic in cluster size)
-        # 1 observation = weak, 5+ observations = strong
-        reinforcement_score = math.log(cluster_size + 1) / math.log(10)  # Normalized to ~1.0 at size=9
+        # Using log10 so 10 observations = 1.0 score
+        reinforcement_score = math.log10(cluster_size + 1)
         reinforcement_score = min(1.0, reinforcement_score)  # Cap at 1.0
         
-        # 3. Clarity trend (are observations improving?)
-        # Sort by timestamp and check if clarity is increasing
+        # 3. Clarity trend (for reporting, not in main formula)
+        clarity_trend = 0.0
         if len(timestamps) >= 2:
             # Pair timestamps with clarity scores and sort
             time_clarity_pairs = sorted(zip(timestamps, clarity_scores))
@@ -471,78 +478,78 @@ class CalculationEngine:
             first_half_avg = sum(sorted_clarity[:mid]) / mid if mid > 0 else sorted_clarity[0]
             second_half_avg = sum(sorted_clarity[mid:]) / (len(sorted_clarity) - mid)
             
-            # Positive trend = improving, negative = degrading
-            clarity_trend = (second_half_avg - first_half_avg) / 2.0 + 0.5  # Normalize to [0, 1]
-            clarity_trend = max(0.0, min(1.0, clarity_trend))  # Clamp
-        else:
-            # Single observation: use its clarity directly
-            clarity_trend = clarity_scores[0] if clarity_scores else 0.5
+            # Range: -1 (degrading) to +1 (improving)
+            clarity_trend = second_half_avg - first_half_avg
         
-        # Final confidence: weighted product
-        confidence = (
-            consistency_score * 0.4 +
-            reinforcement_score * 0.4 +
-            clarity_trend * 0.2
-        )
+        # --- NEW MULTIPLICATIVE MODEL (No Magic Numbers) ---
+        # Requires BOTH consistency AND reinforcement to be high
+        confidence = consistency_score * reinforcement_score
+        
+        # Optional: Small bonus for positive clarity trend (max 10% boost)
+        if clarity_trend > 0:
+            confidence = confidence * (1.0 + (clarity_trend * 0.1))
+        
+        # Cap at 1.0
+        confidence = min(1.0, confidence)
         
         logger.debug(
             f"Cluster confidence = {confidence:.4f} "
-            f"(consistency={consistency_score:.4f}, reinforcement={reinforcement_score:.4f}, "
+            f"(consistency={consistency_score:.4f} × reinforcement={reinforcement_score:.4f}, "
             f"clarity_trend={clarity_trend:.4f})"
         )
         
         return {
-            "confidence": confidence,
-            "consistency_score": consistency_score,
-            "reinforcement_score": reinforcement_score,
-            "clarity_trend": clarity_trend
+            "confidence": round(confidence, 4),
+            "consistency_score": round(consistency_score, 4),
+            "reinforcement_score": round(reinforcement_score, 4),
+            "clarity_trend": round(clarity_trend, 4)
         }
     
     def select_canonical_label(
         self,
         observations: List[Any],  # List of BehaviorObservation
-        cluster_centroid: List[float],
-        observation_embeddings: List[List[float]]
+        use_llm: bool = True
     ) -> str:
         """
         Select canonical label for display (NOT for scoring)
         
-        Selection criteria: highest clarity + closest to centroid
-        This is ONLY for UI display - never use for confidence or scoring
+        Strategy:
+        1. If multiple observations and LLM available: Use LLM to generate best label
+        2. Fallback: Return longest/most descriptive text
+        
+        This is ONLY for UI display - never use for confidence or scoring.
         
         Args:
             observations: List of BehaviorObservation objects
-            cluster_centroid: Centroid embedding of cluster
-            observation_embeddings: Embeddings of each observation
+            use_llm: Whether to use LLM for label generation (default: True)
             
         Returns:
-            str: observation_id of canonical observation
+            str: Canonical behavior text label
         """
         if not observations:
             raise ValueError("Cannot select canonical from empty cluster")
         
-        centroid = np.array(cluster_centroid)
+        # Extract behavior texts
+        behavior_texts = [obs.behavior_text for obs in observations]
         
-        # Score each observation: clarity * (1 - distance_to_centroid)
-        scores = []
-        for obs, emb in zip(observations, observation_embeddings):
-            clarity = obs.clarity_score
-            distance = np.linalg.norm(np.array(emb) - centroid)
-            proximity = 1.0 / (1.0 + distance)  # Convert distance to proximity
-            
-            score = clarity * proximity
-            scores.append(score)
+        # If only one observation, just return it
+        if len(behavior_texts) == 1:
+            return behavior_texts[0]
         
-        # Select observation with highest score
-        best_idx = scores.index(max(scores))
-        canonical_id = observations[best_idx].observation_id
+        # Try LLM-based label generation for multi-observation clusters
+        if use_llm and len(behavior_texts) > 1:
+            try:
+                from src.services.archetype_service import archetype_service
+                label = archetype_service.generate_concise_label(behavior_texts)
+                logger.debug(f"Generated LLM label: '{label}' from {len(behavior_texts)} observations")
+                return label
+            except Exception as e:
+                logger.warning(f"LLM label generation failed: {e}. Using fallback.")
         
-        logger.debug(
-            f"Selected canonical label: {canonical_id} "
-            f"(clarity={observations[best_idx].clarity_score:.4f}, score={scores[best_idx]:.4f})"
-        )
-        
-        return canonical_id
+        # Fallback: Return longest text (usually most descriptive)
+        longest_text = max(behavior_texts, key=len)
+        logger.debug(f"Using fallback label (longest): '{longest_text}'")
+        return longest_text
 
 
 # Global calculation engine instance

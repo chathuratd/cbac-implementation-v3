@@ -134,12 +134,32 @@ def main():
         logger.info(f"Loading {prompts_file.name}...")
         prompts_data = load_json_file(str(prompts_file))
         if prompts_data:
+            # Extract user_id from filename (e.g., prompts_user_665390.json -> user_665390)
+            user_id = prompts_file.stem.replace('prompts_', '')
+            # Add user_id to each prompt
+            for prompt in prompts_data:
+                if 'user_id' not in prompt or not prompt['user_id']:
+                    prompt['user_id'] = user_id
             all_prompts_data.extend(prompts_data)
     
     for behaviors_file in behaviors_files:
         logger.info(f"Loading {behaviors_file.name}...")
         behaviors_data = load_json_file(str(behaviors_file))
         if behaviors_data:
+            # Extract user_id from filename (e.g., behaviors_user_665390.json -> user_665390)
+            user_id = behaviors_file.stem.replace('behaviors_', '')
+            # Add user_id and ensure all required fields exist
+            for behavior in behaviors_data:
+                behavior['user_id'] = user_id
+                # Ensure extraction_confidence exists (map from confidence if not present)
+                if 'extraction_confidence' not in behavior:
+                    behavior['extraction_confidence'] = behavior.get('confidence', 0.80)
+                # Ensure timestamp exists (use last_seen if available)
+                if 'timestamp' not in behavior:
+                    behavior['timestamp'] = behavior.get('last_seen', int(time.time()))
+                # Ensure decay_rate exists
+                if 'decay_rate' not in behavior:
+                    behavior['decay_rate'] = 0.01
             all_behaviors_data.extend(behaviors_data)
     
     if not all_prompts_data or not all_behaviors_data:

@@ -17,7 +17,7 @@ class ArchetypeService:
     def __init__(self):
         self.client: Optional[AzureOpenAI] = None
         # Using a GPT model for completion - adjust deployment name as needed
-        self.model = "gpt-4"  # Or your Azure deployment name
+        self.model = "gpt-4.1-mini"  # Or your Azure deployment name
         
     def connect(self):
         """Initialize Azure OpenAI client"""
@@ -188,6 +188,62 @@ Return ONLY the archetype label (2-4 words), nothing else."""
         except Exception as e:
             logger.error(f"Error generating contextual archetype: {e}")
             return "Unknown"
+    
+    def generate_concise_label(self, behavior_texts: List[str]) -> str:
+        """
+        Generate a single canonical label from multiple behavior text observations.
+        Sends ONLY the behavior texts (minimal tokens) to get a concise output.
+        
+        Args:
+            behavior_texts: List of behavior text strings from cluster
+            
+        Returns:
+            str: Concise canonical label (max 8 words)
+        """
+        if not behavior_texts:
+            return "Unknown Behavior"
+        
+        # Single behavior: just return it
+        if len(behavior_texts) == 1:
+            return behavior_texts[0]
+        
+        # Deduplicate and limit to top 10 to save tokens
+        unique_texts = list(set(behavior_texts))[:10]
+        
+        # Create minimal prompt (token-efficient)
+        variations_text = "\n".join([f"- {t}" for t in unique_texts])
+        
+        prompt = (
+            f"These are different observations of the same user behavior pattern:\n\n"
+            f"{variations_text}\n\n"
+            f"Create ONE concise label (max 6 words) that best represents this pattern. "
+            f"Be specific and descriptive.\n\nLabel:"
+        )
+        
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": "You are a precise behavioral analyst. Generate concise labels only."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.2,  # Low temperature for consistency
+                max_tokens=20     # Strict limit to force brevity
+            )
+            
+            label = response.choices[0].message.content.strip().strip('"\'.,')
+            
+            # Validate: If too long or empty, use fallback
+            if not label or len(label.split()) > 8:
+                return max(unique_texts, key=len)  # Longest is usually most descriptive
+            
+            logger.info(f"Generated concise label: '{label}' from {len(behavior_texts)} observations")
+            return label
+            
+        except Exception as e:
+            logger.error(f"Error generating concise label: {e}")
+            # Fallback: Return longest text
+            return max(unique_texts, key=len)
     
     def generate_cluster_name(
         self,

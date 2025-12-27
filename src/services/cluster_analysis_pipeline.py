@@ -345,15 +345,11 @@ class ClusterAnalysisPipeline:
             )
             
             # Select canonical label (UI only - NOT for scoring)
-            centroid = cluster_centroids[cluster_id]
-            cluster_embs = cluster_embeddings[cluster_id]
-            canonical_observation_id = self.calculation_engine.select_canonical_label(
+            # Now uses LLM-based label generation for better representation
+            canonical_label = self.calculation_engine.select_canonical_label(
                 observations=cluster_observations,
-                cluster_centroid=centroid,
-                observation_embeddings=cluster_embs
+                use_llm=True
             )
-            canonical_obs = obs_map[canonical_observation_id]
-            canonical_label = canonical_obs.behavior_text
             
             # Temporal metrics
             first_seen = min(all_timestamps)
@@ -367,6 +363,9 @@ class ClusterAnalysisPipeline:
                 tier="UNKNOWN"  # Tier assigned later
             )
             
+            # Get centroid for storage (optional field)
+            centroid = cluster_centroids.get(cluster_id)
+            
             # Build BehaviorCluster
             behavior_cluster = BehaviorCluster(
                 cluster_id=cluster_id,
@@ -376,7 +375,7 @@ class ClusterAnalysisPipeline:
                 centroid_embedding=centroid,
                 cluster_size=cluster_size,
                 canonical_label=canonical_label,
-                canonical_observation_id=canonical_observation_id,
+                canonical_observation_id=None,  # No longer using single observation ID
                 cluster_name=cluster_name,
                 cluster_strength=cluster_strength,
                 confidence=confidence_metrics["confidence"],

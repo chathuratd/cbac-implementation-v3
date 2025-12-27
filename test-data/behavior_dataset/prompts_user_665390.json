@@ -1,254 +1,498 @@
 [
   {
-    "prompt_id": "prompt_2e3e1728",
-    "prompt_text": "I'm non-technical, how does TensorFlow work?",
-    "timestamp": 1764188651,
+    "prompt_id": "prompt_001",
+    "prompt_text": "Sample prompt 1 for testing user behavior analysis",
+    "timestamp": 1764298365,
     "tokens": 11.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_002"
   },
   {
-    "prompt_id": "prompt_9a2e3d5a",
-    "prompt_text": "Step-by-step tutorial for garbage collection, please.",
-    "timestamp": 1764188707,
-    "tokens": 13.2,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_b298ed57",
-    "prompt_text": "Show me a code snippet for PostgreSQL.",
-    "timestamp": 1764188761,
-    "tokens": 9.5,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_268c29c4",
-    "prompt_text": "Thank you",
-    "timestamp": 1764189026,
-    "tokens": 2.2,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": true
-  },
-  {
-    "prompt_id": "prompt_b574f3a0",
-    "prompt_text": "Good morning",
-    "timestamp": 1764189231,
-    "tokens": 3.0,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": true
-  },
-  {
-    "prompt_id": "prompt_61d9cf08",
-    "prompt_text": "Practical use case for Linux permissions please.",
-    "timestamp": 1764189820,
+    "prompt_id": "prompt_002",
+    "prompt_text": "Sample prompt 2 for testing user behavior analysis",
+    "timestamp": 1764341565,
     "tokens": 12.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_003"
   },
   {
-    "prompt_id": "prompt_11442eec",
-    "prompt_text": "TL;DR on MongoDB?",
-    "timestamp": 1764190091,
-    "tokens": 4.2,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_f11522cc",
-    "prompt_text": "Draw a schema for this Kubernetes database.",
-    "timestamp": 1764190237,
-    "tokens": 10.8,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_10b90449",
-    "prompt_text": "I need a guide on Linux permissions setup, start to finish.",
-    "timestamp": 1764190339,
-    "tokens": 14.8,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_4dd53501",
-    "prompt_text": "Can you write a sample function using CI/CD pipelines?",
-    "timestamp": 1764190773,
-    "tokens": 13.5,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_7c9f4852",
-    "prompt_text": "Technical specification for JWT integration.",
-    "timestamp": 1764191263,
-    "tokens": 11.0,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_35d9df3a",
-    "prompt_text": "Can you write a sample function using AWS Lambda?",
-    "timestamp": 1764191451,
-    "tokens": 12.2,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_47808f6d",
-    "prompt_text": "Break down the process of REST API implementation.",
-    "timestamp": 1764191927,
-    "tokens": 12.5,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_81280d5c",
-    "prompt_text": "Mathematical basis for Microservices algorithms.",
-    "timestamp": 1764192398,
-    "tokens": 12.0,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_84865bc8",
-    "prompt_text": "Conceptual difference between Linux permissions and Linux permissions.",
-    "timestamp": 1764192646,
-    "tokens": 17.5,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_111ddf81",
-    "prompt_text": "Why is MongoDB throwing a timeout exception?",
-    "timestamp": 1764193146,
-    "tokens": 11.0,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_b2976537",
-    "prompt_text": "Example of Python async in a real production app.",
-    "timestamp": 1764193392,
-    "tokens": 12.2,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_6563d033",
-    "prompt_text": "Practical use case for CI/CD pipelines please.",
-    "timestamp": 1764193919,
-    "tokens": 11.5,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_ec72d1c8",
-    "prompt_text": "I need a guide on PostgreSQL setup, start to finish.",
-    "timestamp": 1764194075,
+    "prompt_id": "prompt_003",
+    "prompt_text": "Sample prompt 3 for testing user behavior analysis",
+    "timestamp": 1764384765,
     "tokens": 13.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_004"
   },
   {
-    "prompt_id": "prompt_f0bb9ab7",
-    "prompt_text": "Walk me through normalizeing GraphQL step by step.",
-    "timestamp": 1764194423,
-    "tokens": 12.5,
+    "prompt_id": "prompt_004",
+    "prompt_text": "Sample prompt 4 for testing user behavior analysis",
+    "timestamp": 1764427965,
+    "tokens": 14.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_005"
   },
   {
-    "prompt_id": "prompt_d503f6da",
-    "prompt_text": "Walk me through normalizeing Kubernetes step by step.",
-    "timestamp": 1764194551,
-    "tokens": 13.2,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_45b97a66",
-    "prompt_text": "Step-by-step tutorial for pointers in C, please.",
-    "timestamp": 1764194728,
-    "tokens": 12.0,
-    "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
-  },
-  {
-    "prompt_id": "prompt_f154c142",
-    "prompt_text": "Detailed analysis of OAuth2 constraints.",
-    "timestamp": 1764194887,
+    "prompt_id": "prompt_005",
+    "prompt_text": "Sample prompt 5 for testing user behavior analysis",
+    "timestamp": 1764471165,
     "tokens": 10.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_006"
   },
   {
-    "prompt_id": "prompt_7563a146",
-    "prompt_text": "I need a guide on React setup, start to finish.",
-    "timestamp": 1764195067,
-    "tokens": 11.8,
+    "prompt_id": "prompt_006",
+    "prompt_text": "Sample prompt 6 for testing user behavior analysis",
+    "timestamp": 1764514365,
+    "tokens": 11.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_007"
   },
   {
-    "prompt_id": "prompt_3883f445",
-    "prompt_text": "Practical use case for Kubernetes please.",
-    "timestamp": 1764195164,
-    "tokens": 10.2,
+    "prompt_id": "prompt_007",
+    "prompt_text": "Sample prompt 7 for testing user behavior analysis",
+    "timestamp": 1764557565,
+    "tokens": 12.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_001"
   },
   {
-    "prompt_id": "prompt_afdf59c7",
-    "prompt_text": "That's cool",
-    "timestamp": 1764195412,
-    "tokens": 2.8,
+    "prompt_id": "prompt_008",
+    "prompt_text": "Sample prompt 8 for testing user behavior analysis",
+    "timestamp": 1764600765,
+    "tokens": 13.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": true
+    "session_id": "sess_002"
   },
   {
-    "prompt_id": "prompt_64d10c2b",
-    "prompt_text": "First time using Docker, can you list the steps to compile it?",
-    "timestamp": 1764195642,
-    "tokens": 15.5,
+    "prompt_id": "prompt_009",
+    "prompt_text": "Sample prompt 9 for testing user behavior analysis",
+    "timestamp": 1764643965,
+    "tokens": 14.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": false
+    "session_id": "sess_003"
   },
   {
-    "prompt_id": "prompt_dd233de7",
-    "prompt_text": "Write a poem about a cat",
-    "timestamp": 1764195881,
-    "tokens": 6.0,
+    "prompt_id": "prompt_010",
+    "prompt_text": "Sample prompt 10 for testing user behavior analysis",
+    "timestamp": 1764687165,
+    "tokens": 10.0,
     "user_id": "user_665390",
-    "session_id": "sess_2e0215",
-    "is_noise": true
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_011",
+    "prompt_text": "Sample prompt 11 for testing user behavior analysis",
+    "timestamp": 1764730365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_012",
+    "prompt_text": "Sample prompt 12 for testing user behavior analysis",
+    "timestamp": 1764773565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_013",
+    "prompt_text": "Sample prompt 13 for testing user behavior analysis",
+    "timestamp": 1764816765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
+  },
+  {
+    "prompt_id": "prompt_014",
+    "prompt_text": "Sample prompt 14 for testing user behavior analysis",
+    "timestamp": 1764859965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_001"
+  },
+  {
+    "prompt_id": "prompt_015",
+    "prompt_text": "Sample prompt 15 for testing user behavior analysis",
+    "timestamp": 1764903165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_002"
+  },
+  {
+    "prompt_id": "prompt_016",
+    "prompt_text": "Sample prompt 16 for testing user behavior analysis",
+    "timestamp": 1764946365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_003"
+  },
+  {
+    "prompt_id": "prompt_017",
+    "prompt_text": "Sample prompt 17 for testing user behavior analysis",
+    "timestamp": 1764989565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_018",
+    "prompt_text": "Sample prompt 18 for testing user behavior analysis",
+    "timestamp": 1765032765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_019",
+    "prompt_text": "Sample prompt 19 for testing user behavior analysis",
+    "timestamp": 1765075965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_020",
+    "prompt_text": "Sample prompt 20 for testing user behavior analysis",
+    "timestamp": 1765119165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
+  },
+  {
+    "prompt_id": "prompt_021",
+    "prompt_text": "Sample prompt 21 for testing user behavior analysis",
+    "timestamp": 1765162365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_001"
+  },
+  {
+    "prompt_id": "prompt_022",
+    "prompt_text": "Sample prompt 22 for testing user behavior analysis",
+    "timestamp": 1765205565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_002"
+  },
+  {
+    "prompt_id": "prompt_023",
+    "prompt_text": "Sample prompt 23 for testing user behavior analysis",
+    "timestamp": 1765248765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_003"
+  },
+  {
+    "prompt_id": "prompt_024",
+    "prompt_text": "Sample prompt 24 for testing user behavior analysis",
+    "timestamp": 1765291965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_025",
+    "prompt_text": "Sample prompt 25 for testing user behavior analysis",
+    "timestamp": 1765335165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_026",
+    "prompt_text": "Sample prompt 26 for testing user behavior analysis",
+    "timestamp": 1765378365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_027",
+    "prompt_text": "Sample prompt 27 for testing user behavior analysis",
+    "timestamp": 1765421565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
+  },
+  {
+    "prompt_id": "prompt_028",
+    "prompt_text": "Sample prompt 28 for testing user behavior analysis",
+    "timestamp": 1765464765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_001"
+  },
+  {
+    "prompt_id": "prompt_029",
+    "prompt_text": "Sample prompt 29 for testing user behavior analysis",
+    "timestamp": 1765507965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_002"
+  },
+  {
+    "prompt_id": "prompt_030",
+    "prompt_text": "Sample prompt 30 for testing user behavior analysis",
+    "timestamp": 1765551165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_003"
+  },
+  {
+    "prompt_id": "prompt_031",
+    "prompt_text": "Sample prompt 31 for testing user behavior analysis",
+    "timestamp": 1765594365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_032",
+    "prompt_text": "Sample prompt 32 for testing user behavior analysis",
+    "timestamp": 1765637565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_033",
+    "prompt_text": "Sample prompt 33 for testing user behavior analysis",
+    "timestamp": 1765680765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_034",
+    "prompt_text": "Sample prompt 34 for testing user behavior analysis",
+    "timestamp": 1765723965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
+  },
+  {
+    "prompt_id": "prompt_035",
+    "prompt_text": "Sample prompt 35 for testing user behavior analysis",
+    "timestamp": 1765767165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_001"
+  },
+  {
+    "prompt_id": "prompt_036",
+    "prompt_text": "Sample prompt 36 for testing user behavior analysis",
+    "timestamp": 1765810365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_002"
+  },
+  {
+    "prompt_id": "prompt_037",
+    "prompt_text": "Sample prompt 37 for testing user behavior analysis",
+    "timestamp": 1765853565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_003"
+  },
+  {
+    "prompt_id": "prompt_038",
+    "prompt_text": "Sample prompt 38 for testing user behavior analysis",
+    "timestamp": 1765896765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_039",
+    "prompt_text": "Sample prompt 39 for testing user behavior analysis",
+    "timestamp": 1765939965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_040",
+    "prompt_text": "Sample prompt 40 for testing user behavior analysis",
+    "timestamp": 1765983165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_041",
+    "prompt_text": "Sample prompt 41 for testing user behavior analysis",
+    "timestamp": 1766026365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
+  },
+  {
+    "prompt_id": "prompt_042",
+    "prompt_text": "Sample prompt 42 for testing user behavior analysis",
+    "timestamp": 1766069565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_001"
+  },
+  {
+    "prompt_id": "prompt_043",
+    "prompt_text": "Sample prompt 43 for testing user behavior analysis",
+    "timestamp": 1766112765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_002"
+  },
+  {
+    "prompt_id": "prompt_044",
+    "prompt_text": "Sample prompt 44 for testing user behavior analysis",
+    "timestamp": 1766155965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_003"
+  },
+  {
+    "prompt_id": "prompt_045",
+    "prompt_text": "Sample prompt 45 for testing user behavior analysis",
+    "timestamp": 1766199165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_046",
+    "prompt_text": "Sample prompt 46 for testing user behavior analysis",
+    "timestamp": 1766242365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_047",
+    "prompt_text": "Sample prompt 47 for testing user behavior analysis",
+    "timestamp": 1766285565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_048",
+    "prompt_text": "Sample prompt 48 for testing user behavior analysis",
+    "timestamp": 1766328765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
+  },
+  {
+    "prompt_id": "prompt_049",
+    "prompt_text": "Sample prompt 49 for testing user behavior analysis",
+    "timestamp": 1766371965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_001"
+  },
+  {
+    "prompt_id": "prompt_050",
+    "prompt_text": "Sample prompt 50 for testing user behavior analysis",
+    "timestamp": 1766415165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_002"
+  },
+  {
+    "prompt_id": "prompt_051",
+    "prompt_text": "Sample prompt 51 for testing user behavior analysis",
+    "timestamp": 1766458365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_003"
+  },
+  {
+    "prompt_id": "prompt_052",
+    "prompt_text": "Sample prompt 52 for testing user behavior analysis",
+    "timestamp": 1766501565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_053",
+    "prompt_text": "Sample prompt 53 for testing user behavior analysis",
+    "timestamp": 1766544765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_054",
+    "prompt_text": "Sample prompt 54 for testing user behavior analysis",
+    "timestamp": 1766587965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_055",
+    "prompt_text": "Sample prompt 55 for testing user behavior analysis",
+    "timestamp": 1766631165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
+  },
+  {
+    "prompt_id": "prompt_056",
+    "prompt_text": "Sample prompt 56 for testing user behavior analysis",
+    "timestamp": 1766674365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_001"
+  },
+  {
+    "prompt_id": "prompt_057",
+    "prompt_text": "Sample prompt 57 for testing user behavior analysis",
+    "timestamp": 1766717565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_002"
+  },
+  {
+    "prompt_id": "prompt_058",
+    "prompt_text": "Sample prompt 58 for testing user behavior analysis",
+    "timestamp": 1766760765,
+    "tokens": 13.0,
+    "user_id": "user_665390",
+    "session_id": "sess_003"
+  },
+  {
+    "prompt_id": "prompt_059",
+    "prompt_text": "Sample prompt 59 for testing user behavior analysis",
+    "timestamp": 1766803965,
+    "tokens": 14.0,
+    "user_id": "user_665390",
+    "session_id": "sess_004"
+  },
+  {
+    "prompt_id": "prompt_060",
+    "prompt_text": "Sample prompt 60 for testing user behavior analysis",
+    "timestamp": 1766847165,
+    "tokens": 10.0,
+    "user_id": "user_665390",
+    "session_id": "sess_005"
+  },
+  {
+    "prompt_id": "prompt_061",
+    "prompt_text": "Sample prompt 61 for testing user behavior analysis",
+    "timestamp": 1766890365,
+    "tokens": 11.0,
+    "user_id": "user_665390",
+    "session_id": "sess_006"
+  },
+  {
+    "prompt_id": "prompt_062",
+    "prompt_text": "Sample prompt 62 for testing user behavior analysis",
+    "timestamp": 1766933565,
+    "tokens": 12.0,
+    "user_id": "user_665390",
+    "session_id": "sess_007"
   }
 ]
