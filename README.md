@@ -2,307 +2,150 @@
 
 ## Overview
 
-The Core Behavior Identification Engine (CBIE) is an MVP system designed to identify a user's **core behaviors** from behavior inputs and prompt history. The system calculates behavior strengths, clusters similar behaviors, assigns canonical behaviors to clusters, and labels them as **PRIMARY**, **SECONDARY**, or **NOISE**.
+The Core Behavior Identification Engine (CBIE) is an MVP system that identifies a user's behavioral patterns by clustering observed interactions, computing behavior strengths, and producing a profile (primary/core and secondary/supporting behaviors). The system computes behavior weights, groups semantically-similar behaviors, assigns canonical labels, and classifies clusters by tier.
+
+## What changed (recent updates)
+
+- Frontend added: a React + Vite UI (Tailwind CSS) for profile inspection and interaction.
+- UI terminology uses user-friendly labels: **Core** (PRIMARY) and **Supporting** (SECONDARY) behaviors. The backend still refers to tiers as PRIMARY/SECONDARY/NOISE internally.
+- Tests and utility scripts moved into the `tests/` folder for better organization.
+- Detailed documentation added under `docs/`, including `BEHAVIORS_CLUSTERS_ARCHETYPES.md` which explains behaviors → clusters → archetypes.
 
 ## Features
 
-- **Behavior Weight Calculation**: Uses credibility, clarity, and extraction confidence
-- **Adjusted Behavior Weight**: Accounts for reinforcement and temporal decay
-- **Semantic Clustering**: HDBSCAN-based clustering using embeddings
-- **Tier Classification**: Automatic PRIMARY/SECONDARY/NOISE assignment
-- **Temporal Analysis**: Tracks behavior persistence over time
-- **Archetype Generation**: Optional LLM-based behavioral archetype labeling
-- **REST API**: 5 endpoints for complete behavior analysis workflow
+- Behavior Weight Calculation: credibility, clarity, and extraction confidence
+- Adjusted Behavior Weight: accounts for reinforcement and temporal decay
+- Semantic Clustering: HDBSCAN-based clustering using vector embeddings
+- Tier Classification: clusters labelled (PRIMARY / SECONDARY / NOISE) — presented in the UI as Core / Supporting
+- Temporal Analysis: tracks behavior persistence and recency
+- Archetype Generation: optional LLM-based archetype labeling
+- REST API: endpoints to analyze, retrieve and update profiles
 
 ## Tech Stack
 
-- **FastAPI**: Modern Python web framework
-- **MongoDB**: Document database for behaviors, prompts, and profiles
-- **Qdrant**: Vector database for semantic embeddings
-- **Azure OpenAI**: Embeddings (text-embedding-3-large) and LLM (archetype generation)
-- **HDBSCAN**: Density-based clustering algorithm
-- **Pydantic**: Data validation and settings management
+- Backend: FastAPI (Python)
+- Frontend: React + Vite, Tailwind CSS
+- Databases: MongoDB (documents) and Qdrant (vector embeddings)
+- Embeddings & LLM: Azure OpenAI (configurable models)
+- Clustering: HDBSCAN (cosine metric)
 
 ## Project Structure
 
 ```
 implemantation-v3/
-├── src/
+├── frontend/                  # React + Vite frontend (Tailwind)
+├── src/                       # Backend implementation (FastAPI)
 │   ├── models/
-│   │   └── schemas.py          # Pydantic data models
-│   ├── database/
-│   │   ├── mongodb_service.py  # MongoDB operations
-│   │   └── qdrant_service.py   # Qdrant vector operations
-│   ├── services/
-│   │   ├── calculation_engine.py    # BW, ABW, CBI calculations
-│   │   ├── embedding_service.py     # Azure OpenAI embeddings
-│   │   ├── clustering_engine.py     # HDBSCAN clustering
-│   │   ├── archetype_service.py     # LLM archetype generation
-│   │   └── analysis_pipeline.py     # Main orchestration
-│   ├── api/
-│   │   └── routes.py           # FastAPI endpoints
-│   ├── utils/
-│   │   └── helpers.py          # Utility functions
-│   └── config.py               # Configuration management
-├── test-data/
-│   ├── behaviors_user_348_1765993674.json
-│   └── prompts_user_348_1765993674.json
-├── tests/
-├── main.py                     # Application entry point
-├── requirements.txt            # Python dependencies
-├── .env                        # Environment configuration
+│   ├── database/              # mongodb_service.py, qdrant_service.py
+│   ├── services/              # clustering_engine, embedding_service, calculation_engine, etc.
+│   └── api/                   # routes
+├── docs/                      # System documentation (incl. BEHAVIORS_CLUSTERS_ARCHETYPES.md)
+├── test-data/                 # Sample data for testing
+├── tests/                     # Unit & integration tests
+├── main.py                    # Backend entry point
+├── requirements.txt
 └── README.md
 ```
 
-## Setup
-
-### Prerequisites
+## Prerequisites
 
 - Python 3.9+
-- MongoDB running on `localhost:27017`
-- Qdrant running on `localhost:6333`
-- Azure OpenAI API access
+- Node.js (for frontend) and npm/yarn
+- MongoDB (localhost:27017)
+- Qdrant (localhost:6333)
+- Azure OpenAI credentials (if using embeddings/LLM)
 
-### Installation
+## Installation
 
-1. **Clone the repository** (or navigate to the project directory)
+1. Backend dependencies:
 
-2. **Install dependencies**:
-   ```powershell
-   pip install -r requirements.txt
-   ```
+```powershell
+pip install -r requirements.txt
+```
 
-3. **Configure environment** (`.env` file already exists with configuration)
+2. Frontend dependencies (from project root):
 
-4. **Start MongoDB** (if not running):
-   ```powershell
-   # Using Docker
-   docker run -d -p 27017:27017 --name mongodb -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin123 mongo:latest
-   ```
+```powershell
+cd frontend
+npm install
+```
 
-5. **Start Qdrant** (if not running):
-   ```powershell
-   # Using Docker
-   docker run -d -p 6333:6333 --name qdrant qdrant/qdrant:latest
-   ```
+3. Configure environment in `.env` (see sample entries below).
 
-## Running the Application
+## Running the system
 
-### Start the API Server
+Start MongoDB and Qdrant (if needed). Example using Docker:
+
+```powershell
+# MongoDB
+docker run -d -p 27017:27017 --name mongodb -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin123 mongo:latest
+
+# Qdrant
+docker run -d -p 6333:6333 --name qdrant qdrant/qdrant:latest
+```
+
+Start the backend API (from repo root):
 
 ```powershell
 python main.py
-```
-
-Or using uvicorn directly:
-
-```powershell
+# or
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-The API will be available at: `http://localhost:8000`
+Start the frontend (from `frontend`):
 
-API Documentation (Swagger UI): `http://localhost:8000/docs`
-
-## API Endpoints
-
-### 1. POST `/api/v1/analyze-behaviors-from-storage` ⭐ (PRODUCTION)
-
-**Main production endpoint** - Analyzes behaviors from existing storage.
-
-In normal operation:
-- **Behaviors** are stored in **Qdrant** (vector database with embeddings)
-- **Prompts** are stored in **MongoDB**
-
-This endpoint fetches from storage and runs analysis.
-
-**Request**: Query parameter `user_id`
-
-**Example**:
-```bash
-curl -X POST "http://localhost:8000/api/v1/analyze-behaviors-from-storage?user_id=user_348"
+```powershell
+cd frontend
+npm run dev
 ```
 
-**Response**: CoreBehaviorProfile with primary/secondary behaviors
+The frontend runs by default on `http://localhost:5173` and the backend on `http://localhost:8000`.
 
----
+## API Highlights
 
-### 2. POST `/api/v1/analyze-behaviors`
+- `POST /api/v1/analyze-behaviors-from-storage?user_id=<id>` : Run analysis using stored data
+- `POST /api/v1/analyze-behaviors` : Import + analyze behaviors (testing/bulk)
+- `GET /api/v1/get-user-profile/{user_id}` : Retrieve computed profile
+- `GET /api/v1/list-core-behaviors/{user_id}` : List canonical behaviors
+- `POST /api/v1/update-behavior` : Update behavior metadata
 
-Import and analyze new behaviors (for testing/bulk import).
+See `src/api/routes.py` for full details.
 
-This endpoint:
-- Stores prompts in MongoDB
-- Generates embeddings for behaviors
-- Stores behaviors with embeddings in Qdrant
-- Stores behavior metadata in MongoDB
-- Runs complete analysis
+## UI / Frontend notes
 
-**Request Body**:
-```json
-{
-  "user_id": "user_348",
-  "behaviors": [...],
-  "prompts": [...]
-}
-```
+- The frontend displays clusters grouped into **Core** and **Supporting** sections. Both sections are collapsible and the UI emphasizes a compact card layout that matches the design system (rounded-2xl, slate palette, shadow-xl).
+- Example demo user id used in UI: `user_665390` (used throughout tests and screenshots).
 
-**Response**: CoreBehaviorProfile with primary/secondary behaviors
+## Formulas & Parameters (summary)
 
-### 3. GET `/api/v1/get-user-profile/{user_id}`
-
-Retrieve existing core behavior profile.
-
-**Response**: CoreBehaviorProfile JSON
-
-### 4. GET `/api/v1/list-core-behaviors/{user_id}`
-
-Get canonical core behaviors for downstream usage.
-
-**Response**: List of canonical behaviors with tiers
-
-### 5. POST `/api/v1/update-behavior`
-
-Update behavior metadata (reinforcement, credibility, timestamps).
-
-**Request Body**:
-```json
-{
-  "behavior_id": "beh_3ccbf2b2",
-  "updates": {
-    "reinforcement_count": 18,
-    "last_seen": 1766000000
-  }
-}
-```
-
-### 6. POST `/api/v1/assign-archetype`
-
-Generate behavioral archetype label using LLM.
-
-**Request Body**:
-```json
-{
-  "user_id": "user_348",
-  "canonical_behaviors": ["prefers visual learning", "..."]
-}
-```
-
----
-
-## Storage Architecture
-
-### Normal Production Scenario
-
-```
-┌─────────────────────┐
-│   User Behaviors    │
-│  (behavior_text)    │
-└──────────┬──────────┘
-           │
-           │ Embedded via Azure OpenAI
-           ↓
-┌─────────────────────┐
-│  Qdrant Vector DB   │  ← Behaviors stored HERE (with embeddings)
-│  - behavior_id      │
-│  - embedding [3072] │
-│  - behavior_text    │
-│  - metadata         │
-└─────────────────────┘
-
-┌─────────────────────┐
-│    MongoDB          │  ← Prompts stored HERE
-│  - prompts          │
-│  - behavior_metadata│  (optional, for quick access)
-│  - core_profiles    │
-└─────────────────────┘
-```
-
-**Typical Workflow**:
-1. New behavior detected → Generate embedding → Store in **Qdrant**
-2. User prompt received → Store in **MongoDB**
-3. Analysis triggered → Fetch from **Qdrant** + **MongoDB** → Generate profile
-
-## Formulas and Parameters
-
-### Behavior Weight (BW)
+- Behavior Weight (BW):
 ```
 BW = credibility^0.35 × clarity_score^0.40 × extraction_confidence^0.25
 ```
 
-### Adjusted Behavior Weight (ABW)
+- Adjusted Behavior Weight (ABW):
 ```
 ABW = BW × (1 + reinforcement_count × 0.01) × e^(-decay_rate × days_since_last_seen)
 ```
 
-### Cluster Core Behavior Index (CBI)
+- Cluster Core Behavior Index (CBI):
 ```
 Cluster_CBI = Σ(ABW_i) / N
 ```
 
-### Tier Assignment
-- **PRIMARY**: CBI ≥ 1.0
-- **SECONDARY**: 0.7 ≤ CBI < 1.0
-- **NOISE**: CBI < 0.7
+- Tier thresholds (internal): PRIMARY / SECONDARY / NOISE. The UI maps these to Core / Supporting.
 
-### HDBSCAN Parameters
-- `min_cluster_size`: 2
-- `min_samples`: 1
-- `cluster_selection_epsilon`: 0.15
-- `metric`: cosine
+## Testing
 
-## Testing with Sample Data
+Run backend tests:
 
-The `test-data/` folder contains sample behaviors and prompts for user_348:
-
-```powershell
-# Example: Load and test with sample data
-python -c "
-import json
-from src.models.schemas import BehaviorModel, PromptModel
-
-# Load behaviors
-with open('test-data/behaviors_user_348_1765993674.json') as f:
-    behaviors_data = json.load(f)
-    behaviors = [BehaviorModel(**b) for b in behaviors_data]
-
-# Load prompts
-with open('test-data/prompts_user_348_1765993674.json') as f:
-    prompts_data = json.load(f)
-    prompts = [PromptModel(**p) for p in prompts_data]
-
-print(f'Loaded {len(behaviors)} behaviors and {len(prompts)} prompts')
-"
-```
-
-## Development
-
-### Run Tests
 ```powershell
 pytest tests/
 ```
 
-### Code Style
-```powershell
-# Format code
-black src/
+There are also quick scripts in `tests/` for loading sample data and verifying Qdrant/Mongo contents.
 
-# Lint
-flake8 src/
-```
-
-## Logging
-
-The application uses Python's built-in logging. Logs include:
-- Info: Major pipeline steps and results
-- Debug: Detailed calculations and intermediate values
-- Error: Exceptions and failures
-
-Adjust log level in `main.py` or via environment variable.
-
-## Configuration
-
-All configuration is in `.env`:
+## Configuration (`.env`) sample
 
 ```env
 # Database
@@ -311,7 +154,7 @@ MONGODB_DATABASE=cbac_system
 QDRANT_URL=http://localhost:6333
 QDRANT_COLLECTION=behavior_embeddings
 
-# OpenAI
+# OpenAI / Azure
 OPENAI_API_KEY=your-api-key
 OPENAI_EMBEDDING_MODEL=text-embedding-3-large
 OPENAI_API_TYPE=azure
@@ -323,46 +166,21 @@ API_HOST=0.0.0.0
 API_PORT=8000
 ```
 
-## Architecture
-
-### Analysis Pipeline Flow
-
-```
-Input (behaviors + prompts)
-    ↓
-Calculate BW & ABW
-    ↓
-Generate Embeddings (Azure OpenAI)
-    ↓
-Store in Qdrant
-    ↓
-HDBSCAN Clustering
-    ↓
-Calculate Cluster CBI
-    ↓
-Select Canonical Behaviors
-    ↓
-Assign Tiers (PRIMARY/SECONDARY/NOISE)
-    ↓
-Calculate Temporal Metrics
-    ↓
-Generate Archetype (optional)
-    ↓
-Store Profile in MongoDB
-    ↓
-Return CoreBehaviorProfile
-```
-
 ## Documentation
 
-See the `docs/` folder for detailed documentation:
-- **Core Behavior Identification Engine (CBIE) – MVP Documentation.md**: Complete system specification
-- **CBIE MVP Documentation – Full Calculation Logic and Parameter Justification.md**: Detailed formula explanations
+Read detailed design and conceptual docs in `docs/`, notably:
 
-## License
+- `docs/BEHAVIORS_CLUSTERS_ARCHETYPES.md` — explanation of behaviors vs clusters vs archetypes and UI guidance.
 
-This is an MVP research project.
+## Development notes
+
+- Frontend and backend are developed separately — run both during full-stack development.
+- Design tokens used in frontend: `rounded-2xl`, `shadow-xl`, slate color palette; Tailwind utility classes throughout.
 
 ## Support
 
-For issues or questions, please check the documentation files or create an issue in the repository.
+If you run into issues, check logs (`main.py` / frontend console), confirm MongoDB and Qdrant are reachable, and verify `.env` values.
+
+---
+
+This README was updated to reflect the current frontend, UI terminology, layout changes, and improved developer instructions.
