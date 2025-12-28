@@ -118,22 +118,62 @@ See `src/api/routes.py` for full details.
 
 ## Formulas & Parameters (summary)
 
-- Behavior Weight (BW):
-```
-BW = credibility^0.35 × clarity_score^0.40 × extraction_confidence^0.25
-```
+Note: the project now uses a cluster-centric pipeline. The README below highlights the formulas actually used for scoring and tiering. Legacy BW/ABW/CBI formulas exist in code for per-observation metrics but are not the primary mechanism for tier assignment.
 
-- Adjusted Behavior Weight (ABW):
-```
-ABW = BW × (1 + reinforcement_count × 0.01) × e^(-decay_rate × days_since_last_seen)
-```
+1) Cluster strength (used for tiering)
 
-- Cluster Core Behavior Index (CBI):
-```
-Cluster_CBI = Σ(ABW_i) / N
-```
+	- Raw strength:
 
-- Tier thresholds (internal): PRIMARY / SECONDARY / NOISE. The UI maps these to Core / Supporting.
+		raw_strength = log(cluster_size + 1) × mean_abw × recency_factor
+
+	- Normalized strength (final score in 0–1):
+
+		cluster_strength = raw_strength / (1 + raw_strength)
+
+	- Recency factor:
+
+		recency_factor = average( exp(-decay_rate × days_since_observation) )
+
+		(decay_rate defaults to 0.01 in code)
+
+	- Implementation notes:
+		- `mean_abw` is computed from per-observation ABW values (see legacy formulas below).
+		- The normalization uses x/(1+x) to bound scores and produce sensible thresholds.
+
+2) Cluster confidence (consistency + reinforcement)
+
+	- Consistency score = 1 / (1 + mean_intra_cluster_distance)
+	- Reinforcement score = min(1.0, log10(cluster_size + 1))
+	- Clarity trend is computed for reporting (difference between later and earlier clarity averages)
+	- Final confidence = consistency_score × reinforcement_score (with a small bonus if clarity trend > 0)
+
+3) Tier thresholds (cluster-centric)
+
+	- PRIMARY (Core): cluster_strength ≥ 0.80
+	- SECONDARY (Supporting): 0.40 ≤ cluster_strength < 0.80
+	- NOISE: cluster_strength < 0.40
+
+	These thresholds are applied after normalization and are intentionally different from legacy CBI thresholds because `cluster_strength` includes log-size scaling and recency.
+
+4) Legacy per-observation formulas (kept for metrics / historical reference)
+
+	- Behavior Weight (BW):
+
+		BW = credibility^α × clarity_score^β × extraction_confidence^γ
+
+		(α=0.35, β=0.40, γ=0.25 — implemented in `src/services/calculation_engine.py`)
+
+	- Adjusted Behavior Weight (ABW):
+
+		ABW = BW × (1 + reinforcement_count × r) × e^(-decay_rate × days_since_last_seen)
+
+		(r ≈ 0.01 by default)
+
+	- Cluster CBI (legacy):
+
+		Cluster_CBI = Σ(ABW_i) / N
+
+	These legacy formulas are used to compute per-observation metrics (BW/ABW) which feed into `mean_abw` for cluster calculations, but the pipeline uses `cluster_strength` + `confidence` for final tiering.
 
 ## Testing
 
