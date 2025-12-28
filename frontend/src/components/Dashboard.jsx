@@ -23,7 +23,8 @@ import {
   Sparkles,
   ArrowUpRight,
   CircleDot,
-  Loader2
+  Loader2,
+  Check
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import ProfileInsights from './ProfileInsights';
@@ -47,6 +48,8 @@ const Dashboard = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [analysisSuccess, setAnalysisSuccess] = useState(false);
   const [tools, setTools] = useState([
     { id: 1, name: 'ChatGPT Plus', connected: true, lastSync: '2m ago', usage: 'High', icon: 'zap' },
     { id: 2, name: 'Claude 3.5 Sonnet', connected: true, lastSync: '1h ago', usage: 'Medium', icon: 'brain' },
@@ -74,6 +77,40 @@ const Dashboard = () => {
       console.error('Error fetching dashboard data:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const runProfileAnalysis = async () => {
+    try {
+      setAnalyzing(true);
+      setAnalysisSuccess(false);
+      const userId = 'user_665390';
+      
+      const response = await fetch(API_ENDPOINTS.analyzeFromStorage(userId), {
+        method: 'POST',
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to analyze profile');
+      }
+      
+      const data = await response.json();
+      console.log('Analysis complete:', data);
+      
+      // Show success message
+      setAnalysisSuccess(true);
+      setTimeout(() => setAnalysisSuccess(false), 3000);
+      
+      // Refresh dashboard after 1 second
+      setTimeout(() => {
+        fetchDashboardData();
+      }, 1000);
+      
+    } catch (err) {
+      console.error('Error analyzing profile:', err);
+      alert('Failed to analyze profile: ' + err.message);
+    } finally {
+      setAnalyzing(false);
     }
   };
 
@@ -273,10 +310,38 @@ const Dashboard = () => {
                       
                         <div className="flex flex-wrap gap-4">
                           <button 
+                            onClick={runProfileAnalysis}
+                            disabled={analyzing}
+                            className={`px-8 py-3.5 rounded-2xl text-sm font-bold shadow-xl transition-all duration-300 flex items-center gap-2 ${
+                              analyzing 
+                                ? 'bg-slate-400 cursor-not-allowed' 
+                                : analysisSuccess
+                                ? 'bg-green-600 hover:bg-green-700 shadow-green-100'
+                                : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-blue-100 hover:shadow-2xl hover:-translate-y-0.5'
+                            } text-white`}
+                          >
+                            {analyzing ? (
+                              <>
+                                <Loader2 size={18} className="animate-spin" strokeWidth={2.5} />
+                                Running Analysis...
+                              </>
+                            ) : analysisSuccess ? (
+                              <>
+                                <Check size={18} strokeWidth={2.5} />
+                                Analysis Complete!
+                              </>
+                            ) : (
+                              <>
+                                <Zap size={18} strokeWidth={2.5} />
+                                Run Analysis
+                              </>
+                            )}
+                          </button>
+                          <button 
                             onClick={() => setCurrentPage('insights')} 
                             className="bg-indigo-600 text-white px-8 py-3.5 rounded-2xl text-sm font-bold shadow-xl shadow-indigo-100 hover:shadow-2xl hover:bg-indigo-700 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
                           >
-                            Analyze Profile <ChevronRight size={18} strokeWidth={2.5} />
+                            View Profile <ChevronRight size={18} strokeWidth={2.5} />
                           </button>
                           <button 
                             onClick={() => setCurrentPage('library')}

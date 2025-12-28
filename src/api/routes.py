@@ -18,6 +18,7 @@ from src.models.schemas import (
 )
 from src.services.analysis_pipeline import analysis_pipeline
 from src.services.cluster_analysis_pipeline import cluster_analysis_pipeline
+from src.services.llm_context_service import generate_llm_context
 from src.database.mongodb_service import mongodb_service
 
 logger = logging.getLogger(__name__)
@@ -436,3 +437,59 @@ async def analyze_behaviors_cluster_centric(request: AnalyzeBehaviorsRequest):
 async def health_check():
     """Simple health check endpoint"""
     return {"status": "healthy", "service": "CBIE MVP"}
+
+
+@router.get(
+    "/profile/{user_id}/llm-context",
+    status_code=status.HTTP_200_OK,
+    summary="Get LLM context for user",
+    description="Generate formatted behavioral context for LLM prompt injection. "
+                "Returns top behaviors ranked by strength with wording variations."
+)
+async def get_llm_context(
+    user_id: str,
+    min_strength: float = 30.0,
+    min_confidence: float = 0.40,
+    max_behaviors: int = 5,
+    include_archetype: bool = True
+):
+    """
+    Generate LLM-ready behavioral context for personalized responses.
+    
+    Args:
+        user_id: User identifier
+        min_strength: Minimum cluster strength percentage (0-100)
+        min_confidence: Minimum confidence score (0-1.0)
+        max_behaviors: Maximum number of behaviors to include
+        include_archetype: Whether to include archetype description
+    
+    Returns:
+        Dict with formatted context string and metadata
+    """
+    try:
+        logger.info(f"Generating LLM context for user {user_id}")
+        
+        context_data = await generate_llm_context(
+            user_id=user_id,
+            min_strength=min_strength,
+            min_confidence=min_confidence,
+            max_behaviors=max_behaviors,
+            include_archetype=include_archetype
+        )
+        
+        if not context_data:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"No profile found for user {user_id}"
+            )
+        
+        return context_data
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error generating LLM context: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to generate LLM context: {str(e)}"
+        )

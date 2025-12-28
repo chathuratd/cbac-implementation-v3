@@ -267,3 +267,79 @@ Maintained all existing Tailwind CSS classes and design tokens:
 ## Conclusion
 
 The frontend now fully integrates with the CBIE backend system, displaying real behavior cluster data while maintaining the existing design aesthetic. The implementation follows React best practices, handles edge cases gracefully, and provides a solid foundation for future enhancements.
+
+---
+
+## ✅ NEW: LLM Context API Integration (Dec 27, 2025)
+
+### Features Added
+
+#### 1. LLM Context Button & Modal
+- **Location**: ProfileInsights component header
+- **Visual**: Purple gradient button with MessageSquare icon
+- **Functionality**: Opens modal dialog to view and copy LLM context
+
+#### 2. Modal Components
+- **Context Display**: Pre-formatted markdown in monospace font
+- **Copy Button**: One-click clipboard copy with visual feedback
+- **Metrics Cards**: 4 visual cards showing:
+  - Total Clusters
+  - Included Behaviors
+  - Average Strength
+  - Average Confidence
+- **Advanced Settings**: Collapsible panel with:
+  - Min Strength slider (0-100%)
+  - Min Confidence slider (0-100%)
+  - Max Behaviors slider (1-20)
+  - Include Archetype checkbox
+  - Regenerate button
+- **Usage Example**: Code snippet showing integration
+
+#### 3. API Configuration Update
+Added to `frontend/src/config/api.js`:
+```javascript
+getLLMContext: (userId, params) => {
+  const queryParams = new URLSearchParams(params).toString();
+  return `${API_BASE_URL}${API_VERSION}/profile/${userId}/llm-context${queryParams ? '?' + queryParams : ''}`;
+}
+```
+
+### Files Modified
+1. **frontend/src/config/api.js** - Added LLM context endpoint
+2. **frontend/src/components/ProfileInsights.jsx** - Added modal, button, and functionality
+
+### New State & Functions
+```javascript
+// State
+const [showLLMModal, setShowLLMModal] = useState(false);
+const [llmContext, setLlmContext] = useState(null);
+const [llmLoading, setLlmLoading] = useState(false);
+const [copied, setCopied] = useState(false);
+const [llmParams, setLlmParams] = useState({...});
+
+// Functions
+fetchLLMContext() - Fetches context from backend
+handleCopyContext() - Copies to clipboard
+openLLMModal() - Opens modal and initiates fetch
+```
+
+### Usage in Frontend
+1. Click purple "LLM Context" button in profile header
+2. Modal opens and automatically fetches context
+3. View formatted context with metadata
+4. Adjust parameters in Advanced Settings
+5. Click "Regenerate" to update with new parameters
+6. Click "Copy" to copy context to clipboard
+7. Use context in your LLM system prompt
+
+### Testing
+- **Test User**: user_665390
+- **Frontend**: http://localhost:5174
+- **Backend**: http://localhost:8000/api/v1/profile/user_665390/llm-context
+- **Status**: ✅ Fully functional and tested
+
+### Backend Integration
+- Endpoint: `GET /api/v1/profile/{user_id}/llm-context`
+- Parameters: min_strength, min_confidence, max_behaviors, include_archetype
+- Response: JSON with context string and metadata
+- Documentation: [LLM_CONTEXT_INJECTION.md](./LLM_CONTEXT_INJECTION.md)

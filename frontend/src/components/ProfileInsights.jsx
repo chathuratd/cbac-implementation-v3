@@ -13,7 +13,12 @@ import {
   Trash2,
   RefreshCw,
   Clock,
-  TrendingDown
+  TrendingDown,
+  MessageSquare,
+  Copy,
+  Check,
+  Settings,
+  X
 } from 'lucide-react';
 import { API_ENDPOINTS } from '../config/api';
 
@@ -22,6 +27,18 @@ const ProfileInsights = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedClusters, setExpandedClusters] = useState(new Set());
+  const [showLLMModal, setShowLLMModal] = useState(false);
+  const [llmContext, setLlmContext] = useState(null);
+  const [llmLoading, setLlmLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [analysisSuccess, setAnalysisSuccess] = useState(false);
+  const [llmParams, setLlmParams] = useState({
+    min_strength: 30.0,
+    min_confidence: 0.40,
+    max_behaviors: 5,
+    include_archetype: true
+  });
 
   // Fetch profile data from API
   useEffect(() => {
@@ -61,6 +78,75 @@ const ProfileInsights = () => {
       }
       return newSet;
     });
+  };
+
+  const fetchLLMContext = async () => {
+    try {
+      setLlmLoading(true);
+      const userId = 'user_665390';
+      const response = await fetch(API_ENDPOINTS.getLLMContext(userId, llmParams));
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch LLM context');
+      }
+      
+      const data = await response.json();
+      setLlmContext(data);
+    } catch (err) {
+      console.error('Error fetching LLM context:', err);
+      alert('Failed to generate LLM context: ' + err.message);
+    } finally {
+      setLlmLoading(false);
+    }
+  };
+
+  const handleCopyContext = () => {
+    if (llmContext?.context) {
+      navigator.clipboard.writeText(llmContext.context);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const openLLMModal = () => {
+    setShowLLMModal(true);
+    if (!llmContext) {
+      fetchLLMContext();
+    }
+  };
+
+  const runProfileAnalysis = async () => {
+    try {
+      setAnalyzing(true);
+      setAnalysisSuccess(false);
+      const userId = 'user_665390';
+      
+      const response = await fetch(API_ENDPOINTS.analyzeFromStorage(userId), {
+        method: 'POST',
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to analyze profile');
+      }
+      
+      const data = await response.json();
+      console.log('Analysis complete:', data);
+      
+      // Show success message
+      setAnalysisSuccess(true);
+      setTimeout(() => setAnalysisSuccess(false), 3000);
+      
+      // Refresh profile after 1 second
+      setTimeout(() => {
+        fetchProfile();
+      }, 1000);
+      
+    } catch (err) {
+      console.error('Error analyzing profile:', err);
+      alert('Failed to analyze profile: ' + err.message);
+    } finally {
+      setAnalyzing(false);
+    }
   };
 
   const formatDate = (timestamp) => {
@@ -283,6 +369,43 @@ const ProfileInsights = () => {
               >
                 <RefreshCw size={14} className="text-slate-400" />
               </button>
+              <button 
+                onClick={openLLMModal}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold rounded-lg transition-all shadow-sm hover:shadow-md"
+                title="View LLM Context"
+              >
+                <MessageSquare size={14} />
+                LLM Context
+              </button>
+              <button 
+                onClick={runProfileAnalysis}
+                disabled={analyzing}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all shadow-sm hover:shadow-md ${
+                  analyzing 
+                    ? 'bg-slate-400 cursor-not-allowed' 
+                    : analysisSuccess
+                    ? 'bg-green-600 hover:bg-green-700'
+                    : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700'
+                } text-white`}
+                title="Analyze behaviors and generate profile"
+              >
+                {analyzing ? (
+                  <>
+                    <Loader2 size={14} className="animate-spin" />
+                    Analyzing...
+                  </>
+                ) : analysisSuccess ? (
+                  <>
+                    <Check size={14} />
+                    Success!
+                  </>
+                ) : (
+                  <>
+                    <Zap size={14} />
+                    Analyze Profile
+                  </>
+                )}
+              </button>
             </div>
             <h2 className="text-3xl font-bold text-slate-900 mb-2">
               {profile.archetype || 'Behavioral Profile'}
@@ -423,6 +546,198 @@ const ProfileInsights = () => {
           <p className="text-slate-500">
             Continue interacting to build your behavioral profile.
           </p>
+        </div>
+      )}
+
+      {/* LLM Context Modal */}
+      {showLLMModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm" onClick={() => setShowLLMModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col" onClick={e => e.stopPropagation()}>
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-2xl font-bold flex items-center gap-2">
+                  <MessageSquare size={24} />
+                  LLM Context
+                </h3>
+                <button 
+                  onClick={() => setShowLLMModal(false)}
+                  className="p-2 hover:bg-white hover:bg-opacity-20 rounded-lg transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              <p className="text-purple-100 text-sm">
+                Use this context to personalize AI responses based on user behavior patterns
+              </p>
+            </div>
+
+            {/* Modal Body */}
+            <div className="flex-1 overflow-y-auto p-6">
+              {llmLoading ? (
+                <div className="flex flex-col items-center justify-center py-12">
+                  <Loader2 className="w-12 h-12 text-indigo-600 animate-spin mb-4" />
+                  <p className="text-slate-600">Generating LLM context...</p>
+                </div>
+              ) : llmContext ? (
+                <div className="space-y-6">
+                  {/* Context Output */}
+                  <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wide">Generated Context</h4>
+                      <button
+                        onClick={handleCopyContext}
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                          copied 
+                            ? 'bg-green-600 text-white' 
+                            : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                        }`}
+                      >
+                        {copied ? (
+                          <>
+                            <Check size={14} />
+                            Copied!
+                          </>
+                        ) : (
+                          <>
+                            <Copy size={14} />
+                            Copy
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <pre className="text-sm text-slate-800 whitespace-pre-wrap font-mono bg-white p-4 rounded-lg border border-slate-200 max-h-96 overflow-y-auto">
+                      {llmContext.context}
+                    </pre>
+                  </div>
+
+                  {/* Metadata */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200">
+                      <div className="text-xs font-bold text-indigo-600 uppercase mb-1">Total Clusters</div>
+                      <div className="text-2xl font-black text-indigo-900">
+                        {llmContext.metadata.total_clusters}
+                      </div>
+                    </div>
+                    <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+                      <div className="text-xs font-bold text-purple-600 uppercase mb-1">Included</div>
+                      <div className="text-2xl font-black text-purple-900">
+                        {llmContext.metadata.included_behaviors}
+                      </div>
+                    </div>
+                    <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                      <div className="text-xs font-bold text-blue-600 uppercase mb-1">Avg Strength</div>
+                      <div className="text-2xl font-black text-blue-900">
+                        {Math.round(llmContext.metadata.summary.average_strength * 100)}%
+                      </div>
+                    </div>
+                    <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                      <div className="text-xs font-bold text-green-600 uppercase mb-1">Confidence</div>
+                      <div className="text-2xl font-black text-green-900">
+                        {Math.round(llmContext.metadata.summary.average_confidence * 100)}%
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Settings */}
+                  <details className="bg-white rounded-xl border border-slate-200">
+                    <summary className="p-4 cursor-pointer hover:bg-slate-50 rounded-xl transition-colors">
+                      <h4 className="text-sm font-bold text-slate-700 flex items-center gap-2 inline-flex">
+                        <Settings size={16} />
+                        Advanced Settings
+                      </h4>
+                    </summary>
+                    <div className="p-4 pt-0 space-y-4">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-600 mb-2">
+                          Min Strength: {llmParams.min_strength}%
+                        </label>
+                        <input
+                          type="range"
+                          min="0"
+                          max="100"
+                          step="5"
+                          value={llmParams.min_strength}
+                          onChange={(e) => setLlmParams({...llmParams, min_strength: parseFloat(e.target.value)})}
+                          className="w-full"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-600 mb-2">
+                          Min Confidence: {Math.round(llmParams.min_confidence * 100)}%
+                        </label>
+                        <input
+                          type="range"
+                          min="0"
+                          max="1"
+                          step="0.05"
+                          value={llmParams.min_confidence}
+                          onChange={(e) => setLlmParams({...llmParams, min_confidence: parseFloat(e.target.value)})}
+                          className="w-full"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-600 mb-2">
+                          Max Behaviors: {llmParams.max_behaviors}
+                        </label>
+                        <input
+                          type="range"
+                          min="1"
+                          max="20"
+                          step="1"
+                          value={llmParams.max_behaviors}
+                          onChange={(e) => setLlmParams({...llmParams, max_behaviors: parseInt(e.target.value)})}
+                          className="w-full"
+                        />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          id="include-archetype"
+                          checked={llmParams.include_archetype}
+                          onChange={(e) => setLlmParams({...llmParams, include_archetype: e.target.checked})}
+                          className="w-4 h-4"
+                        />
+                        <label htmlFor="include-archetype" className="text-sm text-slate-700 font-medium">
+                          Include Archetype
+                        </label>
+                      </div>
+                      <button
+                        onClick={fetchLLMContext}
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                      >
+                        <RefreshCw size={16} />
+                        Regenerate Context
+                      </button>
+                    </div>
+                  </details>
+
+                  {/* Usage Example */}
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                    <h4 className="text-sm font-bold text-amber-900 mb-2">💡 Usage Example</h4>
+                    <p className="text-xs text-amber-800 mb-3">
+                      Inject this context into your LLM system prompt to personalize responses:
+                    </p>
+                    <pre className="text-xs bg-white p-3 rounded border border-amber-200 text-slate-700 overflow-x-auto">
+{`// System Prompt
+const systemPrompt = \`
+You are a helpful AI assistant.
+
+\${llmContext.context}
+
+Adapt your responses to match these preferences.
+\`;`}
+                    </pre>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
+                  <p className="text-slate-600">Failed to load LLM context</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>
