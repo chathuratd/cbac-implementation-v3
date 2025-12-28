@@ -27,6 +27,7 @@ const ProfileInsights = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedClusters, setExpandedClusters] = useState(new Set());
+  const [showSupportingBehaviors, setShowSupportingBehaviors] = useState(true);
   const [showLLMModal, setShowLLMModal] = useState(false);
   const [llmContext, setLlmContext] = useState(null);
   const [llmLoading, setLlmLoading] = useState(false);
@@ -171,29 +172,37 @@ const ProfileInsights = () => {
         return {
           bg: 'bg-indigo-50',
           text: 'text-indigo-700',
-          border: 'border-indigo-200',
-          badge: 'bg-indigo-600'
+          border: 'border-indigo-100',
+          badge: 'bg-gradient-to-r from-indigo-600 to-indigo-700',
+          label: 'Core',
+          dotColor: 'bg-yellow-400'
         };
       case 'SECONDARY':
         return {
           bg: 'bg-blue-50',
           text: 'text-blue-700',
-          border: 'border-blue-200',
-          badge: 'bg-blue-500'
+          border: 'border-blue-100',
+          badge: 'bg-gradient-to-r from-blue-600 to-blue-700',
+          label: 'Supporting',
+          dotColor: 'bg-blue-300'
         };
       case 'NOISE':
         return {
           bg: 'bg-slate-50',
           text: 'text-slate-600',
-          border: 'border-slate-200',
-          badge: 'bg-slate-400'
+          border: 'border-slate-100',
+          badge: 'bg-slate-400',
+          label: 'Weak',
+          dotColor: 'bg-slate-300'
         };
       default:
         return {
           bg: 'bg-slate-50',
           text: 'text-slate-600',
-          border: 'border-slate-200',
-          badge: 'bg-slate-400'
+          border: 'border-slate-100',
+          badge: 'bg-slate-400',
+          label: 'Unknown',
+          dotColor: 'bg-slate-300'
         };
     }
   };
@@ -254,17 +263,18 @@ const ProfileInsights = () => {
     
     return (
       <div 
-        className={`${colors.bg} border-2 ${colors.border} rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer`}
+        className={`${colors.bg} border ${colors.border} rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group`}
         onClick={() => toggleCluster(cluster.cluster_id)}
       >
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <span className={`${colors.badge} text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider`}>
-                {cluster.tier}
+            <div className="flex items-center gap-2 mb-3">
+              <span className={`${colors.badge} text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-2 shadow-md`}>
+                <div className={`w-2 h-2 ${colors.dotColor} rounded-full ring-2 ring-white`}></div>
+                {colors.label}
               </span>
-              <span className="text-xs font-mono text-slate-400">
-                {cluster.cluster_size} observations
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                {cluster.cluster_size} obs
               </span>
             </div>
             <h4 className={`text-lg font-bold ${colors.text} leading-snug`}>
@@ -364,44 +374,44 @@ const ProfileInsights = () => {
               </span>
               <button 
                 onClick={fetchProfile}
-                className="p-1 hover:bg-slate-100 rounded-lg transition-colors"
+                className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-all"
                 title="Refresh profile"
               >
-                <RefreshCw size={14} className="text-slate-400" />
+                <RefreshCw size={14} />
               </button>
               <button 
                 onClick={openLLMModal}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold rounded-lg transition-all shadow-sm hover:shadow-md"
+                className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white text-xs font-bold rounded-xl transition-all shadow-sm hover:shadow-lg"
                 title="View LLM Context"
               >
-                <MessageSquare size={14} />
+                <MessageSquare size={16} strokeWidth={2.5} />
                 LLM Context
               </button>
               <button 
                 onClick={runProfileAnalysis}
                 disabled={analyzing}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all shadow-sm hover:shadow-md ${
+                className={`flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-sm hover:shadow-lg ${
                   analyzing 
-                    ? 'bg-slate-400 cursor-not-allowed' 
+                    ? 'bg-slate-300 cursor-not-allowed text-slate-500' 
                     : analysisSuccess
-                    ? 'bg-green-600 hover:bg-green-700'
-                    : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700'
-                } text-white`}
+                    ? 'bg-green-600 hover:bg-green-700 text-white'
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                }`}
                 title="Analyze behaviors and generate profile"
               >
                 {analyzing ? (
                   <>
-                    <Loader2 size={14} className="animate-spin" />
+                    <Loader2 size={16} className="animate-spin" strokeWidth={2.5} />
                     Analyzing...
                   </>
                 ) : analysisSuccess ? (
                   <>
-                    <Check size={14} />
+                    <Check size={16} strokeWidth={2.5} />
                     Success!
                   </>
                 ) : (
                   <>
-                    <Zap size={14} />
+                    <Zap size={16} strokeWidth={2.5} />
                     Analyze Profile
                   </>
                 )}
@@ -443,20 +453,29 @@ const ProfileInsights = () => {
         </div>
       </div>
 
-      {/* Section 2: Primary Behavior Clusters */}
+      {/* Section 2: Core Behavior Clusters */}
       {primaryClusters.length > 0 && (
-        <div className="bg-white rounded-3xl border-2 border-indigo-200 shadow-md">
-          <div className="p-6 border-b border-slate-200 bg-indigo-50">
-            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-              <Zap size={20} className="text-indigo-600 fill-indigo-600" /> 
-              Primary Behaviors
-              <span className="ml-auto text-sm font-bold text-indigo-600">
-                {primaryClusters.length} clusters
-              </span>
-            </h2>
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/40 overflow-hidden">
+          <div className="p-8 border-b border-slate-100 bg-gradient-to-br from-indigo-50/50 to-transparent">
+            <div className="flex items-start justify-between">
+              <div>
+                <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 mb-2 tracking-tight">
+                  <div className="p-2.5 rounded-xl bg-indigo-100 text-indigo-600">
+                    <Zap size={22} strokeWidth={2.5} className="fill-indigo-600" />
+                  </div>
+                  Core Behaviors
+                </h2>
+                <p className="text-sm font-medium text-indigo-700/80 ml-12">
+                  Your dominant, defining behavioral patterns
+                </p>
+              </div>
+              <div className="px-4 py-1.5 bg-slate-900 text-white text-xs font-black rounded-full uppercase tracking-widest shadow-lg">
+                {primaryClusters.length}
+              </div>
+            </div>
           </div>
           
-          <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             {primaryClusters.map((cluster) => (
               <ClusterCard key={cluster.cluster_id} cluster={cluster} />
             ))}
@@ -464,24 +483,43 @@ const ProfileInsights = () => {
         </div>
       )}
 
-      {/* Section 3: Secondary Behavior Clusters */}
+      {/* Section 3: Supporting Behavior Clusters */}
       {secondaryClusters.length > 0 && (
-        <div className="bg-white rounded-3xl border-2 border-blue-200 shadow-md">
-          <div className="p-6 border-b border-slate-200 bg-blue-50">
-            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-              <Layers size={20} className="text-blue-600" /> 
-              Secondary Behaviors
-              <span className="ml-auto text-sm font-bold text-blue-600">
-                {secondaryClusters.length} clusters
-              </span>
-            </h2>
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/40 overflow-hidden">
+          <div 
+            className="p-8 border-b border-slate-100 bg-gradient-to-br from-blue-50/50 to-transparent cursor-pointer hover:bg-blue-50/80 transition-colors"
+            onClick={() => setShowSupportingBehaviors(!showSupportingBehaviors)}
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 mb-2 tracking-tight">
+                  <div className="p-2.5 rounded-xl bg-blue-100 text-blue-600">
+                    <Layers size={22} strokeWidth={2.5} />
+                  </div>
+                  Supporting Behaviors
+                </h2>
+                <p className="text-sm font-medium text-blue-700/80 ml-12">
+                  Contextual patterns that complement your core traits
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="px-4 py-1.5 bg-slate-900 text-white text-xs font-black rounded-full uppercase tracking-widest shadow-lg">
+                  {secondaryClusters.length}
+                </div>
+                <button className="p-2 rounded-xl hover:bg-blue-100 transition-colors text-blue-600">
+                  {showSupportingBehaviors ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
+            </div>
           </div>
           
-          <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {secondaryClusters.map((cluster) => (
-              <ClusterCard key={cluster.cluster_id} cluster={cluster} />
-            ))}
-          </div>
+          {showSupportingBehaviors && (
+            <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {secondaryClusters.map((cluster) => (
+                <ClusterCard key={cluster.cluster_id} cluster={cluster} />
+              ))}
+            </div>
+          )}
         </div>
       )}
 

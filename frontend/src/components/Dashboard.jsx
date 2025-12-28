@@ -359,21 +359,29 @@ const Dashboard = () => {
                           </div>
                         ) : profileData ? (
                           <>
-                            <div className="bg-indigo-50 rounded-2xl p-4 w-full text-center border border-indigo-100">
-                              <div className="text-3xl font-black text-indigo-900">
+                            <div className="bg-white rounded-2xl p-6 w-full text-center border border-slate-200 shadow-sm group-hover:shadow-xl transition-all">
+                              <div className="flex items-center justify-center gap-2 mb-2">
+                                <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
+                                <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Core</span>
+                              </div>
+                              <div className="text-4xl font-black text-slate-900 mb-1">
                                 {profileData.behavior_clusters?.filter(c => c.tier === 'PRIMARY').length || 0}
                               </div>
-                              <div className="text-xs font-bold text-indigo-600 uppercase tracking-wider mt-1">
-                                Primary
+                              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                Defining traits
                               </div>
                             </div>
                             
-                            <div className="bg-blue-50 rounded-2xl p-4 w-full text-center border border-blue-100">
-                              <div className="text-3xl font-black text-blue-900">
+                            <div className="bg-white rounded-2xl p-6 w-full text-center border border-slate-200 shadow-sm group-hover:shadow-xl transition-all">
+                              <div className="flex items-center justify-center gap-2 mb-2">
+                                <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest">Supporting</span>
+                              </div>
+                              <div className="text-4xl font-black text-slate-900 mb-1">
                                 {profileData.behavior_clusters?.filter(c => c.tier === 'SECONDARY').length || 0}
                               </div>
-                              <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mt-1">
-                                Secondary
+                              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                Contextual
                               </div>
                             </div>
                             
