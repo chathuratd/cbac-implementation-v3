@@ -27,7 +27,8 @@ const ProfileInsights = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedClusters, setExpandedClusters] = useState(new Set());
-  const [showSupportingBehaviors, setShowSupportingBehaviors] = useState(true);
+  const [showCoreBehaviors, setShowCoreBehaviors] = useState(false);
+  const [showSupportingBehaviors, setShowSupportingBehaviors] = useState(false);
   const [showLLMModal, setShowLLMModal] = useState(false);
   const [llmContext, setLlmContext] = useState(null);
   const [llmLoading, setLlmLoading] = useState(false);
@@ -263,82 +264,96 @@ const ProfileInsights = () => {
     
     return (
       <div 
-        className={`${colors.bg} border ${colors.border} rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group`}
+        className="bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group overflow-hidden"
         onClick={() => toggleCluster(cluster.cluster_id)}
       >
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-3">
-              <span className={`${colors.badge} text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-2 shadow-md`}>
-                <div className={`w-2 h-2 ${colors.dotColor} rounded-full ring-2 ring-white`}></div>
-                {colors.label}
-              </span>
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                {cluster.cluster_size} obs
-              </span>
+        {/* Header */}
+        <div className={`${colors.bg} border-b ${colors.border} p-4`}>
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <div className="flex-1">
+              <h4 className={`text-lg font-black ${colors.text} leading-tight tracking-tight`}>
+                {cluster.canonical_label}
+              </h4>
+              {cluster.cluster_name && (
+                <p className="text-xs text-slate-500 mt-1 font-medium italic">
+                  {cluster.cluster_name}
+                </p>
+              )}
             </div>
-            <h4 className={`text-lg font-bold ${colors.text} leading-snug`}>
-              {cluster.canonical_label}
-            </h4>
-            {cluster.cluster_name && (
-              <p className="text-sm text-slate-500 mt-1 italic">
-                {cluster.cluster_name}
-              </p>
-            )}
+            <div className="text-right flex-shrink-0 bg-white/60 backdrop-blur-sm rounded-xl px-3 py-1.5">
+              <div className="text-2xl font-black text-slate-900 leading-none">
+                {Math.round(cluster.cluster_strength * 100)}
+              </div>
+              <div className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">strength</div>
+            </div>
           </div>
-          <div className="text-right flex-shrink-0">
-            <div className="text-2xl font-black text-slate-900">
-              {Math.round(cluster.cluster_strength * 100)}
-            </div>
-            <div className="text-xs font-bold text-slate-400 uppercase">strength</div>
+          <div className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
+            {cluster.cluster_size} OBSERVATIONS
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="bg-white/50 rounded-xl p-3">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-500">Confidence</span>
-              <span className="text-sm font-black text-slate-700">
+        {/* Body with stats */}
+        <div className="p-4 space-y-3">
+          {/* Confidence Bar */}
+          <div className="bg-slate-50 rounded-xl p-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">Confidence</span>
+              <span className="text-xl font-black text-slate-900">
                 {Math.round(cluster.confidence * 100)}%
               </span>
             </div>
-            <div className="mt-2 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+            <div className="bg-slate-200 h-1.5 rounded-full overflow-hidden">
               <div 
-                className="bg-emerald-500 h-full rounded-full transition-all" 
+                className={`${cluster.confidence >= 0.75 ? 'bg-emerald-500' : cluster.confidence >= 0.60 ? 'bg-blue-500' : 'bg-slate-400'} h-full rounded-full transition-all duration-500`}
                 style={{ width: `${cluster.confidence * 100}%` }}
               />
             </div>
           </div>
 
-          <div className="bg-white/50 rounded-xl p-3">
-            <div className="flex items-center gap-2 text-xs">
-              <Clock size={12} className="text-slate-400" />
-              <span className="font-bold text-slate-500">Active</span>
+          {/* Activity Info */}
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-slate-50 rounded-xl p-3">
+              <div className="flex items-center gap-1.5 mb-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest">Active</span>
+              </div>
+              <div className="text-base font-black text-slate-900">
+                {cluster.days_active ? `${Math.round(cluster.days_active)}d` : '<1d'}
+              </div>
             </div>
-            <div className="text-sm font-bold text-slate-700 mt-1">
-              {cluster.days_active ? `${Math.round(cluster.days_active)} days` : '< 1 day'}
+            
+            <div className="bg-slate-50 rounded-xl p-3">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Clock size={10} className="text-slate-400" />
+                <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest">Last Seen</span>
+              </div>
+              <div className="text-base font-black text-slate-900">
+                {formatTimeAgo(cluster.last_seen)}
+              </div>
             </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="text-[10px] text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+            <Calendar size={10} className="text-slate-400" />
+            <span className="font-bold">First: {formatDate(cluster.first_seen)}</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
-          <div className="flex items-center gap-1">
-            <Calendar size={12} />
-            <span>First: {formatDate(cluster.first_seen)}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <span>Last: {formatTimeAgo(cluster.last_seen)}</span>
-          </div>
-        </div>
-
+        {/* Expanded variations */}
         {isExpanded && cluster.wording_variations && cluster.wording_variations.length > 0 && (
-          <div className="border-t-2 border-white/50 pt-4 mt-4 space-y-2">
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">
-              Wording Variations ({cluster.wording_variations.length})
-            </p>
-            <div className="space-y-2 max-h-48 overflow-y-auto">
+          <div className="border-t border-slate-200 bg-slate-50 p-4">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-[10px] font-black text-slate-700 uppercase tracking-widest">
+                Wording Variations
+              </p>
+              <span className="px-2 py-0.5 bg-slate-900 text-white text-[9px] font-black rounded-full">
+                {cluster.wording_variations.length}
+              </span>
+            </div>
+            <div className="space-y-2 max-h-40 overflow-y-auto">
               {cluster.wording_variations.map((variation, idx) => (
-                <div key={idx} className="bg-white/60 rounded-lg px-3 py-2 text-sm text-slate-700">
+                <div key={idx} className="bg-white rounded-lg px-3 py-2 text-xs text-slate-700 font-medium shadow-sm border border-slate-100">
                   "{variation}"
                 </div>
               ))}
@@ -346,8 +361,11 @@ const ProfileInsights = () => {
           </div>
         )}
 
-        <div className="mt-3 text-xs text-slate-400 text-center">
-          Click to {isExpanded ? 'collapse' : 'expand'} variations
+        {/* Footer hint */}
+        <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-center">
+          <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
+            {isExpanded ? 'Click to collapse' : 'Click to expand variations'}
+          </p>
         </div>
       </div>
     );
@@ -364,124 +382,154 @@ const ProfileInsights = () => {
       </div>
           
       {/* Section 1: Hero Summary */}
-      <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-indigo-50 to-transparent opacity-50"></div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="flex items-center gap-1 text-slate-400 text-xs font-mono">
-                <Fingerprint size={14} /> {profile.user_id}
-              </span>
-              <button 
-                onClick={fetchProfile}
-                className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-all"
-                title="Refresh profile"
-              >
-                <RefreshCw size={14} />
-              </button>
-              <button 
-                onClick={openLLMModal}
-                className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white text-xs font-bold rounded-xl transition-all shadow-sm hover:shadow-lg"
-                title="View LLM Context"
-              >
-                <MessageSquare size={16} strokeWidth={2.5} />
-                LLM Context
-              </button>
-              <button 
-                onClick={runProfileAnalysis}
-                disabled={analyzing}
-                className={`flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-sm hover:shadow-lg ${
-                  analyzing 
-                    ? 'bg-slate-300 cursor-not-allowed text-slate-500' 
-                    : analysisSuccess
-                    ? 'bg-green-600 hover:bg-green-700 text-white'
-                    : 'bg-blue-600 hover:bg-blue-700 text-white'
-                }`}
-                title="Analyze behaviors and generate profile"
-              >
-                {analyzing ? (
-                  <>
-                    <Loader2 size={16} className="animate-spin" strokeWidth={2.5} />
-                    Analyzing...
-                  </>
-                ) : analysisSuccess ? (
-                  <>
-                    <Check size={16} strokeWidth={2.5} />
-                    Success!
-                  </>
-                ) : (
-                  <>
-                    <Zap size={16} strokeWidth={2.5} />
-                    Analyze Profile
-                  </>
-                )}
-              </button>
-            </div>
-            <h2 className="text-3xl font-bold text-slate-900 mb-2">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/40 overflow-hidden">
+        {/* Top bar with user info and actions */}
+        <div className="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 text-slate-500 text-xs font-mono bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+              <Fingerprint size={12} /> {profile.user_id}
+            </span>
+            <button 
+              onClick={fetchProfile}
+              className="p-1.5 rounded-lg text-slate-400 hover:bg-slate-200 hover:text-slate-600 transition-all"
+              title="Refresh profile"
+            >
+              <RefreshCw size={14} />
+            </button>
+          </div>
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={openLLMModal}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-purple-500 text-purple-600 hover:bg-purple-50 text-xs font-bold rounded-lg transition-all"
+              title="View LLM Context"
+            >
+              <MessageSquare size={14} strokeWidth={2.5} />
+              LLM Context
+            </button>
+            <button 
+              onClick={runProfileAnalysis}
+              disabled={analyzing}
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                analyzing 
+                  ? 'bg-slate-300 cursor-not-allowed text-slate-500' 
+                  : analysisSuccess
+                  ? 'bg-green-500 hover:bg-green-600 text-white'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
+              title="Analyze behaviors and generate profile"
+            >
+              {analyzing ? (
+                <>
+                  <Loader2 size={14} className="animate-spin" strokeWidth={2.5} />
+                  Analyzing...
+                </>
+              ) : analysisSuccess ? (
+                <>
+                  <Check size={14} strokeWidth={2.5} />
+                  Success!
+                </>
+              ) : (
+                <>
+                  <Zap size={14} strokeWidth={2.5} />
+                  Analyze Profile
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Main content */}
+        <div className="p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex-1">
+            <h2 className="text-2xl font-black text-slate-900 mb-1.5 tracking-tight">
               {profile.archetype || 'Behavioral Profile'}
             </h2>
-            <p className="text-slate-500 max-w-lg mb-4">
-              Analyzing your interaction patterns across {profile.statistics?.total_behaviors_analyzed || 0} observed behaviors
-              and {profile.statistics?.total_prompts_analyzed || 0} prompts.
+            <p className="text-sm text-slate-600">
+              Analyzing your interaction patterns across <span className="font-bold text-slate-900">{profile.statistics?.total_behaviors_analyzed || 0}</span> observed behaviors
+              and <span className="font-bold text-slate-900">{profile.statistics?.total_prompts_analyzed || 0}</span> prompts.
             </p>
-            <div className="inline-flex items-center gap-2 bg-indigo-600 text-white text-sm font-bold px-4 py-2 rounded-full shadow-md shadow-indigo-200">
-              {profile.behavior_clusters?.length || 0} Behavior Clusters Detected
-            </div>
           </div>
-          <div className="w-full md:w-72 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-            <div className="flex justify-between mb-3">
-              <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">Analysis Time Span</span>
-              <span className="text-xs font-bold text-indigo-600">
+          
+          {/* Stats sidebar */}
+          <div className="w-full md:w-64 bg-gradient-to-br from-slate-50 to-slate-100/50 p-4 rounded-xl border border-slate-200">
+            <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-200">
+              <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">Analysis Span</span>
+              <span className="text-sm font-black text-indigo-600">
                 {Math.round(profile.statistics?.analysis_time_span_days || 0)} days
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-3 text-center">
-              <div className="bg-white rounded-xl p-3">
-                <div className="text-2xl font-black text-indigo-600">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-white rounded-lg p-3 text-center border border-slate-100">
+                <div className="text-xl font-black text-indigo-600">
                   {profile.statistics?.clusters_formed || 0}
                 </div>
-                <div className="text-xs text-slate-500 font-bold">Clusters</div>
+                <div className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Clusters</div>
               </div>
-              <div className="bg-white rounded-xl p-3">
-                <div className="text-2xl font-black text-blue-600">
+              <div className="bg-white rounded-lg p-3 text-center border border-slate-100">
+                <div className="text-xl font-black text-blue-600">
                   {profile.statistics?.total_behaviors_analyzed || 0}
                 </div>
-                <div className="text-xs text-slate-500 font-bold">Behaviors</div>
+                <div className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Behaviors</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Section 2: Core Behavior Clusters */}
-      {primaryClusters.length > 0 && (
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/40 overflow-hidden">
-          <div className="p-8 border-b border-slate-100 bg-gradient-to-br from-indigo-50/50 to-transparent">
-            <div className="flex items-start justify-between">
-              <div>
-                <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 mb-2 tracking-tight">
-                  <div className="p-2.5 rounded-xl bg-indigo-100 text-indigo-600">
-                    <Zap size={22} strokeWidth={2.5} className="fill-indigo-600" />
-                  </div>
-                  Core Behaviors
-                </h2>
-                <p className="text-sm font-medium text-indigo-700/80 ml-12">
-                  Your dominant, defining behavioral patterns
-                </p>
-              </div>
+      {/* Section 2: Core Behavior Clusters - Always show */}
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/40 overflow-hidden">
+        <div 
+          className="p-8 border-b border-slate-100 bg-gradient-to-br from-indigo-50/50 to-transparent cursor-pointer hover:bg-indigo-50/80 transition-colors"
+          onClick={() => setShowCoreBehaviors(!showCoreBehaviors)}
+        >
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 mb-2 tracking-tight">
+                <div className="p-2.5 rounded-xl bg-indigo-100 text-indigo-600">
+                  <Zap size={22} strokeWidth={2.5} className="fill-indigo-600" />
+                </div>
+                Core Behaviors
+              </h2>
+              <p className="text-sm font-medium text-indigo-700/80 ml-12">
+                Your dominant, defining behavioral patterns
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
               <div className="px-4 py-1.5 bg-slate-900 text-white text-xs font-black rounded-full uppercase tracking-widest shadow-lg">
                 {primaryClusters.length}
               </div>
+              <button className="p-2 rounded-xl hover:bg-indigo-100 transition-colors text-indigo-600">
+                {showCoreBehaviors ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
             </div>
           </div>
-          
-          <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {primaryClusters.map((cluster) => (
-              <ClusterCard key={cluster.cluster_id} cluster={cluster} />
-            ))}
-          </div>
         </div>
-      )}
+        
+        {showCoreBehaviors && (
+          <>
+            {primaryClusters.length > 0 ? (
+              <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                {primaryClusters.map((cluster) => (
+                  <ClusterCard key={cluster.cluster_id} cluster={cluster} />
+                ))}
+              </div>
+            ) : (
+              <div className="p-8 text-center">
+                <div className="max-w-md mx-auto">
+                  <div className="w-16 h-16 rounded-full bg-indigo-50 flex items-center justify-center mx-auto mb-4">
+                    <Zap size={28} className="text-indigo-300" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-700 mb-2">No Core Behaviors Yet</h3>
+                  <p className="text-sm text-slate-500">
+                    Core behaviors emerge when patterns are strong (≥60%) and confident (≥75%). 
+                    Keep interacting to build more data!
+                  </p>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </div>
 
       {/* Section 3: Supporting Behavior Clusters */}
       {secondaryClusters.length > 0 && (
